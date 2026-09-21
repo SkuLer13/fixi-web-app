@@ -1,0 +1,1924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Fixi — Admin Dashboard</title>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<style>
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+:root{
+  --bg:#f5f7ff;
+  --card:rgba(255,255,255,.78);
+  --text:#101322;
+  --muted:#6d7285;
+  --border:rgba(20,25,50,.09);
+  --primary:#635bff;
+  --purple:#8b5cf6;
+  --cyan:#06b6d4;
+  --pink:#ec4899;
+  --danger:#ef4444;
+  --success:#10b981;
+  --warning:#f59e0b;
+  --shadow:0 20px 60px rgba(40,45,100,.10);
+}
+
+body.dark{
+  --bg:#070914;
+  --card:rgba(18,22,42,.82);
+  --text:#f5f7ff;
+  --muted:#9ba2bb;
+  --border:rgba(255,255,255,.08);
+  --shadow:0 20px 60px rgba(0,0,0,.35);
+}
+
+body{
+  font-family:Inter,Segoe UI,Arial,sans-serif;
+  background:
+    radial-gradient(circle at 10% 0%,rgba(99,91,255,.15),transparent 30%),
+    radial-gradient(circle at 90% 10%,rgba(6,182,212,.12),transparent 30%),
+    var(--bg);
+  color:var(--text);
+  min-height:100vh;
+}
+
+/* =========================
+   LOGIN
+========================= */
+
+#loginPage{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+}
+
+.login-card{
+  width:100%;
+  max-width:430px;
+  padding:36px;
+  border:1px solid var(--border);
+  background:var(--card);
+  backdrop-filter:blur(25px);
+  -webkit-backdrop-filter:blur(25px);
+  border-radius:28px;
+  box-shadow:var(--shadow);
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:30px;
+}
+
+.logo-mark{
+  width:48px;
+  height:48px;
+  border-radius:15px;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(135deg,var(--primary),var(--purple),var(--cyan));
+  color:white;
+  font-size:23px;
+  font-weight:900;
+  box-shadow:0 10px 30px rgba(99,91,255,.28);
+}
+
+.logo-text{
+  font-size:25px;
+  font-weight:900;
+  letter-spacing:-1px;
+}
+
+.logo-text span{
+  color:var(--primary);
+}
+
+.login-card h1{
+  font-size:30px;
+  margin-bottom:8px;
+}
+
+.login-card p{
+  color:var(--muted);
+  margin-bottom:25px;
+  line-height:1.5;
+}
+
+.field{
+  margin-bottom:17px;
+}
+
+.field label{
+  display:block;
+  margin-bottom:8px;
+  font-size:13px;
+  font-weight:700;
+}
+
+.field input,
+.search-input,
+.filter-select{
+  width:100%;
+  padding:14px 15px;
+  border-radius:14px;
+  border:1px solid var(--border);
+  outline:none;
+  background:rgba(255,255,255,.45);
+  color:var(--text);
+  font-size:14px;
+}
+
+body.dark .field input,
+body.dark .search-input,
+body.dark .filter-select{
+  background:rgba(255,255,255,.04);
+}
+
+.field input:focus,
+.search-input:focus,
+.filter-select:focus{
+  border-color:var(--primary);
+  box-shadow:0 0 0 3px rgba(99,91,255,.12);
+}
+
+.primary-btn{
+  width:100%;
+  border:0;
+  padding:15px;
+  border-radius:15px;
+  background:linear-gradient(135deg,var(--primary),var(--purple));
+  color:white;
+  font-size:15px;
+  font-weight:800;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.primary-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 12px 30px rgba(99,91,255,.25);
+}
+
+.primary-btn:disabled{
+  opacity:0.6;
+  cursor:not-allowed;
+  transform:none;
+}
+
+.error{
+  color:#ef4444;
+  font-size:13px;
+  margin-top:12px;
+  min-height:18px;
+}
+
+/* =========================
+   DASHBOARD
+========================= */
+
+#dashboard{
+  display:none;
+}
+
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:10;
+  border-bottom:1px solid var(--border);
+  background:rgba(245,247,255,.75);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+}
+
+body.dark .topbar{
+  background:rgba(7,9,20,.75);
+}
+
+.topbar-inner{
+  max-width:1400px;
+  margin:auto;
+  padding:15px 24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:11px;
+}
+
+.brand .logo-mark{
+  width:40px;
+  height:40px;
+  border-radius:12px;
+  font-size:18px;
+}
+
+.brand strong{
+  font-size:20px;
+}
+
+.admin-label{
+  color:var(--muted);
+  font-size:12px;
+  margin-left:5px;
+}
+
+.top-actions{
+  display:flex;
+  gap:8px;
+}
+
+.icon-btn{
+  width:42px;
+  height:42px;
+  border:1px solid var(--border);
+  border-radius:13px;
+  background:var(--card);
+  color:var(--text);
+  cursor:pointer;
+  font-size:17px;
+}
+
+.logout-btn{
+  border:1px solid rgba(239,68,68,.2);
+  background:rgba(239,68,68,.08);
+  color:#ef4444;
+  padding:11px 14px;
+  border-radius:12px;
+  cursor:pointer;
+  font-weight:700;
+}
+
+.container{
+  max-width:1400px;
+  margin:auto;
+  padding:30px 24px 50px;
+}
+
+.hero{
+  margin-bottom:28px;
+}
+
+.hero h1{
+  font-size:34px;
+  letter-spacing:-1.2px;
+  margin-bottom:6px;
+}
+
+.hero p{
+  color:var(--muted);
+}
+
+/* =========================
+   STATS
+========================= */
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+  margin-bottom:25px;
+}
+
+.stat{
+  padding:22px;
+  border-radius:22px;
+  background:var(--card);
+  border:1px solid var(--border);
+  box-shadow:var(--shadow);
+}
+
+.stat-label{
+  color:var(--muted);
+  font-size:13px;
+  font-weight:700;
+  margin-bottom:9px;
+}
+
+.stat-value{
+  font-size:30px;
+  font-weight:900;
+}
+
+/* =========================
+   TOOLBAR
+========================= */
+
+.toolbar{
+  display:grid;
+  grid-template-columns:1fr 180px 180px;
+  gap:12px;
+  margin-bottom:18px;
+}
+
+.panel{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:22px;
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+
+.table-wrap{
+  overflow-x:auto;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:950px;
+}
+
+th,
+td{
+  padding:16px 15px;
+  text-align:left;
+  border-bottom:1px solid var(--border);
+  font-size:13px;
+  white-space:nowrap;
+}
+
+th{
+  color:var(--muted);
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.6px;
+  background:rgba(99,91,255,.035);
+}
+
+tbody tr{
+  transition:.15s;
+}
+
+tbody tr:hover{
+  background:rgba(99,91,255,.045);
+}
+
+.customer-name{
+  font-weight:800;
+}
+
+.customer-phone{
+  color:var(--muted);
+  margin-top:3px;
+}
+
+.status{
+  display:inline-flex;
+  align-items:center;
+  padding:7px 10px;
+  border-radius:999px;
+  font-size:11px;
+  font-weight:800;
+}
+
+.status.pending{
+  color:#b77900;
+  background:rgba(245,158,11,.12);
+}
+
+.status.confirmed{
+  color:#087f5b;
+  background:rgba(16,185,129,.12);
+}
+
+.status.completed{
+  color:#2563eb;
+  background:rgba(37,99,235,.12);
+}
+
+.status.cancelled{
+  color:#dc2626;
+  background:rgba(239,68,68,.12);
+}
+
+.status-select{
+  border:1px solid var(--border);
+  border-radius:99px;
+  padding:7px 9px;
+  background:var(--bg);
+  color:var(--text);
+  font-size:12px;
+  outline:none;
+}
+
+.empty{
+  padding:55px 20px;
+  text-align:center;
+  color:var(--muted);
+}
+
+.loading{
+  padding:50px;
+  text-align:center;
+  color:var(--muted);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:900px){
+  .stats{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .toolbar{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:600px){
+  .topbar-inner{
+    padding:12px 15px;
+  }
+
+  .container{
+    padding:22px 15px 40px;
+  }
+
+  .hero h1{
+    font-size:28px;
+  }
+
+  .admin-label{
+    display:none;
+  }
+
+  .brand strong{
+    font-size:18px;
+  }
+
+  .logout-btn{
+    font-size:12px;
+    padding:9px 11px;
+  }
+
+  .stats{
+    gap:10px;
+  }
+
+  .stat{
+    padding:17px;
+    border-radius:18px;
+  }
+
+  .stat-value{
+    font-size:24px;
+  }
+
+  .stat-label{
+    font-size:11px;
+  }
+}
+
+/* =========================
+   TOAST
+========================= */
+
+.toast{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  z-index:100;
+  padding:14px 17px;
+  border-radius:14px;
+  background:#151827;
+  color:white;
+  box-shadow:0 15px 40px rgba(0,0,0,.25);
+  transform:translateY(20px);
+  opacity:0;
+  pointer-events:none;
+  transition:.25s;
+  font-size:13px;
+}
+
+.toast.show{
+  transform:translateY(0);
+  opacity:1;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     LOGIN PAGE
+========================= -->
+
+<section id="loginPage">
+
+  <div class="login-card">
+
+    <div class="logo">
+      <div class="logo-mark">✦</div>
+
+      <div class="logo-text">
+        Fixi<span>.</span>
+      </div>
+    </div>
+
+    <h1>Admin Login</h1>
+
+    <p>
+      Sign in to manage Fixi bookings and customer requests.
+    </p>
+
+    <div class="field">
+      <label for="email">Email</label>
+
+      <input
+        id="email"
+        type="email"
+        placeholder="admin@example.com"
+        autocomplete="email"
+      >
+    </div>
+
+    <div class="field">
+      <label for="password">Password</label>
+
+      <input
+        id="password"
+        type="password"
+        placeholder="••••••••"
+        autocomplete="current-password"
+      >
+    </div>
+
+    <button
+      id="loginBtn"
+      class="primary-btn"
+      onclick="login()"
+    >
+      Sign in
+    </button>
+
+    <div
+      id="loginError"
+      class="error"
+    ></div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     DASHBOARD
+========================= -->
+
+<section id="dashboard">
+
+  <header class="topbar">
+
+    <div class="topbar-inner">
+
+      <div class="brand">
+
+        <div class="logo-mark">
+          ✦
+        </div>
+
+        <div>
+          <strong>Fixi</strong>
+
+          <span class="admin-label">
+            Admin Dashboard
+          </span>
+        </div>
+
+      </div>
+
+
+      <div class="top-actions">
+
+        <button
+          class="icon-btn"
+          onclick="toggleDark()"
+          title="Toggle theme"
+        >
+          ◐
+        </button>
+
+        <button
+          class="logout-btn"
+          onclick="logout()"
+        >
+          Logout
+        </button>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <main class="container">
+
+    <div class="hero">
+
+      <h1>Bookings</h1>
+
+      <p>
+        Manage customer requests received through Fixi.
+      </p>
+
+    </div>
+
+
+    <!-- STATS -->
+
+    <div class="stats">
+
+      <div class="stat">
+
+        <div class="stat-label">
+          Total Bookings
+        </div>
+
+        <div
+          class="stat-value"
+          id="totalCount"
+        >
+          0
+        </div>
+
+      </div>
+
+
+      <div class="stat">
+
+        <div class="stat-label">
+          Pending
+        </div>
+
+        <div
+          class="stat-value"
+          id="pendingCount"
+        >
+          0
+        </div>
+
+      </div>
+
+
+      <div class="stat">
+
+        <div class="stat-label">
+          Confirmed
+        </div>
+
+        <div
+          class="stat-value"
+          id="confirmedCount"
+        >
+          0
+        </div>
+
+      </div>
+
+
+      <div class="stat">
+
+        <div class="stat-label">
+          Completed
+        </div>
+
+        <div
+          class="stat-value"
+          id="completedCount"
+        >
+          0
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- SEARCH / FILTER -->
+
+    <div class="toolbar">
+
+      <input
+        id="searchInput"
+        class="search-input"
+        type="text"
+        placeholder="Search name, phone, service, wilaya..."
+        oninput="renderBookings()"
+      >
+
+
+      <select
+        id="statusFilter"
+        class="filter-select"
+        onchange="renderBookings()"
+      >
+
+        <option value="all">
+          All statuses
+        </option>
+
+        <option value="pending">
+          Pending
+        </option>
+
+        <option value="confirmed">
+          Confirmed
+        </option>
+
+        <option value="completed">
+          Completed
+        </option>
+
+        <option value="cancelled">
+          Cancelled
+        </option>
+
+      </select>
+
+
+      <select
+        id="wilayaFilter"
+        class="filter-select"
+        onchange="renderBookings()"
+      >
+
+        <option value="all">
+          All wilayas
+        </option>
+
+      </select>
+
+    </div>
+
+
+    <!-- TABLE -->
+
+    <div class="panel">
+
+      <div
+        id="loading"
+        class="loading"
+      >
+        Loading bookings...
+      </div>
+
+
+      <div
+        id="empty"
+        class="empty"
+        style="display:none"
+      >
+        No bookings found.
+      </div>
+
+
+      <div
+        id="tableWrap"
+        class="table-wrap"
+        style="display:none"
+      >
+
+        <table>
+
+          <thead>
+
+            <tr>
+
+              <th>
+                Customer
+              </th>
+
+              <th>
+                Service
+              </th>
+
+              <th>
+                Wilaya
+              </th>
+
+              <th>
+                Date & Time
+              </th>
+
+              <th>
+                Status
+              </th>
+
+              <th>
+                Actions
+              </th>
+
+            </tr>
+
+          </thead>
+
+
+          <tbody id="bookingsTableBody">
+            <!-- Dynamic entries -->
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+
+  </main>
+
+</section>
+
+
+<div
+  id="toast"
+  class="toast"
+></div>
+
+
+<script>
+
+/* =====================================================
+   SUPABASE CONFIGURATION
+===================================================== */
+
+const SUPABASE_URL =
+  'https://yzeemgbkeorkummqfzmx.supabase.co';
+
+const SUPABASE_ANON_KEY =
+  'sb_publishable_CzzPIrC6ZjLrVT9-U8ndEg_9-7PTnr7';
+
+
+/* =====================================================
+   SUPABASE CLIENT
+===================================================== */
+
+let supabaseClient = null;
+
+if (
+  typeof supabase !== 'undefined' &&
+  supabase.createClient
+) {
+
+  supabaseClient =
+    supabase.createClient(
+      SUPABASE_URL,
+      SUPABASE_ANON_KEY
+    );
+
+}
+
+
+/* =====================================================
+   GLOBAL DATA
+===================================================== */
+
+let allBookings = [];
+let realtimeChannel = null;
+
+
+/* =====================================================
+   THEME
+===================================================== */
+
+function toggleDark(){
+
+  document.body.classList.toggle('dark');
+
+}
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+function showToast(message){
+
+  const toast =
+    document.getElementById('toast');
+
+  if(!toast) return;
+
+  toast.textContent = message;
+
+  toast.classList.add('show');
+
+  setTimeout(() => {
+
+    toast.classList.remove('show');
+
+  },3000);
+
+}
+
+
+/* =====================================================
+   DOM READY
+===================================================== */
+
+document.addEventListener(
+  'DOMContentLoaded',
+  () => {
+
+    const emailInput =
+      document.getElementById('email');
+
+    const passwordInput =
+      document.getElementById('password');
+
+
+    [emailInput,passwordInput].forEach(
+      input => {
+
+        if(input){
+
+          input.addEventListener(
+            'keydown',
+            event => {
+
+              if(event.key === 'Enter'){
+
+                login();
+
+              }
+
+            }
+          );
+
+        }
+
+      }
+    );
+
+
+    checkSession();
+
+  }
+);
+
+
+/* =====================================================
+   CHECK EXISTING SESSION
+===================================================== */
+
+async function checkSession(){
+
+  if(!supabaseClient){
+
+    console.error(
+      'Supabase client is not initialized.'
+    );
+
+    return;
+
+  }
+
+
+  try{
+
+    const {
+      data,
+      error
+    } =
+      await supabaseClient.auth.getSession();
+
+
+    if(error){
+
+      console.error(
+        'Session check error:',
+        error
+      );
+
+      return;
+
+    }
+
+
+    const session =
+      data?.session;
+
+
+    if(session){
+
+      showDashboard();
+
+    }
+
+  }catch(error){
+
+    console.error(
+      'Session check failed:',
+      error
+    );
+
+  }
+
+}
+
+
+/* =====================================================
+   ADMIN LOGIN
+===================================================== */
+
+async function login(){
+
+  const emailInput =
+    document.getElementById('email');
+
+  const passwordInput =
+    document.getElementById('password');
+
+  const errorDiv =
+    document.getElementById('loginError');
+
+  const loginBtn =
+    document.getElementById('loginBtn');
+
+
+  const email =
+    emailInput
+      ? emailInput.value.trim()
+      : '';
+
+
+  const password =
+    passwordInput
+      ? passwordInput.value
+      : '';
+
+
+  errorDiv.textContent = '';
+
+
+  if(!email || !password){
+
+    errorDiv.textContent =
+      'Please enter both email and password.';
+
+    return;
+
+  }
+
+
+  if(!supabaseClient){
+
+    errorDiv.textContent =
+      'Supabase client is not initialized. Please check the Supabase configuration.';
+
+    return;
+
+  }
+
+
+  try{
+
+    loginBtn.disabled = true;
+
+    loginBtn.textContent =
+      'Signing in...';
+
+
+    const {
+      data,
+      error
+    } =
+      await supabaseClient.auth.signInWithPassword({
+
+        email: email,
+
+        password: password
+
+      });
+
+
+    if(error){
+
+      console.error(
+        'Supabase login error:',
+        error
+      );
+
+      errorDiv.textContent =
+        error.message ||
+        'Invalid email or password.';
+
+      return;
+
+    }
+
+
+    if(data && data.session){
+
+      errorDiv.textContent = '';
+
+      showDashboard();
+
+    }else{
+
+      errorDiv.textContent =
+        'Login failed. No active session was created.';
+
+    }
+
+
+  }catch(error){
+
+    console.error(
+      'Unexpected login error:',
+      error
+    );
+
+    errorDiv.textContent =
+      'An unexpected error occurred. Please try again.';
+
+  }finally{
+
+    loginBtn.disabled = false;
+
+    loginBtn.textContent =
+      'Sign in';
+
+  }
+
+}
+
+
+/* =====================================================
+   SHOW DASHBOARD
+===================================================== */
+
+function showDashboard(){
+
+  const loginPage =
+    document.getElementById('loginPage');
+
+  const dashboard =
+    document.getElementById('dashboard');
+
+
+  loginPage.style.display =
+    'none';
+
+  dashboard.style.display =
+    'block';
+
+
+  fetchBookings();
+
+  subscribeToBookingsRealtime();
+
+}
+
+
+/* =====================================================
+   LOGOUT
+===================================================== */
+
+async function logout(){
+
+  try{
+
+    if(realtimeChannel && supabaseClient){
+      await supabaseClient.removeChannel(realtimeChannel);
+      realtimeChannel = null;
+    }
+
+  }catch(e){}
+
+  try{
+
+    if(supabaseClient){
+
+      await supabaseClient.auth.signOut();
+
+    }
+
+  }catch(error){
+
+    console.error(
+      'Logout error:',
+      error
+    );
+
+  }
+
+
+  document.getElementById(
+    'dashboard'
+  ).style.display = 'none';
+
+
+  document.getElementById(
+    'loginPage'
+  ).style.display = 'flex';
+
+
+  document.getElementById(
+    'email'
+  ).value = '';
+
+
+  document.getElementById(
+    'password'
+  ).value = '';
+
+
+  document.getElementById(
+    'loginError'
+  ).textContent = '';
+
+}
+
+
+/* =====================================================
+   REALTIME — listen for new / updated bookings
+===================================================== */
+
+function subscribeToBookingsRealtime(){
+
+  if(!supabaseClient || realtimeChannel){
+    return;
+  }
+
+  try{
+
+    realtimeChannel =
+      supabaseClient
+        .channel('fixi-admin-bookings')
+        .on(
+          'postgres_changes',
+          {
+            event:'*',
+            schema:'public',
+            table:'bookings'
+          },
+          payload => {
+
+            if(payload.eventType === 'INSERT'){
+
+              const row =
+                payload.new;
+
+              const exists =
+                allBookings.some(
+                  b => String(b.id) === String(row.id)
+                );
+
+              if(!exists){
+
+                allBookings.unshift(row);
+
+                populateWilayaFilter();
+
+                renderBookings();
+
+                showToast('New booking received');
+
+              }
+
+            }else if(payload.eventType === 'UPDATE'){
+
+              allBookings =
+                allBookings.map(b => {
+
+                  if(String(b.id) === String(payload.new.id)){
+
+                    return {
+                      ...b,
+                      ...payload.new
+                    };
+
+                  }
+
+                  return b;
+
+                });
+
+              renderBookings();
+
+            }else if(payload.eventType === 'DELETE'){
+
+              allBookings =
+                allBookings.filter(
+                  b => String(b.id) !== String(payload.old.id)
+                );
+
+              populateWilayaFilter();
+
+              renderBookings();
+
+            }
+
+          }
+        )
+        .subscribe();
+
+  }catch(err){
+
+    console.warn('Realtime subscription failed:', err);
+
+  }
+
+}
+
+
+/* =====================================================
+   FETCH BOOKINGS
+===================================================== */
+
+async function fetchBookings(){
+
+  const loadingEl =
+    document.getElementById('loading');
+
+  const emptyEl =
+    document.getElementById('empty');
+
+  const tableWrap =
+    document.getElementById('tableWrap');
+
+
+  loadingEl.style.display =
+    'block';
+
+  loadingEl.textContent =
+    'Loading bookings...';
+
+  emptyEl.style.display =
+    'none';
+
+  tableWrap.style.display =
+    'none';
+
+
+  try{
+
+    if(!supabaseClient){
+
+      throw new Error(
+        'Supabase client is not initialized.'
+      );
+
+    }
+
+
+    const {
+      data,
+      error
+    } =
+      await supabaseClient
+        .from('bookings')
+        .select('*')
+        .order(
+          'created_at',
+          {
+            ascending:false
+          }
+        );
+
+
+    if(error){
+
+      throw error;
+
+    }
+
+
+    allBookings =
+      data || [];
+
+
+    populateWilayaFilter();
+
+    renderBookings();
+
+
+  }catch(error){
+
+    console.error(
+      'Error fetching bookings:',
+      error
+    );
+
+
+    loadingEl.textContent =
+      'Failed to load bookings: ' +
+      (
+        error?.message ||
+        'Unknown error'
+      );
+
+  }
+
+}
+
+
+/* =====================================================
+   WILAYA FILTER
+===================================================== */
+
+function populateWilayaFilter(){
+
+  const wilayaFilter =
+    document.getElementById(
+      'wilayaFilter'
+    );
+
+
+  if(!wilayaFilter) return;
+
+
+  const wilayas =
+    [
+      ...new Set(
+        allBookings
+          .map(
+            b => b.wilaya
+          )
+          .filter(Boolean)
+      )
+    ]
+    .sort();
+
+
+  const current =
+    wilayaFilter.value || 'all';
+
+
+  wilayaFilter.innerHTML =
+    '<option value="all">All wilayas</option>';
+
+
+  wilayas.forEach(
+    wilaya => {
+
+      const option =
+        document.createElement(
+          'option'
+        );
+
+
+      option.value =
+        wilaya;
+
+
+      option.textContent =
+        wilaya;
+
+
+      wilayaFilter.appendChild(
+        option
+      );
+
+    }
+  );
+
+
+  if([...wilayaFilter.options].some(o => o.value === current)){
+
+    wilayaFilter.value = current;
+
+  }
+
+}
+
+
+/* =====================================================
+   RENDER BOOKINGS
+===================================================== */
+
+function renderBookings(){
+
+  const loadingEl =
+    document.getElementById('loading');
+
+  const emptyEl =
+    document.getElementById('empty');
+
+  const tableWrap =
+    document.getElementById('tableWrap');
+
+  const tbody =
+    document.getElementById(
+      'bookingsTableBody'
+    );
+
+
+  const search =
+    (
+      document.getElementById(
+        'searchInput'
+      )?.value ||
+      ''
+    )
+    .toLowerCase()
+    .trim();
+
+
+  const statusFilter =
+    document.getElementById(
+      'statusFilter'
+    )?.value ||
+    'all';
+
+
+  const wilayaFilter =
+    document.getElementById(
+      'wilayaFilter'
+    )?.value ||
+    'all';
+
+
+  const filtered =
+    allBookings.filter(
+      item => {
+
+        const name =
+          String(
+            item.name || ''
+          ).toLowerCase();
+
+
+        const phone =
+          String(
+            item.phone || ''
+          ).toLowerCase();
+
+
+        const service =
+          String(
+            item.service || ''
+          ).toLowerCase();
+
+
+        const wilaya =
+          String(
+            item.wilaya || ''
+          ).toLowerCase();
+
+
+        const matchesSearch =
+          !search ||
+          name.includes(search) ||
+          phone.includes(search) ||
+          service.includes(search) ||
+          wilaya.includes(search);
+
+
+        const matchesStatus =
+          statusFilter === 'all' ||
+          item.status === statusFilter;
+
+
+        const matchesWilaya =
+          wilayaFilter === 'all' ||
+          item.wilaya === wilayaFilter;
+
+
+        return (
+          matchesSearch &&
+          matchesStatus &&
+          matchesWilaya
+        );
+
+      }
+    );
+
+
+  updateStats();
+
+
+  loadingEl.style.display =
+    'none';
+
+
+  if(filtered.length === 0){
+
+    emptyEl.style.display =
+      'block';
+
+    tableWrap.style.display =
+      'none';
+
+    tbody.innerHTML = '';
+
+    return;
+
+  }
+
+
+  emptyEl.style.display =
+    'none';
+
+  tableWrap.style.display =
+    'block';
+
+
+  tbody.innerHTML =
+    filtered
+      .map(
+        b => `
+
+        <tr>
+
+          <td>
+
+            <div class="customer-name">
+              ${escapeHtml(
+                b.name || 'N/A'
+              )}
+            </div>
+
+            <div class="customer-phone">
+              ${escapeHtml(
+                b.phone || ''
+              )}
+            </div>
+
+          </td>
+
+
+          <td>
+            ${escapeHtml(
+              b.service || 'N/A'
+            )}
+          </td>
+
+
+          <td>
+            ${escapeHtml(
+              b.wilaya || 'N/A'
+            )}
+          </td>
+
+
+          <td>
+            ${escapeHtml(
+              b.date || ''
+            )}
+            ${escapeHtml(
+              b.time || ''
+            )}
+          </td>
+
+
+          <td>
+
+            <span
+              class="status ${escapeHtml(
+                b.status || 'pending'
+              )}"
+            >
+              ${escapeHtml(
+                b.status || 'pending'
+              )}
+            </span>
+
+          </td>
+
+
+          <td>
+
+            <select
+              class="status-select"
+              onchange="updateBookingStatus('${escapeHtml(
+                b.id
+              )}', this.value)"
+            >
+
+              <option
+                value="pending"
+                ${
+                  b.status === 'pending'
+                    ? 'selected'
+                    : ''
+                }
+              >
+                Pending
+              </option>
+
+
+              <option
+                value="confirmed"
+                ${
+                  b.status === 'confirmed'
+                    ? 'selected'
+                    : ''
+                }
+              >
+                Confirmed
+              </option>
+
+
+              <option
+                value="completed"
+                ${
+                  b.status === 'completed'
+                    ? 'selected'
+                    : ''
+                }
+              >
+                Completed
+              </option>
+
+
+              <option
+                value="cancelled"
+                ${
+                  b.status === 'cancelled'
+                    ? 'selected'
+                    : ''
+                }
+              >
+                Cancelled
+              </option>
+
+            </select>
+
+          </td>
+
+        </tr>
+
+      `
+      )
+      .join('');
+
+}
+
+
+/* =====================================================
+   UPDATE BOOKING STATUS
+===================================================== */
+
+async function updateBookingStatus(
+  id,
+  newStatus
+){
+
+  try{
+
+    if(!supabaseClient){
+
+      throw new Error(
+        'Supabase client is not initialized.'
+      );
+
+    }
+
+
+    const {
+      error
+    } =
+      await supabaseClient
+        .from('bookings')
+        .update({
+          status:newStatus
+        })
+        .eq(
+          'id',
+          id
+        );
+
+
+    if(error){
+
+      throw error;
+
+    }
+
+
+    const booking =
+      allBookings.find(
+        b => String(b.id) === String(id)
+      );
+
+
+    if(booking){
+
+      booking.status =
+        newStatus;
+
+    }
+
+
+    renderBookings();
+
+    showToast(
+      'Status updated successfully'
+    );
+
+
+  }catch(error){
+
+    console.error(
+      'Error updating status:',
+      error
+    );
+
+
+    showToast(
+      'Failed to update status'
+    );
+
+  }
+
+}
+
+
+/* =====================================================
+   UPDATE STATS
+===================================================== */
+
+function updateStats(){
+
+  document.getElementById(
+    'totalCount'
+  ).textContent =
+    allBookings.length;
+
+
+  document.getElementById(
+    'pendingCount'
+  ).textContent =
+    allBookings.filter(
+      b => b.status === 'pending'
+    ).length;
+
+
+  document.getElementById(
+    'confirmedCount'
+  ).textContent =
+    allBookings.filter(
+      b => b.status === 'confirmed'
+    ).length;
+
+
+  document.getElementById(
+    'completedCount'
+  ).textContent =
+    allBookings.filter(
+      b => b.status === 'completed'
+    ).length;
+
+}
+
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+function escapeHtml(str){
+
+  return String(str)
+
+    .replace(
+      /&/g,
+      "&amp;"
+    )
+
+    .replace(
+      /</g,
+      "&lt;"
+    )
+
+    .replace(
+      />/g,
+      "&gt;"
+    )
+
+    .replace(
+      /"/g,
+      "&quot;"
+    )
+
+    .replace(
+      /'/g,
+      "&#039;"
+    );
+
+}
+
+</script>
+
+</body>
+</html>
