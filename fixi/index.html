@@ -1,14 +1,11 @@
-<svg class="brand-icon" viewBox="0 0 100 100" fill="none">
-  <path d="M 50 22 L 78 46 L 71 46 L 71 76 Q 71 78 69 78 L 31 78 Q 29 78 29 76 L 29 46 L 22 46 Z" fill="currentColor"/>
-  <path d="M 38 60 L 47 69 L 63 51" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-</svg><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Fixi</title>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%234f46e5'/%3E%3Cstop offset='50%25' stop-color='%237c3aed'/%3E%3Cstop offset='100%25' stop-color='%2306b6d4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='4' y='4' width='92' height='92' rx='22' fill='url(%23g)'/%3E%3Cpath d='M 50 22 L 78 46 L 71 46 L 71 76 Q 71 78 69 78 L 31 78 Q 29 78 29 76 L 29 46 L 22 46 Z' fill='%23ffffff'/%3E%3Cpath d='M 38 60 L 47 69 L 63 51' fill='none' stroke='url(%23g)' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <meta name="theme-color" content="#4f46e5">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
@@ -79,10 +76,6 @@ body{
     background .45s ease,
     color .3s ease;
 }
-
-/* =========================================================
-   DARK THEME
-========================================================= */
 
 body.dark{
   --bg:#070914;
@@ -165,10 +158,6 @@ button{
   cursor:pointer;
 }
 
-/* =========================================================
-   APP
-========================================================= */
-
 #app{
   width:100%;
   max-width:480px;
@@ -177,10 +166,6 @@ button{
   padding-bottom:110px;
   position:relative;
 }
-
-/* =========================================================
-   AURORA BLOBS
-========================================================= */
 
 .blob{
   position:fixed;
@@ -235,10 +220,6 @@ button{
 
 }
 
-/* =========================================================
-   GLASS
-========================================================= */
-
 .glass{
   background:var(--glass);
 
@@ -270,10 +251,6 @@ button{
 
   box-shadow:var(--shadow);
 }
-
-/* =========================================================
-   TOPBAR
-========================================================= */
 
 .topbar{
   position:sticky;
@@ -307,10 +284,6 @@ body.dark .topbar{
       rgba(7,9,20,.02)
     );
 }
-
-/* =========================================================
-   LOGO
-========================================================= */
 
 .logo{
   display:flex;
@@ -364,8 +337,8 @@ body.dark .topbar{
 }
 
 .brand-icon{
-  width:55%;
-  height:55%;
+  width:60%;
+  height:60%;
 }
 
 .logo span,
@@ -395,10 +368,6 @@ body.dark .topbar{
   }
 
 }
-
-/* =========================================================
-   ICON BUTTON
-========================================================= */
 
 .icon-btn{
   width:44px;
@@ -463,10 +432,6 @@ body.dark .topbar{
   display:flex;
 }
 
-/* =========================================================
-   PAGES
-========================================================= */
-
 .page{
   padding:
     8px
@@ -498,10 +463,6 @@ body.dark .topbar{
 .hidden{
   display:none!important;
 }
-
-/* =========================================================
-   LOCATION
-========================================================= */
 
 .location-pill{
   display:flex;
@@ -556,10 +517,6 @@ body.dark .topbar{
   font-weight:800;
 }
 
-/* =========================================================
-   HERO
-========================================================= */
-
 .hero{
   margin-top:20px;
 }
@@ -595,10 +552,6 @@ body.dark .topbar{
 
   font-size:14px;
 }
-
-/* =========================================================
-   SEARCH
-========================================================= */
 
 .search{
   display:flex;
@@ -648,10 +601,6 @@ body.dark .topbar{
   color:var(--muted);
 }
 
-/* =========================================================
-   FILTER BAR
-========================================================= */
-
 .filter-bar{
   display:flex;
   gap:8px;
@@ -687,10 +636,6 @@ body.dark .topbar{
   box-shadow:0 10px 25px rgba(99,91,255,.28);
 }
 
-/* =========================================================
-   SECTION HEAD
-========================================================= */
-
 .section-head{
   display:flex;
   justify-content:space-between;
@@ -719,10 +664,6 @@ body.dark .topbar{
   font-size:13px;
   font-weight:850;
 }
-
-/* =========================================================
-   SERVICES — MODERN EMOJI CARDS
-========================================================= */
 
 .services{
   display:grid;
@@ -842,10 +783,6 @@ body.dark .topbar{
   transform:scale(.92);
 }
 
-/* =========================================================
-   EMOJI ICON
-========================================================= */
-
 .service-icon{
   width:55px;
   height:55px;
@@ -871,147 +808,67 @@ body.dark .topbar{
 }
 
 .service:nth-child(1) .service-icon{
-  background:
-    linear-gradient(
-      145deg,
-      #dbeafe,
-      #bfdbfe
-    );
+  background:linear-gradient(145deg,#dbeafe,#bfdbfe);
 }
 
 .service:nth-child(2) .service-icon{
-  background:
-    linear-gradient(
-      145deg,
-      #fef9c3,
-      #fde68a
-    );
+  background:linear-gradient(145deg,#fef9c3,#fde68a);
 }
 
 .service:nth-child(3) .service-icon{
-  background:
-    linear-gradient(
-      145deg,
-      #ffedd5,
-      #fed7aa
-    );
+  background:linear-gradient(145deg,#ffedd5,#fed7aa);
 }
 
 .service:nth-child(4) .service-icon{
-  background:
-    linear-gradient(
-      145deg,
-      #fce7f3,
-      #fbcfe8
-    );
+  background:linear-gradient(145deg,#fce7f3,#fbcfe8);
 }
 
 .service:nth-child(5) .service-icon{
-  background:
-    linear-gradient(
-      145deg,
-      #e0f2fe,
-      #bae6fd
-    );
+  background:linear-gradient(145deg,#e0f2fe,#bae6fd);
 }
 
 .service:nth-child(6) .service-icon{
-  background:
-    linear-gradient(
-      145deg,
-      #dcfce7,
-      #bbf7d0
-    );
+  background:linear-gradient(145deg,#dcfce7,#bbf7d0);
 }
 
 .service:nth-child(7) .service-icon{
-  background:
-    linear-gradient(
-      145deg,
-      #ecfccb,
-      #d9f99d
-    );
+  background:linear-gradient(145deg,#ecfccb,#d9f99d);
 }
 
 .service:nth-child(8) .service-icon{
-  background:
-    linear-gradient(
-      145deg,
-      #f3e8ff,
-      #e9d5ff
-    );
+  background:linear-gradient(145deg,#f3e8ff,#e9d5ff);
 }
 
 body.dark .service:nth-child(1) .service-icon{
-  background:
-    linear-gradient(
-      145deg,
-      rgba(59,130,246,.25),
-      rgba(37,99,235,.12)
-    );
+  background:linear-gradient(145deg,rgba(59,130,246,.25),rgba(37,99,235,.12));
 }
 
 body.dark .service:nth-child(2) .service-icon{
-  background:
-    linear-gradient(
-      145deg,
-      rgba(250,204,21,.22),
-      rgba(234,179,8,.10)
-    );
+  background:linear-gradient(145deg,rgba(250,204,21,.22),rgba(234,179,8,.10));
 }
 
 body.dark .service:nth-child(3) .service-icon{
-  background:
-    linear-gradient(
-      145deg,
-      rgba(249,115,22,.23),
-      rgba(234,88,12,.10)
-    );
+  background:linear-gradient(145deg,rgba(249,115,22,.23),rgba(234,88,12,.10));
 }
 
 body.dark .service:nth-child(4) .service-icon{
-  background:
-    linear-gradient(
-      145deg,
-      rgba(236,72,153,.22),
-      rgba(219,39,119,.10)
-    );
+  background:linear-gradient(145deg,rgba(236,72,153,.22),rgba(219,39,119,.10));
 }
 
 body.dark .service:nth-child(5) .service-icon{
-  background:
-    linear-gradient(
-      145deg,
-      rgba(14,165,233,.22),
-      rgba(2,132,199,.10)
-    );
+  background:linear-gradient(145deg,rgba(14,165,233,.22),rgba(2,132,199,.10));
 }
 
 body.dark .service:nth-child(6) .service-icon{
-  background:
-    linear-gradient(
-      145deg,
-      rgba(34,197,94,.22),
-      rgba(21,128,61,.10)
-    );
+  background:linear-gradient(145deg,rgba(34,197,94,.22),rgba(21,128,61,.10));
 }
 
 body.dark .service:nth-child(7) .service-icon{
-  background:
-    linear-gradient(
-      145deg,
-      rgba(132,204,22,.22),
-      rgba(77,124,15,.10)
-    );
+  background:linear-gradient(145deg,rgba(132,204,22,.22),rgba(77,124,15,.10));
 }
 
 body.dark .service:nth-child(8) .service-icon{
-  background:
-    linear-gradient(
-      145deg,
-      rgba(168,85,247,.22),
-      rgba(126,34,206,.10)
-    );
+  background:linear-gradient(145deg,rgba(168,85,247,.22),rgba(126,34,206,.10));
 }
 
 .service:hover .service-icon{
@@ -1032,10 +889,6 @@ body.dark .service:nth-child(8) .service-icon{
 
   letter-spacing:-.1px;
 }
-
-/* =========================================================
-   SPECIAL FIXI BANNER
-========================================================= */
 
 .banner{
   position:relative;
@@ -1150,10 +1003,6 @@ body.dark .service:nth-child(8) .service-icon{
   font-size:13px;
 }
 
-/* =========================================================
-   ARTISANS
-========================================================= */
-
 .artisan-list{
   display:grid;
   gap:13px;
@@ -1262,10 +1111,6 @@ body.dark .service:nth-child(8) .service-icon{
 .busy{
   color:#ef4444!important;
 }
-
-/* =========================================================
-   BUTTONS
-========================================================= */
 
 .primary{
   width:100%;
@@ -1389,10 +1234,6 @@ body.dark .service:nth-child(8) .service-icon{
   transform:scale(.97);
 }
 
-/* =========================================================
-   FORM
-========================================================= */
-
 .form{
   display:grid;
   gap:13px;
@@ -1459,10 +1300,6 @@ body.dark .service:nth-child(8) .service-icon{
   resize:none;
 }
 
-/* =========================================================
-   PROFILE
-========================================================= */
-
 .profile-card{
   padding:22px;
 
@@ -1514,10 +1351,6 @@ body.dark .service:nth-child(8) .service-icon{
   color:var(--muted);
   margin:0;
 }
-
-/* =========================================================
-   BOTTOM NAV
-========================================================= */
 
 .bottom-nav{
   position:fixed;
@@ -1635,10 +1468,6 @@ body.dark .service:nth-child(8) .service-icon{
     scale(1.10);
 }
 
-/* =========================================================
-   MODAL
-========================================================= */
-
 .modal{
   position:fixed;
 
@@ -1748,10 +1577,6 @@ body.dark .service:nth-child(8) .service-icon{
   color:var(--text);
 }
 
-/* =========================================================
-   MAP
-========================================================= */
-
 #map{
   width:100%;
   height:390px;
@@ -1788,10 +1613,6 @@ body.dark .service:nth-child(8) .service-icon{
   gap:9px;
 }
 
-/* =========================================================
-   NOTIFICATIONS
-========================================================= */
-
 .notif-item{
   padding:13px 14px;
   border-radius:18px;
@@ -1808,10 +1629,6 @@ body.dark .service:nth-child(8) .service-icon{
   font-weight:700;
   margin-top:4px;
 }
-
-/* =========================================================
-   BOOKING ACTIONS
-========================================================= */
 
 .booking-actions{
   display:flex;
@@ -1851,10 +1668,6 @@ body.dark .service:nth-child(8) .service-icon{
   color:#fff;
   border-color:transparent;
 }
-
-/* =========================================================
-   REVIEWS
-========================================================= */
 
 .review-item{
   padding:12px 14px;
@@ -1902,10 +1715,6 @@ body.dark .service:nth-child(8) .service-icon{
   transform:scale(1.08);
 }
 
-/* =========================================================
-   LOADING
-========================================================= */
-
 .loading-wrap{
   display:flex;
   align-items:center;
@@ -1931,10 +1740,6 @@ body.dark .service:nth-child(8) .service-icon{
     transform:rotate(360deg);
   }
 }
-
-/* =========================================================
-   SPLASH SCREEN
-========================================================= */
 
 .splash-screen{
   position:fixed;
@@ -1972,21 +1777,9 @@ body.dark .service:nth-child(8) .service-icon{
 
 body.dark .splash-screen{
   background:
-    radial-gradient(
-      circle at 0% 0%,
-      rgba(99,91,255,.19),
-      transparent 30%
-    ),
-    radial-gradient(
-      circle at 100% 20%,
-      rgba(6,182,212,.12),
-      transparent 32%
-    ),
-    radial-gradient(
-      circle at 50% 100%,
-      rgba(236,72,153,.09),
-      transparent 35%
-    ),
+    radial-gradient(circle at 0% 0%,rgba(99,91,255,.19),transparent 30%),
+    radial-gradient(circle at 100% 20%,rgba(6,182,212,.12),transparent 32%),
+    radial-gradient(circle at 50% 100%,rgba(236,72,153,.09),transparent 35%),
     #070914;
 }
 
@@ -2004,7 +1797,6 @@ body.dark .splash-screen{
   display:grid;
   place-items:center;
 
-  font-size:36px;
   color:#fff;
 
   background:
@@ -2058,88 +1850,39 @@ body.dark .splash-screen{
 }
 
 @media(max-width:370px){
-
-  .splash-mark{
-    width:64px;
-    height:64px;
-    font-size:30px;
-    border-radius:22px;
-  }
-
-  .splash-word{
-    font-size:22px;
-  }
-
+  .splash-mark{width:64px;height:64px;border-radius:22px;}
+  .splash-word{font-size:22px;}
 }
 
 @media(min-width:700px){
-
-  .splash-mark{
-    width:96px;
-    height:96px;
-    font-size:44px;
-    border-radius:32px;
-  }
-
-  .splash-word{
-    font-size:32px;
-  }
-
+  .splash-mark{width:96px;height:96px;border-radius:32px;}
+  .splash-word{font-size:32px;}
 }
-
-/* =========================================================
-   TOAST
-========================================================= */
 
 .toast{
   position:fixed;
-
   z-index:500;
-
   left:50%;
   bottom:90px;
-
-  transform:
-    translate(-50%,20px);
-
-  padding:
-    13px
-    18px;
-
+  transform:translate(-50%,20px);
+  padding:13px 18px;
   border-radius:19px;
-
   color:#fff;
-
-  background:
-    rgba(15,23,42,.92);
-
+  background:rgba(15,23,42,.92);
   backdrop-filter:blur(20px);
-
   opacity:0;
-
   pointer-events:none;
-
   transition:.3s;
-
   font-size:13px;
   font-weight:750;
-
   white-space:nowrap;
-
-  box-shadow:
-    0 12px 30px rgba(0,0,0,.22);
+  box-shadow:0 12px 30px rgba(0,0,0,.22);
 }
 
 .toast.show{
   opacity:1;
-
-  transform:
-    translate(-50%,0);
+  transform:translate(-50%,0);
 }
-
-/* =========================================================
-   INFO STEPS
-========================================================= */
 
 .steps-list{
   display:grid;
@@ -2167,13 +1910,7 @@ body.dark .splash-screen{
   font-weight:950;
   font-size:15px;
   color:#fff;
-  background:
-    linear-gradient(
-      135deg,
-      #4f46e5,
-      #8b5cf6,
-      #06b6d4
-    );
+  background:linear-gradient(135deg,#4f46e5,#8b5cf6,#06b6d4);
   box-shadow:0 8px 18px rgba(99,91,255,.28);
 }
 
@@ -2190,10 +1927,6 @@ body.dark .splash-screen{
   color:var(--muted);
   line-height:1.5;
 }
-
-/* =========================================================
-   FIXI TEAM CONTACT CARD
-========================================================= */
 
 .contact-card{
   display:flex;
@@ -2218,13 +1951,7 @@ body.dark .splash-screen{
   display:grid;
   place-items:center;
   color:#fff;
-  background:
-    linear-gradient(
-      135deg,
-      #4f46e5,
-      #8b5cf6,
-      #06b6d4
-    );
+  background:linear-gradient(135deg,#4f46e5,#8b5cf6,#06b6d4);
   box-shadow:0 10px 25px rgba(99,91,255,.28);
 }
 
@@ -2257,12 +1984,7 @@ body.dark .splash-screen{
   font-weight:900;
   font-size:14.5px;
   letter-spacing:.2px;
-  background:
-    linear-gradient(
-      110deg,
-      #22c55e,
-      #16a34a
-    );
+  background:linear-gradient(110deg,#22c55e,#16a34a);
   box-shadow:0 12px 28px rgba(34,197,94,.30);
   transition:transform .2s, box-shadow .2s;
 }
@@ -2276,10 +1998,6 @@ body.dark .splash-screen{
   transform:scale(.97);
 }
 
-/* =========================================================
-   PROFILE PHOTO PICKER
-========================================================= */
-
 .edit-photo-preview{
   width:88px;
   height:88px;
@@ -2289,13 +2007,7 @@ body.dark .splash-screen{
   place-items:center;
   font-size:34px;
   color:#fff;
-  background:
-    linear-gradient(
-      135deg,
-      #4f46e5,
-      #8b5cf6,
-      #06b6d4
-    );
+  background:linear-gradient(135deg,#4f46e5,#8b5cf6,#06b6d4);
   box-shadow:0 12px 28px rgba(79,70,229,.25);
   cursor:pointer;
   overflow:hidden;
@@ -2311,45 +2023,6 @@ body.dark .splash-screen{
   height:100%;
   object-fit:cover;
 }
-
-/* =========================================================
-   LOCATION FALLBACK (no map key needed)
-========================================================= */
-
-.map-fallback{
-  min-height:230px;
-  border-radius:25px;
-  background:var(--glass);
-  border:1px solid var(--border);
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:12px;
-  padding:26px 20px;
-  margin-bottom:13px;
-  text-align:center;
-}
-
-.map-fallback-icon{
-  font-size:34px;
-}
-
-.map-fallback-text{
-  color:var(--muted);
-  font-size:12.5px;
-  line-height:1.5;
-  max-width:320px;
-}
-
-.map-fallback .field{
-  width:100%;
-  max-width:320px;
-}
-
-/* =========================================================
-   RTL
-========================================================= */
 
 [dir="rtl"]{
   text-align:right;
@@ -2368,49 +2041,17 @@ body.dark .splash-screen{
   letter-spacing:0;
 }
 
-/* =========================================================
-   MOBILE
-========================================================= */
-
 @media(max-width:370px){
-
-  .hero h1{
-    font-size:34px;
-  }
-
-  .services{
-    gap:6px;
-  }
-
-  .service{
-    min-height:105px;
-  }
-
-  .service-icon{
-    width:49px;
-    height:49px;
-    font-size:25px;
-  }
-
-  .service span{
-    font-size:10px;
-  }
-
+  .hero h1{font-size:34px;}
+  .services{gap:6px;}
+  .service{min-height:105px;}
+  .service-icon{width:49px;height:49px;font-size:25px;}
+  .service span{font-size:10px;}
 }
-
-
-/* =========================================================
-   FIXI WEBSITE FRAME — DESKTOP / TABLET
-   Keeps the mobile layout on small screens, but turns Fixi
-   into a real responsive website on larger screens.
-========================================================= */
 
 @media (min-width: 700px){
 
-  body{
-    padding:24px;
-    min-height:100vh;
-  }
+  body{padding:24px;min-height:100vh;}
 
   #app{
     width:100%;
@@ -2420,26 +2061,14 @@ body.dark .splash-screen{
     padding-bottom:112px;
     border:1px solid var(--border);
     border-radius:36px;
-    background:
-      linear-gradient(
-        145deg,
-        rgba(255,255,255,.42),
-        rgba(255,255,255,.12)
-      );
-    box-shadow:
-      0 30px 100px rgba(54,65,180,.16);
+    background:linear-gradient(145deg,rgba(255,255,255,.42),rgba(255,255,255,.12));
+    box-shadow:0 30px 100px rgba(54,65,180,.16);
     overflow:hidden;
   }
 
   body.dark #app{
-    background:
-      linear-gradient(
-        145deg,
-        rgba(17,23,42,.70),
-        rgba(7,9,20,.46)
-      );
-    box-shadow:
-      0 30px 100px rgba(0,0,0,.42);
+    background:linear-gradient(145deg,rgba(17,23,42,.70),rgba(7,9,20,.46));
+    box-shadow:0 30px 100px rgba(0,0,0,.42);
   }
 
   .topbar{
@@ -2447,126 +2076,47 @@ body.dark .splash-screen{
     top:0;
     padding:20px 34px 16px;
     z-index:50;
-    background:
-      linear-gradient(
-        to bottom,
-        rgba(245,247,255,.92),
-        rgba(245,247,255,.62)
-      );
+    background:linear-gradient(to bottom,rgba(245,247,255,.92),rgba(245,247,255,.62));
     backdrop-filter:blur(24px);
   }
 
   body.dark .topbar{
-    background:
-      linear-gradient(
-        to bottom,
-        rgba(7,9,20,.94),
-        rgba(7,9,20,.70)
-      );
+    background:linear-gradient(to bottom,rgba(7,9,20,.94),rgba(7,9,20,.70));
   }
 
-  .logo{
-    font-size:31px;
-  }
+  .logo{font-size:31px;}
+  .logo-mark{width:32px;height:32px;}
 
-  .logo-mark{
-    width:32px;
-    height:32px;
-  }
+  .page{padding:30px 42px 42px;max-width:1160px;margin:0 auto;}
 
-  .page{
-    padding:30px 42px 42px;
-    max-width:1160px;
-    margin:0 auto;
-  }
+  .hero{margin-top:30px;margin-left:auto;margin-right:auto;max-width:850px;text-align:center;}
 
-  .hero{
-    margin-top:30px;
-    margin-left:auto;
-    margin-right:auto;
-    max-width:850px;
-    text-align:center;
-  }
+  .hero h1{font-size:clamp(48px,6vw,72px);letter-spacing:-4px;line-height:.96;margin:18px auto 18px;}
 
-  .hero h1{
-    font-size:clamp(48px,6vw,72px);
-    letter-spacing:-4px;
-    line-height:.96;
-    margin:18px auto 18px;
-  }
+  .hero p{font-size:16px;max-width:650px;margin-left:auto;margin-right:auto;}
 
-  .hero p{
-    font-size:16px;
-    max-width:650px;
-    margin-left:auto;
-    margin-right:auto;
-  }
+  .search{max-width:820px;margin:0 auto 20px;padding:17px 20px;border-radius:22px;}
 
-  .search{
-    max-width:820px;
-    margin:0 auto 20px;
-    padding:17px 20px;
-    border-radius:22px;
-  }
+  .filter-bar{max-width:820px;margin-left:auto;margin-right:auto;justify-content:center;}
 
-  .filter-bar{
-    max-width:820px;
-    margin-left:auto;
-    margin-right:auto;
-    justify-content:center;
-  }
+  .section-head{margin:30px 0 16px;}
+  .section-head h2{font-size:23px;}
 
-  .section-head{
-    margin:30px 0 16px;
-  }
+  .services{grid-template-columns:repeat(4,1fr);gap:16px;}
 
-  .section-head h2{
-    font-size:23px;
-  }
+  .service{min-height:145px;padding:18px 10px;}
 
-  .services{
-    grid-template-columns:repeat(4,1fr);
-    gap:16px;
-  }
+  .service-icon{width:64px;height:64px;font-size:32px;}
 
-  .service{
-    min-height:145px;
-    padding:18px 10px;
-  }
+  .service span{font-size:13px;}
 
-  .service-icon{
-    width:64px;
-    height:64px;
-    font-size:32px;
-  }
+  .banner{margin:34px 0;padding:30px;border-radius:30px;text-align:center;}
+  .banner h3{font-size:25px;}
+  .banner p{font-size:14px;}
 
-  .service span{
-    font-size:13px;
-  }
+  .artisan-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;}
 
-  .banner{
-    margin:34px 0;
-    padding:30px;
-    border-radius:30px;
-    text-align:center;
-  }
-
-  .banner h3{
-    font-size:25px;
-  }
-
-  .banner p{
-    font-size:14px;
-  }
-
-  .artisan-list{
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:16px;
-  }
-
-  .artisan{
-    padding:17px;
-  }
+  .artisan{padding:17px;}
 
   #serviceArtisans,
   #favoritesList,
@@ -2574,99 +2124,40 @@ body.dark .splash-screen{
     grid-template-columns:repeat(2,minmax(0,1fr));
   }
 
-  .profile-card{
-    max-width:760px;
-    margin:0 auto;
-    padding:34px;
-  }
+  .profile-card{max-width:760px;margin:0 auto;padding:34px;}
 
-  .profile-avatar{
-    width:96px;
-    height:96px;
-    font-size:32px;
-  }
+  .profile-avatar{width:96px;height:96px;font-size:32px;}
 
-  #bookingPage .form{
-    max-width:820px;
-  }
+  #bookingPage .form{max-width:820px;}
 
-  .bottom-nav{
-    width:min(720px,calc(100% - 48px));
-    bottom:26px;
-    padding:10px;
-    border-radius:25px;
-  }
+  .bottom-nav{width:min(720px,calc(100% - 48px));bottom:26px;padding:10px;border-radius:25px;}
 
-  .nav-btn{
-    padding:11px 8px;
-  }
+  .nav-btn{padding:11px 8px;}
+  .nav-btn span{font-size:11px;}
+  .nav-btn svg{width:22px;height:22px;}
 
-  .nav-btn span{
-    font-size:11px;
-  }
+  .sheet{width:min(760px,calc(100% - 32px));max-height:90vh;border-radius:30px;margin-bottom:18px;}
 
-  .nav-btn svg{
-    width:22px;
-    height:22px;
-  }
+  #map{height:480px;}
 
-  .sheet{
-    width:min(760px,calc(100% - 32px));
-    max-height:90vh;
-    border-radius:30px;
-    margin-bottom:18px;
-  }
-
-  #map{
-    height:480px;
-  }
-
-  .map-actions{
-    grid-template-columns:1fr 1fr;
-  }
+  .map-actions{grid-template-columns:1fr 1fr;}
 }
 
 @media (min-width: 1050px){
 
-  body{
-    padding:34px;
-  }
+  body{padding:34px;}
 
-  #app{
-    min-height:calc(100vh - 68px);
-  }
+  #app{min-height:calc(100vh - 68px);}
 
-  .topbar{
-    padding:22px 48px 17px;
-  }
+  .topbar{padding:22px 48px 17px;}
 
-  .page{
-    padding-left:56px;
-    padding-right:56px;
-  }
+  .page{padding-left:56px;padding-right:56px;}
 
-  .home-layout{
-    display:grid;
-    grid-template-columns:minmax(0,1.4fr) minmax(320px,.8fr);
-    gap:36px;
-    align-items:start;
-  }
+  .hero h1{font-size:76px;}
 
-  .home-layout > *{
-    min-width:0;
-  }
+  .services{grid-template-columns:repeat(4,1fr);}
 
-  .hero h1{
-    font-size:76px;
-  }
-
-  .services{
-    grid-template-columns:repeat(4,1fr);
-  }
-
-  .artisan-list{
-    grid-template-columns:repeat(2,minmax(0,1fr));
-  }
+  .artisan-list{grid-template-columns:repeat(2,minmax(0,1fr));}
 }
 
 </style>
@@ -2674,35 +2165,15 @@ body.dark .splash-screen{
 
 <body class="fixi-site">
 
-<div
-  id="splashScreen"
-  class="splash-screen"
->
-
+<div id="splashScreen" class="splash-screen">
   <div class="splash-mark">
-
-    <svg
-      class="brand-icon"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2.2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-<svg class="brand-icon" viewBox="0 0 100 100" fill="none">
-  <path d="M 50 22 L 78 46 L 71 46 L 71 76 Q 71 78 69 78 L 31 78 Q 29 78 29 76 L 29 46 L 22 46 Z" fill="currentColor"/>
-  <path d="M 38 60 L 47 69 L 63 51" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-</svg>    </svg>
-
+    <svg class="brand-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:60%;height:60%">
+      <path d="M 50 22 L 78 46 L 71 46 L 71 76 Q 71 78 69 78 L 31 78 Q 29 78 29 76 L 29 46 L 22 46 Z" fill="currentColor"/>
+      <path d="M 38 60 L 47 69 L 63 51" stroke="#4f46e5" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </svg>
   </div>
-
-  <div class="splash-word">
-    fixi
-  </div>
-
+  <div class="splash-word">fixi</div>
   <div class="splash-ring"></div>
-
 </div>
 
 <div class="blob one"></div>
@@ -2711,1879 +2182,497 @@ body.dark .splash-screen{
 
 <div id="app">
 
-<!-- =====================================================
-     TOPBAR
-===================================================== -->
-
 <header class="topbar">
-
   <div class="logo">
-
     <div class="logo-mark">
-
-      <svg
-        class="brand-icon"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2.4"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-<svg class="brand-icon" viewBox="0 0 100 100" fill="none">
-  <path d="M 50 22 L 78 46 L 71 46 L 71 76 Q 71 78 69 78 L 31 78 Q 29 78 29 76 L 29 46 L 22 46 Z" fill="currentColor"/>
-  <path d="M 38 60 L 47 69 L 63 51" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-</svg>
-
+      <svg class="brand-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 50 22 L 78 46 L 71 46 L 71 76 Q 71 78 69 78 L 31 78 Q 29 78 29 76 L 29 46 L 22 46 Z" fill="currentColor"/>
+        <path d="M 38 60 L 47 69 L 63 51" stroke="#4f46e5" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
     </div>
-
     <span>fixi</span>
-
   </div>
 
   <div style="display:flex;align-items:center;gap:10px">
-
-    <button
-      class="icon-btn"
-      onclick="openInfo()"
-      aria-label="How Fixi works"
-    >
-
-      <svg
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="1.8"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
+    <button class="icon-btn" onclick="openInfo()" aria-label="How Fixi works">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="12" cy="12" r="9"/>
         <path d="M12 16v-4"/>
         <path d="M12 8h.01"/>
       </svg>
-
     </button>
-
-    <button
-      class="icon-btn"
-      onclick="openNotifications()"
-      aria-label="Notifications"
-    >
-
-      <svg
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="1.8"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
+    <button class="icon-btn" onclick="openNotifications()" aria-label="Notifications">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
         <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/>
         <path d="M13.7 21a2 2 0 0 1-3.4 0"/>
       </svg>
-
-      <span
-        id="notifBadge"
-        class="notif-badge"
-      ></span>
-
+      <span id="notifBadge" class="notif-badge"></span>
     </button>
-
   </div>
-
 </header>
 
-
-<!-- =====================================================
-     HOME
-===================================================== -->
-
 <main id="homePage" class="page">
-
-  <button
-    class="location-pill"
-    onclick="openMap()"
-  >
-
-    <svg
-      width="18"
-      height="18"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="1.8"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
+  <button class="location-pill" onclick="openMap()">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
       <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/>
       <circle cx="12" cy="10" r="2.5"/>
     </svg>
-
-    <span
-      id="homeLocation"
-      class="location-text"
-      data-i18n="choose_location"
-    >
-      Choose your location
-    </span>
-
+    <span id="homeLocation" class="location-text" data-i18n="choose_location">Choose your location</span>
     <span>⌄</span>
-
   </button>
 
-
   <section class="hero">
-
     <h1>
       <span data-i18n="hero_title1">Find help.</span><br>
       <span data-i18n="hero_title2">Get it fixed.</span>
     </h1>
-
-    <p data-i18n="hero_sub">
-      Trusted local professionals,
-      whenever you need them.
-    </p>
-
+    <p data-i18n="hero_sub">Trusted local professionals, whenever you need them.</p>
   </section>
 
-
-  <!-- SEARCH -->
-
   <div class="search glass">
-
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <circle cx="11" cy="11" r="7"/>
       <path d="m20 20-4-4"/>
     </svg>
-
-    <input
-      id="searchInput"
-      type="text"
-      data-i18n-placeholder="search_placeholder"
-      placeholder="What do you need?"
-      oninput="searchArtisans()"
-    >
-
+    <input id="searchInput" type="text" data-i18n-placeholder="search_placeholder" placeholder="What do you need?" oninput="searchArtisans()">
   </div>
-
-
-  <!-- FILTERS -->
 
   <div class="filter-bar">
-
-    <button
-      class="filter-chip"
-      data-sort="rating"
-      onclick="setSort('rating')"
-      data-i18n="filter_top_rated"
-    >
-      ⭐ Top rated
-    </button>
-
-    <button
-      class="filter-chip"
-      data-sort="price"
-      onclick="setSort('price')"
-      data-i18n="filter_lowest_price"
-    >
-      💰 Lowest price
-    </button>
-
-    <button
-      class="filter-chip avail-toggle"
-      onclick="toggleAvailableOnly()"
-      data-i18n="filter_available"
-    >
-      ✓ Available now
-    </button>
-
+    <button class="filter-chip" data-sort="rating" onclick="setSort('rating')" data-i18n="filter_top_rated">⭐ Top rated</button>
+    <button class="filter-chip" data-sort="price" onclick="setSort('price')" data-i18n="filter_lowest_price">💰 Lowest price</button>
+    <button class="filter-chip avail-toggle" onclick="toggleAvailableOnly()" data-i18n="filter_available">✓ Available now</button>
   </div>
-
-
-  <!-- SERVICES -->
 
   <div class="section-head">
-
-    <h2 data-i18n="services_title">
-      Services
-    </h2>
-
-    <button
-      onclick="showService('Plombier')"
-      data-i18n="see_all"
-    >
-      See all
-    </button>
-
+    <h2 data-i18n="services_title">Services</h2>
+    <button onclick="showService('Plombier')" data-i18n="see_all">See all</button>
   </div>
-
 
   <div class="services">
-
-
-    <!-- PLUMBER -->
-
-    <button
-      class="service"
-      onclick="showService('Plombier')"
-      aria-label="Plumber"
-    >
-
-      <div class="service-icon">
-        🔧
-      </div>
-
-      <span data-i18n="svc_plumber">
-        Plumber
-      </span>
-
+    <button class="service" onclick="showService('Plombier')" aria-label="Plumber">
+      <div class="service-icon">🔧</div>
+      <span data-i18n="svc_plumber">Plumber</span>
     </button>
-
-
-    <!-- ELECTRICIAN -->
-
-    <button
-      class="service"
-      onclick="showService('Électricien')"
-      aria-label="Electrician"
-    >
-
-      <div class="service-icon">
-        ⚡
-      </div>
-
-      <span data-i18n="svc_electrician">
-        Electrician
-      </span>
-
+    <button class="service" onclick="showService('Électricien')" aria-label="Electrician">
+      <div class="service-icon">⚡</div>
+      <span data-i18n="svc_electrician">Electrician</span>
     </button>
-
-
-    <!-- CARPENTER -->
-
-    <button
-      class="service"
-      onclick="showService('Menuisier')"
-      aria-label="Carpenter"
-    >
-
-      <div class="service-icon">
-        🪚
-      </div>
-
-      <span data-i18n="svc_carpenter">
-        Carpenter
-      </span>
-
+    <button class="service" onclick="showService('Menuisier')" aria-label="Carpenter">
+      <div class="service-icon">🪚</div>
+      <span data-i18n="svc_carpenter">Carpenter</span>
     </button>
-
-
-    <!-- PAINTER -->
-
-    <button
-      class="service"
-      onclick="showService('Peintre')"
-      aria-label="Painter"
-    >
-
-      <div class="service-icon">
-        🎨
-      </div>
-
-      <span data-i18n="svc_painter">
-        Painter
-      </span>
-
+    <button class="service" onclick="showService('Peintre')" aria-label="Painter">
+      <div class="service-icon">🎨</div>
+      <span data-i18n="svc_painter">Painter</span>
     </button>
-
-
-    <!-- AC / APPLIANCE REPAIR -->
-
-    <button
-      class="service"
-      onclick="showService('Climatisation')"
-      aria-label="AC repair"
-    >
-
-      <div class="service-icon">
-        ❄️
-      </div>
-
-      <span data-i18n="svc_ac">
-        AC Repair
-      </span>
-
+    <button class="service" onclick="showService('Climatisation')" aria-label="AC repair">
+      <div class="service-icon">❄️</div>
+      <span data-i18n="svc_ac">AC Repair</span>
     </button>
-
-
-    <!-- CLEANING -->
-
-    <button
-      class="service"
-      onclick="showService('Ménage')"
-      aria-label="Cleaning"
-    >
-
-      <div class="service-icon">
-        🧹
-      </div>
-
-      <span data-i18n="svc_cleaning">
-        Cleaning
-      </span>
-
+    <button class="service" onclick="showService('Ménage')" aria-label="Cleaning">
+      <div class="service-icon">🧹</div>
+      <span data-i18n="svc_cleaning">Cleaning</span>
     </button>
-
-
-    <!-- GARDENING -->
-
-    <button
-      class="service"
-      onclick="showService('Jardinage')"
-      aria-label="Gardening"
-    >
-
-      <div class="service-icon">
-        🌿
-      </div>
-
-      <span data-i18n="svc_gardening">
-        Gardening
-      </span>
-
+    <button class="service" onclick="showService('Jardinage')" aria-label="Gardening">
+      <div class="service-icon">🌿</div>
+      <span data-i18n="svc_gardening">Gardening</span>
     </button>
-
-
-    <!-- MOVING -->
-
-    <button
-      class="service"
-      onclick="showService('Déménagement')"
-      aria-label="Moving"
-    >
-
-      <div class="service-icon">
-        📦
-      </div>
-
-      <span data-i18n="svc_moving">
-        Moving
-      </span>
-
+    <button class="service" onclick="showService('Déménagement')" aria-label="Moving">
+      <div class="service-icon">📦</div>
+      <span data-i18n="svc_moving">Moving</span>
     </button>
-
   </div>
-
-
-  <!-- BANNER -->
 
   <div class="banner">
-
-    <h3 data-i18n="banner_title">
-      Need someone today?
-    </h3>
-
-    <p data-i18n="banner_sub">
-      Find a nearby professional
-      in a few seconds.
-    </p>
-
+    <h3 data-i18n="banner_title">Need someone today?</h3>
+    <p data-i18n="banner_sub">Find a nearby professional in a few seconds.</p>
   </div>
-
-
-  <!-- POPULAR -->
 
   <div class="section-head">
-
-    <h2 data-i18n="popular_title">
-      Popular professionals
-    </h2>
-
+    <h2 data-i18n="popular_title">Popular professionals</h2>
   </div>
 
-  <div
-    id="homeArtisans"
-    class="artisan-list"
-  ></div>
-
-
-  <!-- FIXI TEAM CONTACT CARD -->
+  <div id="homeArtisans" class="artisan-list"></div>
 
   <div class="contact-card glass">
-
     <div class="contact-card-top">
-
       <div class="contact-avatar">
-
-        <svg
-          class="brand-icon"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2.2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-<svg class="brand-icon" viewBox="0 0 100 100" fill="none">
-  <path d="M 50 22 L 78 46 L 71 46 L 71 76 Q 71 78 69 78 L 31 78 Q 29 78 29 76 L 29 46 L 22 46 Z" fill="currentColor"/>
-  <path d="M 38 60 L 47 69 L 63 51" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-</svg>        </svg>
-
+        <svg class="brand-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:55%;height:55%">
+          <path d="M 50 22 L 78 46 L 71 46 L 71 76 Q 71 78 69 78 L 31 78 Q 29 78 29 76 L 29 46 L 22 46 Z" fill="currentColor"/>
+          <path d="M 38 60 L 47 69 L 63 51" stroke="#4f46e5" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
       </div>
-
       <div class="contact-info">
-
-        <div class="contact-name" data-i18n="fixi_team">
-          Fixi Team
-        </div>
-
-        <div class="contact-sub" data-i18n="fixi_team_sub">
-          Need help? We're one call away.
-        </div>
-
+        <div class="contact-name" data-i18n="fixi_team">Fixi Team</div>
+        <div class="contact-sub" data-i18n="fixi_team_sub">Need help? We're one call away.</div>
       </div>
-
     </div>
-
-    <a
-      class="contact-cta"
-      href="tel:+21696343699"
-      aria-label="Call Fixi Team"
-    >
-
-      <svg
-        width="18"
-        height="18"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
+    <a class="contact-cta" href="tel:+21696343699" aria-label="Call Fixi Team">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
       </svg>
-
       <span>96 343 699</span>
-
     </a>
-
   </div>
-
 </main>
 
-
-<!-- =====================================================
-     SERVICE PAGE
-===================================================== -->
-
-<main
-  id="servicePage"
-  class="page hidden"
->
-
-  <button
-    class="icon-btn"
-    onclick="goHome()"
-    style="margin-bottom:15px"
-  >
-    ←
-  </button>
-
+<main id="servicePage" class="page hidden">
+  <button class="icon-btn" onclick="goHome()" style="margin-bottom:15px">←</button>
   <div class="hero">
-
-    <h1 id="serviceTitle">
-      Service
-    </h1>
-
-    <p data-i18n="service_sub">
-      Professionals available near you.
-    </p>
-
+    <h1 id="serviceTitle">Service</h1>
+    <p data-i18n="service_sub">Professionals available near you.</p>
   </div>
-
   <div class="filter-bar">
-
-    <button
-      class="filter-chip"
-      data-sort="rating"
-      onclick="setSort('rating')"
-      data-i18n="filter_top_rated"
-    >
-      ⭐ Top rated
-    </button>
-
-    <button
-      class="filter-chip"
-      data-sort="price"
-      onclick="setSort('price')"
-      data-i18n="filter_lowest_price"
-    >
-      💰 Lowest price
-    </button>
-
-    <button
-      class="filter-chip avail-toggle"
-      onclick="toggleAvailableOnly()"
-      data-i18n="filter_available"
-    >
-      ✓ Available now
-    </button>
-
+    <button class="filter-chip" data-sort="rating" onclick="setSort('rating')" data-i18n="filter_top_rated">⭐ Top rated</button>
+    <button class="filter-chip" data-sort="price" onclick="setSort('price')" data-i18n="filter_lowest_price">💰 Lowest price</button>
+    <button class="filter-chip avail-toggle" onclick="toggleAvailableOnly()" data-i18n="filter_available">✓ Available now</button>
   </div>
-
-  <div
-    class="artisan-list"
-    id="serviceArtisans"
-  ></div>
-
+  <div class="artisan-list" id="serviceArtisans"></div>
 </main>
 
-
-<!-- =====================================================
-     ARTISAN PROFILE
-===================================================== -->
-
-<main
-  id="artisanPage"
-  class="page hidden"
->
-
-  <button
-    class="icon-btn"
-    onclick="goBack()"
-    style="margin-bottom:15px"
-  >
-    ←
-  </button>
-
+<main id="artisanPage" class="page hidden">
+  <button class="icon-btn" onclick="goBack()" style="margin-bottom:15px">←</button>
   <div id="artisanDetails"></div>
-
 </main>
 
-
-<!-- =====================================================
-     BOOKING
-===================================================== -->
-
-<main
-  id="bookingPage"
-  class="page hidden"
->
-
-  <button
-    class="icon-btn"
-    onclick="goBack()"
-    style="margin-bottom:15px"
-  >
-    ←
-  </button>
-
-  <h1 data-i18n="booking_title">
-    Book a professional
-  </h1>
-
-  <p style="color:var(--muted)" data-i18n="booking_sub">
-    Choose a time and tell us what you need.
-  </p>
-
+<main id="bookingPage" class="page hidden">
+  <button class="icon-btn" onclick="goBack()" style="margin-bottom:15px">←</button>
+  <h1 data-i18n="booking_title">Book a professional</h1>
+  <p style="color:var(--muted)" data-i18n="booking_sub">Choose a time and tell us what you need.</p>
 
   <div class="form">
-
     <div class="field">
-
-      <label data-i18n="date">
-        Date
-      </label>
-
-      <input
-        id="bookingDate"
-        type="date"
-      >
-
+      <label data-i18n="date">Date</label>
+      <input id="bookingDate" type="date">
     </div>
-
-
     <div class="field">
-
-      <label data-i18n="time">
-        Time
-      </label>
-
+      <label data-i18n="time">Time</label>
       <select id="bookingTime">
-
-        <option>09:00</option>
-        <option>10:00</option>
-        <option>11:00</option>
-        <option>12:00</option>
-        <option>14:00</option>
-        <option>15:00</option>
-        <option>16:00</option>
-        <option>17:00</option>
-        <option>18:00</option>
-
+        <option>09:00</option><option>10:00</option><option>11:00</option><option>12:00</option>
+        <option>14:00</option><option>15:00</option><option>16:00</option><option>17:00</option><option>18:00</option>
       </select>
-
     </div>
-
-
     <div class="field">
-
-      <label data-i18n="name">
-        Name
-      </label>
-
-      <input
-        id="bookingName"
-        data-i18n-placeholder="name"
-        placeholder="Your name"
-      >
-
+      <label data-i18n="name">Name</label>
+      <input id="bookingName" data-i18n-placeholder="name" placeholder="Your name">
     </div>
-
-
     <div class="field">
-
-      <label data-i18n="phone">
-        Phone
-      </label>
-
-      <input
-        id="bookingPhone"
-        placeholder="+216 ..."
-      >
-
+      <label data-i18n="phone">Phone</label>
+      <input id="bookingPhone" placeholder="+216 ...">
     </div>
-        <div class="field">
-
-      <label>
-        Email
-      </label>
-
-      <input
-        id="bookingEmail"
-        type="email"
-        placeholder="your@email.com"
-      >
-
-    </div>
-
-
     <div class="field">
-
-      <label data-i18n="location">
-        Location
-      </label>
-
-      <button
-        class="secondary"
-        onclick="openMap()"
-        style="text-align:left"
-        id="bookingLocationButton"
-        data-i18n="choose_location_area"
-      >
-        📍 Choose location on map
-      </button>
-
+      <label>Email</label>
+      <input id="bookingEmail" type="email" placeholder="your@email.com">
     </div>
-
-
     <div class="field">
-
-      <label data-i18n="describe_problem">
-        Describe the problem
-      </label>
-
-      <textarea
-        id="bookingProblem"
-        data-i18n-placeholder="describe_placeholder"
-        placeholder="Tell the professional what happened..."
-      ></textarea>
-
+      <label data-i18n="location">Location</label>
+      <button class="secondary" onclick="openMap()" style="text-align:left" id="bookingLocationButton" data-i18n="choose_location_area">📍 Choose location on map</button>
     </div>
-
-
-    <button
-      class="primary"
-      onclick="confirmBooking()"
-      data-i18n="confirm_booking"
-    >
-      Confirm booking
-    </button>
-
+    <div class="field">
+      <label data-i18n="describe_problem">Describe the problem</label>
+      <textarea id="bookingProblem" data-i18n-placeholder="describe_placeholder" placeholder="Tell the professional what happened..."></textarea>
+    </div>
+    <button class="primary" onclick="confirmBooking()" data-i18n="confirm_booking">Confirm booking</button>
   </div>
-
 </main>
 
-
-<!-- =====================================================
-     BOOKINGS
-===================================================== -->
-
-<main
-  id="bookingsPage"
-  class="page hidden"
->
-
+<main id="bookingsPage" class="page hidden">
   <div class="hero">
-
-    <h1 data-i18n="my_bookings">
-      My bookings
-    </h1>
-
-    <p data-i18n="bookings_sub">
-      Your upcoming and previous requests.
-    </p>
-
+    <h1 data-i18n="my_bookings">My bookings</h1>
+    <p data-i18n="bookings_sub">Your upcoming and previous requests.</p>
   </div>
-
-  <div
-    id="bookingsList"
-    class="artisan-list"
-  ></div>
-
+  <div id="bookingsList" class="artisan-list"></div>
 </main>
 
-
-<!-- =====================================================
-     FAVORITES
-===================================================== -->
-
-<main
-  id="favoritesPage"
-  class="page hidden"
->
-
+<main id="favoritesPage" class="page hidden">
   <div class="hero">
-
-    <h1 data-i18n="favorites_title">
-      Favorites
-    </h1>
-
-    <p data-i18n="favorites_sub">
-      Your saved professionals.
-    </p>
-
+    <h1 data-i18n="favorites_title">Favorites</h1>
+    <p data-i18n="favorites_sub">Your saved professionals.</p>
   </div>
-
-  <div
-    id="favoritesList"
-    class="artisan-list"
-  ></div>
-
+  <div id="favoritesList" class="artisan-list"></div>
 </main>
 
-
-<!-- =====================================================
-     PROFILE
-===================================================== -->
-
-<main
-  id="profilePage"
-  class="page hidden"
->
-
+<main id="profilePage" class="page hidden">
   <div class="hero">
-
-    <h1 data-i18n="profile_title">
-      Profile
-    </h1>
-
+    <h1 data-i18n="profile_title">Profile</h1>
   </div>
-
-
   <div class="profile-card glass">
-
-    <div
-      class="profile-avatar"
-      id="profileAvatar"
-    >
-      👤
-    </div>
-
-    <h2 id="profileName">
-      Add your name
-    </h2>
-
-    <p id="profilePhone">
-      Add your phone number
-    </p>
-
+    <div class="profile-avatar" id="profileAvatar">👤</div>
+    <h2 id="profileName">Add your name</h2>
+    <p id="profilePhone">Add your phone number</p>
     <br>
-
-    <button
-      class="primary"
-      onclick="openEditProfile()"
-      data-i18n="edit_profile"
-    >
-      Edit profile
-    </button>
-
+    <button class="primary" onclick="openEditProfile()" data-i18n="edit_profile">Edit profile</button>
   </div>
-
-
   <br>
-
-
-  <button
-    class="secondary"
-    onclick="toggleTheme()"
-    data-i18n="change_appearance"
-  >
-    ◐ Change appearance
-  </button>
-
-
+  <button class="secondary" onclick="toggleTheme()" data-i18n="change_appearance">◐ Change appearance</button>
   <br><br>
-
-
-  <button
-    class="secondary"
-    onclick="openLanguage()"
-    data-i18n="language"
-  >
-    🌐 Language
-  </button>
-
+  <button class="secondary" onclick="openLanguage()" data-i18n="language">🌐 Language</button>
 </main>
 
 </div>
-
-
-<!-- =====================================================
-     BOTTOM NAV
-===================================================== -->
 
 <nav class="bottom-nav">
-
-  <button
-    class="nav-btn active"
-    onclick="navigate('home',this)"
-  >
-
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="1.8"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-      <path d="m3 11 9-8 9 8"/>
-      <path d="M5 10v10h14V10"/>
-      <path d="M9 20v-6h6v6"/>
+  <button class="nav-btn active" onclick="navigate('home',this)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m3 11 9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/>
     </svg>
-
-    <span data-i18n="nav_home">
-      Home
-    </span>
-
+    <span data-i18n="nav_home">Home</span>
   </button>
-
-
-  <button
-    class="nav-btn"
-    onclick="navigate('bookings',this)"
-  >
-
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="1.8"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-      <rect
-        x="4"
-        y="5"
-        width="16"
-        height="15"
-        rx="3"
-      />
-
-      <path d="M8 3v4"/>
-      <path d="M16 3v4"/>
-      <path d="M4 10h16"/>
-      <path d="m9 15 2 2 4-4"/>
-
+  <button class="nav-btn" onclick="navigate('bookings',this)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="4" y="5" width="16" height="15" rx="3"/><path d="M8 3v4"/><path d="M16 3v4"/><path d="M4 10h16"/><path d="m9 15 2 2 4-4"/>
     </svg>
-
-    <span data-i18n="nav_bookings">
-      Bookings
-    </span>
-
+    <span data-i18n="nav_bookings">Bookings</span>
   </button>
-
-
-  <button
-    class="nav-btn"
-    onclick="navigate('favorites',this)"
-  >
-
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="1.8"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
+  <button class="nav-btn" onclick="navigate('favorites',this)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
       <path d="M20.8 8.7c0 5.5-8.8 10.3-8.8 10.3S3.2 14.2 3.2 8.7A4.7 4.7 0 0 1 12 6.1a4.7 4.7 0 0 1 8.8 2.6Z"/>
     </svg>
-
-    <span data-i18n="nav_favorites">
-      Favorites
-    </span>
-
+    <span data-i18n="nav_favorites">Favorites</span>
   </button>
-
-
-  <button
-    class="nav-btn"
-    onclick="navigate('profile',this)"
-  >
-
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="1.8"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-      <circle
-        cx="12"
-        cy="8"
-        r="4"
-      />
-
-      <path
-        d="M4 21a8 8 0 0 1 16 0"
-      />
-
+  <button class="nav-btn" onclick="navigate('profile',this)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>
     </svg>
-
-    <span data-i18n="nav_profile">
-      Profile
-    </span>
-
+    <span data-i18n="nav_profile">Profile</span>
   </button>
-
 </nav>
 
-
-<!-- =====================================================
-     MAP MODAL
-===================================================== -->
-
-<div
-  id="mapModal"
-  class="modal"
-  onclick="closeMapOutside(event)"
->
-
+<div id="mapModal" class="modal" onclick="closeMapOutside(event)">
   <div class="sheet">
-
     <div class="handle"></div>
-
     <div class="sheet-head">
-
-      <h3 data-i18n="choose_location">
-        Choose your location
-      </h3>
-
-      <button
-        class="icon-btn"
-        onclick="closeMap()"
-      >
-        ×
-      </button>
-
+      <h3 data-i18n="choose_location">Choose your location</h3>
+      <button class="icon-btn" onclick="closeMap()">×</button>
     </div>
-
-
     <div class="field">
-
-      <label data-i18n="governorate">
-        Governorate
-      </label>
-
-      <select
-        id="governorateSelect"
-        onchange="onGovernorateSelect()"
-      >
-        <option value="" data-i18n="select_governorate">
-          -- Select your governorate --
-        </option>
+      <label data-i18n="governorate">Governorate</label>
+      <select id="governorateSelect" onchange="onGovernorateSelect()">
+        <option value="" data-i18n="select_governorate">-- Select your governorate --</option>
       </select>
-
     </div>
-
     <div class="field">
-
-      <label data-i18n="delegation">
-        Delegation
-      </label>
-
-      <select
-        id="delegationSelect"
-        onchange="onDelegationSelect()"
-        disabled
-      >
-        <option value="" data-i18n="select_delegation">
-          -- Select a delegation --
-        </option>
+      <label data-i18n="delegation">Delegation</label>
+      <select id="delegationSelect" onchange="onDelegationSelect()" disabled>
+        <option value="" data-i18n="select_delegation">-- Select a delegation --</option>
       </select>
-
     </div>
-
-
     <div class="map-location">
-
-      <span id="selectedAddress" data-i18n="tap_map">
-        Your selected governorate and delegation will appear here.
-      </span>
-
+      <span id="selectedAddress" data-i18n="tap_map">Your selected governorate and delegation will appear here.</span>
     </div>
-
-
     <div class="map-actions">
-
-      <button
-        class="primary"
-        onclick="confirmLocation()"
-        data-i18n="confirm_location"
-      >
-        Confirm location
-      </button>
-
+      <button class="primary" onclick="confirmLocation()" data-i18n="confirm_location">Confirm location</button>
     </div>
-
   </div>
-
 </div>
 
-
-<!-- =====================================================
-     EDIT PROFILE
-===================================================== -->
-
-<div
-  id="editModal"
-  class="modal"
-  onclick="closeModalOutside(event,'editModal')"
->
-
+<div id="editModal" class="modal" onclick="closeModalOutside(event,'editModal')">
   <div class="sheet">
-
     <div class="handle"></div>
-
     <div class="sheet-head">
-
-      <h3 data-i18n="edit_profile_title">
-        Edit profile
-      </h3>
-
-      <button
-        class="icon-btn"
-        onclick="closeEditProfile()"
-      >
-        ×
-      </button>
-
+      <h3 data-i18n="edit_profile_title">Edit profile</h3>
+      <button class="icon-btn" onclick="closeEditProfile()">×</button>
     </div>
-
-
     <div class="form">
-
       <div style="text-align:center;margin-bottom:6px">
-
-        <div
-          id="editPhotoPreview"
-          class="edit-photo-preview"
-          onclick="document.getElementById('editPhotoInput').click()"
-        >
-          👤
-        </div>
-
-        <input
-          type="file"
-          id="editPhotoInput"
-          accept="image/*"
-          style="display:none"
-          onchange="handlePhotoUpload(event)"
-        >
-
+        <div id="editPhotoPreview" class="edit-photo-preview" onclick="document.getElementById('editPhotoInput').click()">👤</div>
+        <input type="file" id="editPhotoInput" accept="image/*" style="display:none" onchange="handlePhotoUpload(event)">
         <div style="display:flex;gap:14px;justify-content:center;margin-top:8px">
-
-          <button
-            style="background:none;border:0;color:var(--primary);font-size:12px;font-weight:800"
-            onclick="document.getElementById('editPhotoInput').click()"
-            data-i18n="change_photo"
-          >
-            Change photo
-          </button>
-
-          <button
-            style="background:none;border:0;color:#ef4444;font-size:12px;font-weight:800"
-            onclick="removePhoto()"
-            data-i18n="remove_photo"
-          >
-            Remove photo
-          </button>
-
+          <button style="background:none;border:0;color:var(--primary);font-size:12px;font-weight:800" onclick="document.getElementById('editPhotoInput').click()" data-i18n="change_photo">Change photo</button>
+          <button style="background:none;border:0;color:#ef4444;font-size:12px;font-weight:800" onclick="removePhoto()" data-i18n="remove_photo">Remove photo</button>
         </div>
-
       </div>
-
-      <div class="field">
-
-        <label data-i18n="name">
-          Name
-        </label>
-
-        <input id="editName">
-
-      </div>
-
-
-      <div class="field">
-
-        <label data-i18n="phone">
-          Phone
-        </label>
-
-        <input id="editPhone">
-
-      </div>
-
-
-      <button
-        class="primary"
-        onclick="saveProfile()"
-        data-i18n="save_changes"
-      >
-        Save changes
-      </button>
-
+      <div class="field"><label data-i18n="name">Name</label><input id="editName"></div>
+      <div class="field"><label data-i18n="phone">Phone</label><input id="editPhone"></div>
+      <button class="primary" onclick="saveProfile()" data-i18n="save_changes">Save changes</button>
     </div>
-
   </div>
-
 </div>
 
-
-<!-- =====================================================
-     LANGUAGE
-===================================================== -->
-
-<div
-  id="languageModal"
-  class="modal"
->
-
+<div id="languageModal" class="modal">
   <div class="sheet">
-
     <div class="handle"></div>
-
     <div class="sheet-head">
-
-      <h3 data-i18n="choose_language">
-        Language
-      </h3>
-
-      <button
-        class="icon-btn"
-        onclick="closeLanguage()"
-      >
-        ×
-      </button>
-
+      <h3 data-i18n="choose_language">Language</h3>
+      <button class="icon-btn" onclick="closeLanguage()">×</button>
     </div>
-
-
     <div class="form">
-
-      <button
-        class="secondary"
-        onclick="setLanguage('en')"
-      >
-        🇺🇸 English
-      </button>
-
-      <button
-        class="secondary"
-        onclick="setLanguage('fr')"
-      >
-        🇫🇷 Français
-      </button>
-
-      <button
-        class="secondary"
-        onclick="setLanguage('ar')"
-      >
-        العربية
-      </button>
-
+      <button class="secondary" onclick="setLanguage('en')">🇺🇸 English</button>
+      <button class="secondary" onclick="setLanguage('fr')">🇫🇷 Français</button>
+      <button class="secondary" onclick="setLanguage('ar')">العربية</button>
     </div>
-
   </div>
-
 </div>
 
-
-<!-- =====================================================
-     NOTIFICATIONS
-===================================================== -->
-
-<div
-  id="notifModal"
-  class="modal"
-  onclick="closeModalOutside(event,'notifModal')"
->
-
+<div id="notifModal" class="modal" onclick="closeModalOutside(event,'notifModal')">
   <div class="sheet">
-
     <div class="handle"></div>
-
     <div class="sheet-head">
-
-      <h3 data-i18n="notifications_title">
-        Notifications
-      </h3>
-
-      <button
-        class="icon-btn"
-        onclick="closeNotifications()"
-      >
-        ×
-      </button>
-
+      <h3 data-i18n="notifications_title">Notifications</h3>
+      <button class="icon-btn" onclick="closeNotifications()">×</button>
     </div>
-
     <div id="notifList"></div>
-
   </div>
-
 </div>
 
-
-<!-- =====================================================
-     INFO — HOW FIXI WORKS
-===================================================== -->
-
-<div
-  id="infoModal"
-  class="modal"
-  onclick="closeModalOutside(event,'infoModal')"
->
-
+<div id="infoModal" class="modal" onclick="closeModalOutside(event,'infoModal')">
   <div class="sheet">
-
     <div class="handle"></div>
-
     <div class="sheet-head">
-
-      <h3 data-i18n="how_fixi_works">
-        How Fixi works
-      </h3>
-
-      <button
-        class="icon-btn"
-        onclick="closeInfo()"
-      >
-        ×
-      </button>
-
+      <h3 data-i18n="how_fixi_works">How Fixi works</h3>
+      <button class="icon-btn" onclick="closeInfo()">×</button>
     </div>
-
     <div class="steps-list">
-
-      <div class="step-item">
-
-        <div class="step-num">1</div>
-
-        <div class="step-text">
-          <h4 data-i18n="step1_title">Book a service</h4>
-          <p data-i18n="step1_sub">Pick the professional you need and choose a time that works for you.</p>
-        </div>
-
-      </div>
-
-      <div class="step-item">
-
-        <div class="step-num">2</div>
-
-        <div class="step-text">
-          <h4 data-i18n="step2_title">Fill in your details</h4>
-          <p data-i18n="step2_sub">Tell us where you are and describe what needs fixing.</p>
-        </div>
-
-      </div>
-
-      <div class="step-item">
-
-        <div class="step-num">3</div>
-
-        <div class="step-text">
-          <h4 data-i18n="step3_title">We call to confirm</h4>
-          <p data-i18n="step3_sub">The Fixi team calls you to confirm the details and arrange payment.</p>
-        </div>
-
-      </div>
-
-      <div class="step-item">
-
-        <div class="step-num">4</div>
-
-        <div class="step-text">
-          <h4 data-i18n="step4_title">Artisan comes to you</h4>
-          <p data-i18n="step4_sub">Your professional arrives at your home, ready to work.</p>
-        </div>
-
-      </div>
-
+      <div class="step-item"><div class="step-num">1</div><div class="step-text"><h4 data-i18n="step1_title">Book a service</h4><p data-i18n="step1_sub">Pick the professional you need and choose a time that works for you.</p></div></div>
+      <div class="step-item"><div class="step-num">2</div><div class="step-text"><h4 data-i18n="step2_title">Fill in your details</h4><p data-i18n="step2_sub">Tell us where you are and describe what needs fixing.</p></div></div>
+      <div class="step-item"><div class="step-num">3</div><div class="step-text"><h4 data-i18n="step3_title">We call to confirm</h4><p data-i18n="step3_sub">The Fixi team calls you to confirm the details and arrange payment.</p></div></div>
+      <div class="step-item"><div class="step-num">4</div><div class="step-text"><h4 data-i18n="step4_title">Artisan comes to you</h4><p data-i18n="step4_sub">Your professional arrives at your home, ready to work.</p></div></div>
     </div>
-
-    <button
-      class="primary"
-      onclick="closeInfo()"
-      data-i18n="got_it"
-    >
-      Got it
-    </button>
-
+    <button class="primary" onclick="closeInfo()" data-i18n="got_it">Got it</button>
   </div>
-
 </div>
 
-
-<!-- =====================================================
-     RESCHEDULE
-===================================================== -->
-
-<div
-  id="rescheduleModal"
-  class="modal"
-  onclick="closeModalOutside(event,'rescheduleModal')"
->
-
+<div id="rescheduleModal" class="modal" onclick="closeModalOutside(event,'rescheduleModal')">
   <div class="sheet">
-
     <div class="handle"></div>
-
     <div class="sheet-head">
-
-      <h3 data-i18n="reschedule">
-        Reschedule
-      </h3>
-
-      <button
-        class="icon-btn"
-        onclick="closeReschedule()"
-      >
-        ×
-      </button>
-
+      <h3 data-i18n="reschedule">Reschedule</h3>
+      <button class="icon-btn" onclick="closeReschedule()">×</button>
     </div>
-
     <div class="form">
-
+      <div class="field"><label data-i18n="date">Date</label><input id="rescheduleDate" type="date"></div>
       <div class="field">
-
-        <label data-i18n="date">
-          Date
-        </label>
-
-        <input
-          id="rescheduleDate"
-          type="date"
-        >
-
-      </div>
-
-      <div class="field">
-
-        <label data-i18n="time">
-          Time
-        </label>
-
+        <label data-i18n="time">Time</label>
         <select id="rescheduleTime">
-
-          <option>09:00</option>
-          <option>10:00</option>
-          <option>11:00</option>
-          <option>12:00</option>
-          <option>14:00</option>
-          <option>15:00</option>
-          <option>16:00</option>
-          <option>17:00</option>
-          <option>18:00</option>
-
+          <option>09:00</option><option>10:00</option><option>11:00</option><option>12:00</option>
+          <option>14:00</option><option>15:00</option><option>16:00</option><option>17:00</option><option>18:00</option>
         </select>
-
       </div>
-
-      <button
-        class="primary"
-        onclick="saveReschedule()"
-        data-i18n="save_changes"
-      >
-        Save changes
-      </button>
-
+      <button class="primary" onclick="saveReschedule()" data-i18n="save_changes">Save changes</button>
     </div>
-
   </div>
-
 </div>
 
-
-<!-- =====================================================
-     REVIEW
-===================================================== -->
-
-<div
-  id="reviewModal"
-  class="modal"
-  onclick="closeModalOutside(event,'reviewModal')"
->
-
+<div id="reviewModal" class="modal" onclick="closeModalOutside(event,'reviewModal')">
   <div class="sheet">
-
     <div class="handle"></div>
-
     <div class="sheet-head">
-
-      <h3 data-i18n="leave_review">
-        Leave a review
-      </h3>
-
-      <button
-        class="icon-btn"
-        onclick="closeReview()"
-      >
-        ×
-      </button>
-
+      <h3 data-i18n="leave_review">Leave a review</h3>
+      <button class="icon-btn" onclick="closeReview()">×</button>
     </div>
-
-    <div
-      class="star-picker"
-      id="starPicker"
-    ></div>
-
+    <div class="star-picker" id="starPicker"></div>
     <div class="form">
-
       <div class="field">
-
-        <textarea
-          id="reviewComment"
-          data-i18n-placeholder="review_comment_placeholder"
-          placeholder="How was your experience?"
-        ></textarea>
-
+        <textarea id="reviewComment" data-i18n-placeholder="review_comment_placeholder" placeholder="How was your experience?"></textarea>
       </div>
-
-      <button
-        class="primary"
-        onclick="submitReview()"
-        data-i18n="submit_review"
-      >
-        Submit review
-      </button>
-
+      <button class="primary" onclick="submitReview()" data-i18n="submit_review">Submit review</button>
     </div>
-
   </div>
-
 </div>
 
-
-<div
-  id="toast"
-  class="toast"
-></div>
-
+<div id="toast" class="toast"></div>
 
 <script>
 
 /* =========================================================
-   SUPABASE CONFIGURATION
+   SUPABASE
 ========================================================= */
 
-const SUPABASE_URL =
-  'https://yzeemgbkeorkummqfzmx.supabase.co';
-
-const SUPABASE_ANON_KEY =
-  'sb_publishable_CzzPIrC6ZjLrVT9-U8ndEg_9-7PTnr7';
+const SUPABASE_URL = 'https://yzeemgbkeorkummqfzmx.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_CzzPIrC6ZjLrVT9-U8ndEg_9-7PTnr7';
 
 let supabaseClient = null;
-
-if (
-  typeof supabase !== 'undefined' &&
-  supabase.createClient
-) {
-  supabaseClient =
-    supabase.createClient(
-      SUPABASE_URL,
-      SUPABASE_ANON_KEY
-    );
+if (typeof supabase !== 'undefined' && supabase.createClient) {
+  supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 }
-
 
 /* =========================================================
    DATA
 ========================================================= */
 
 const artisans = [
-
-  {
-    id:1,
-    name:"Ahmed Ben Ali",
-    service:"Plombier",
-    location:"Tunis",
-    rating:4.9,
-    jobs:126,
-    price:40,
-    available:true,
-    about:"Professional plumber with experience in home repairs.",
-    reviews:34
-  },
-
-  {
-    id:2,
-    name:"Sami Gharbi",
-    service:"Plombier",
-    location:"Ariana",
-    rating:4.8,
-    jobs:94,
-    price:35,
-    available:true,
-    about:"Fast plumbing repairs and maintenance.",
-    reviews:28
-  },
-
-  {
-    id:3,
-    name:"Hatem Khelifi",
-    service:"Plombier",
-    location:"Manar",
-    rating:4.7,
-    jobs:71,
-    price:30,
-    available:false,
-    about:"Home plumbing specialist.",
-    reviews:21
-  },
-
-  {
-    id:4,
-    name:"Mohamed Trabelsi",
-    service:"Électricien",
-    location:"Ariana",
-    rating:4.8,
-    jobs:94,
-    price:45,
-    available:false,
-    about:"Electrical installation and troubleshooting.",
-    reviews:31
-  },
-
-  {
-    id:5,
-    name:"Anis Ben Salem",
-    service:"Électricien",
-    location:"Tunis",
-    rating:4.9,
-    jobs:112,
-    price:50,
-    available:true,
-    about:"Electrician specialized in home installations.",
-    reviews:40
-  },
-
-  {
-    id:6,
-    name:"Youssef Mansour",
-    service:"Menuisier",
-    location:"Manar",
-    rating:4.9,
-    jobs:78,
-    price:55,
-    available:true,
-    about:"Custom woodwork and furniture repairs.",
-    reviews:25
-  },
-
-  {
-    id:7,
-    name:"Karim Haddad",
-    service:"Menuisier",
-    location:"Lac",
-    rating:4.7,
-    jobs:61,
-    price:60,
-    available:false,
-    about:"Furniture and woodworking specialist.",
-    reviews:19
-  },
-
-  {
-    id:8,
-    name:"Ali Ben Amor",
-    service:"Peintre",
-    location:"Tunis",
-    rating:4.8,
-    jobs:88,
-    price:45,
-    available:true,
-    about:"Interior and exterior painting.",
-    reviews:30
-  },
-
-  {
-    id:9,
-    name:"Walid Jaziri",
-    service:"Peintre",
-    location:"Lac",
-    rating:4.7,
-    jobs:55,
-    price:40,
-    available:true,
-    about:"Clean and professional painting service.",
-    reviews:18
-  },
-
-  {
-    id:10,
-    name:"Fathi Jammeli",
-    service:"Menuisier",
-    location:"Bir El Haffey",
-    rating:4.8,
-    jobs:203,
-    price:50,
-    available:true,
-    about:"Experienced carpenter specialized in custom furniture and woodwork.",
-    reviews:22
-  },
-
-  {
-    id:11,
-    name:"Nabil Chaouch",
-    service:"Peintre",
-    location:"Le Bardo",
-    rating:4.6,
-    jobs:42,
-    price:38,
-    available:true,
-    about:"Quick and tidy interior painting jobs.",
-    reviews:15
-  },
-
-  {
-    id:12,
-    name:"Riadh Belhadj",
-    service:"Climatisation",
-    location:"Ariana",
-    rating:4.8,
-    jobs:89,
-    price:55,
-    available:true,
-    about:"AC installation, repair and maintenance for homes and offices.",
-    reviews:27
-  },
-
-  {
-    id:13,
-    name:"Fares Zouari",
-    service:"Climatisation",
-    location:"Tunis",
-    rating:4.6,
-    jobs:53,
-    price:48,
-    available:false,
-    about:"Refrigeration and air conditioning technician.",
-    reviews:16
-  },
-
-  {
-    id:14,
-    name:"Amel Sassi",
-    service:"Ménage",
-    location:"Tunis",
-    rating:4.9,
-    jobs:150,
-    price:25,
-    available:true,
-    about:"Thorough home cleaning, weekly or one-time.",
-    reviews:44
-  },
-
-  {
-    id:15,
-    name:"Rim Belkhir",
-    service:"Ménage",
-    location:"Manar",
-    rating:4.7,
-    jobs:97,
-    price:22,
-    available:true,
-    about:"Deep cleaning specialist for apartments and offices.",
-    reviews:29
-  },
-
-  {
-    id:16,
-    name:"Adel Fendri",
-    service:"Jardinage",
-    location:"Lac",
-    rating:4.8,
-    jobs:64,
-    price:35,
-    available:true,
-    about:"Garden maintenance, trimming and landscaping.",
-    reviews:20
-  },
-
-  {
-    id:17,
-    name:"Bilel Toumi",
-    service:"Jardinage",
-    location:"Ariana",
-    rating:4.6,
-    jobs:40,
-    price:30,
-    available:false,
-    about:"Lawn care and tree pruning.",
-    reviews:13
-  },
-
-  {
-    id:18,
-    name:"Chedly Aouadi",
-    service:"Déménagement",
-    location:"Tunis",
-    rating:4.7,
-    jobs:110,
-    price:80,
-    available:true,
-    about:"Reliable moving crew with truck and equipment.",
-    reviews:32
-  },
-
-  {
-    id:19,
-    name:"Sofien Karray",
-    service:"Déménagement",
-    location:"Lac",
-    rating:4.5,
-    jobs:68,
-    price:70,
-    available:true,
-    about:"Home and office moving, careful with fragile items.",
-    reviews:21
-  }
-
+  {id:1,name:"Ahmed Ben Ali",service:"Plombier",location:"Tunis",rating:4.9,jobs:126,price:40,available:true,about:"Professional plumber with experience in home repairs.",reviews:34},
+  {id:2,name:"Sami Gharbi",service:"Plombier",location:"Ariana",rating:4.8,jobs:94,price:35,available:true,about:"Fast plumbing repairs and maintenance.",reviews:28},
+  {id:3,name:"Hatem Khelifi",service:"Plombier",location:"Manar",rating:4.7,jobs:71,price:30,available:false,about:"Home plumbing specialist.",reviews:21},
+  {id:4,name:"Mohamed Trabelsi",service:"Électricien",location:"Ariana",rating:4.8,jobs:94,price:45,available:false,about:"Electrical installation and troubleshooting.",reviews:31},
+  {id:5,name:"Anis Ben Salem",service:"Électricien",location:"Tunis",rating:4.9,jobs:112,price:50,available:true,about:"Electrician specialized in home installations.",reviews:40},
+  {id:6,name:"Youssef Mansour",service:"Menuisier",location:"Manar",rating:4.9,jobs:78,price:55,available:true,about:"Custom woodwork and furniture repairs.",reviews:25},
+  {id:7,name:"Karim Haddad",service:"Menuisier",location:"Lac",rating:4.7,jobs:61,price:60,available:false,about:"Furniture and woodworking specialist.",reviews:19},
+  {id:8,name:"Ali Ben Amor",service:"Peintre",location:"Tunis",rating:4.8,jobs:88,price:45,available:true,about:"Interior and exterior painting.",reviews:30},
+  {id:9,name:"Walid Jaziri",service:"Peintre",location:"Lac",rating:4.7,jobs:55,price:40,available:true,about:"Clean and professional painting service.",reviews:18},
+  {id:10,name:"Fathi Jammeli",service:"Menuisier",location:"Bir El Haffey",rating:4.8,jobs:203,price:50,available:true,about:"Experienced carpenter specialized in custom furniture and woodwork.",reviews:22},
+  {id:11,name:"Nabil Chaouch",service:"Peintre",location:"Le Bardo",rating:4.6,jobs:42,price:38,available:true,about:"Quick and tidy interior painting jobs.",reviews:15},
+  {id:12,name:"Riadh Belhadj",service:"Climatisation",location:"Ariana",rating:4.8,jobs:89,price:55,available:true,about:"AC installation, repair and maintenance for homes and offices.",reviews:27},
+  {id:13,name:"Fares Zouari",service:"Climatisation",location:"Tunis",rating:4.6,jobs:53,price:48,available:false,about:"Refrigeration and air conditioning technician.",reviews:16},
+  {id:14,name:"Amel Sassi",service:"Ménage",location:"Tunis",rating:4.9,jobs:150,price:25,available:true,about:"Thorough home cleaning, weekly or one-time.",reviews:44},
+  {id:15,name:"Rim Belkhir",service:"Ménage",location:"Manar",rating:4.7,jobs:97,price:22,available:true,about:"Deep cleaning specialist for apartments and offices.",reviews:29},
+  {id:16,name:"Adel Fendri",service:"Jardinage",location:"Lac",rating:4.8,jobs:64,price:35,available:true,about:"Garden maintenance, trimming and landscaping.",reviews:20},
+  {id:17,name:"Bilel Toumi",service:"Jardinage",location:"Ariana",rating:4.6,jobs:40,price:30,available:false,about:"Lawn care and tree pruning.",reviews:13},
+  {id:18,name:"Chedly Aouadi",service:"Déménagement",location:"Tunis",rating:4.7,jobs:110,price:80,available:true,about:"Reliable moving crew with truck and equipment.",reviews:32},
+  {id:19,name:"Sofien Karray",service:"Déménagement",location:"Lac",rating:4.5,jobs:68,price:70,available:true,about:"Home and office moving, careful with fragile items.",reviews:21}
 ];
 
-
-/* =========================================================
-   REVIEW POOL
-========================================================= */
-
 const reviewPool = [
-  {author:"Salma B.",   comment:"Very professional and on time."},
-  {author:"Yassine K.", comment:"Fixed the issue quickly, fair price."},
-  {author:"Mariem T.",  comment:"Would definitely book again."},
-  {author:"Hedi R.",    comment:"Good communication throughout the job."},
-  {author:"Ines D.",    comment:"Clean work, respectful of the house."},
-  {author:"Skander M.", comment:"Solid experience, recommended."}
+  {author:"Salma B.",comment:"Very professional and on time."},
+  {author:"Yassine K.",comment:"Fixed the issue quickly, fair price."},
+  {author:"Mariem T.",comment:"Would definitely book again."},
+  {author:"Hedi R.",comment:"Good communication throughout the job."},
+  {author:"Ines D.",comment:"Clean work, respectful of the house."},
+  {author:"Skander M.",comment:"Solid experience, recommended."}
 ];
 
 function sampleReviewsFor(a){
-
   const r1 = reviewPool[a.id % reviewPool.length];
   const r2 = reviewPool[(a.id + 3) % reviewPool.length];
-
   return [
     {author:r1.author, rating:Math.min(5, Math.round(a.rating)), comment:r1.comment},
     {author:r2.author, rating:Math.max(3, Math.round(a.rating) - 1), comment:r2.comment}
   ];
-
 }
 
 function getReviewsFor(a){
-
   const extra = extraReviews[a.id] || [];
-
   return [...extra, ...sampleReviewsFor(a)];
-
 }
-
 
 /* =========================================================
    TRANSLATIONS
 ========================================================= */
 
 const translations = {
-
   en:{
     nav_home:"Home", nav_bookings:"Bookings", nav_favorites:"Favorites", nav_profile:"Profile",
     hero_title1:"Find help.", hero_title2:"Get it fixed.",
     hero_sub:"Trusted local professionals, whenever you need them.",
-    search_placeholder:"What do you need?",
-    services_title:"Services", see_all:"See all",
+    search_placeholder:"What do you need?", services_title:"Services", see_all:"See all",
     svc_plumber:"Plumber", svc_electrician:"Electrician", svc_carpenter:"Carpenter", svc_painter:"Painter",
     svc_ac:"AC Repair", svc_cleaning:"Cleaning", svc_gardening:"Gardening", svc_moving:"Moving",
     banner_title:"Need someone today?", banner_sub:"Find a nearby professional in a few seconds.",
-    popular_title:"Popular professionals",
-    choose_location:"Choose your location",
+    popular_title:"Popular professionals", choose_location:"Choose your location",
     filter_top_rated:"⭐ Top rated", filter_lowest_price:"💰 Lowest price", filter_available:"✓ Available now",
-    no_results:"No professionals found.",
-    book_now:"Book now", unavailable:"Currently unavailable",
-    add_favorite:"♡ Add to favorites", saved:"♥ Saved",
-    about_title:"About", reviews_title:"Reviews",
-    starting_from:"Starting from",
-    available:"● Available", busy:"● Currently busy",
+    no_results:"No professionals found.", book_now:"Book now", unavailable:"Currently unavailable",
+    add_favorite:"♡ Add to favorites", saved:"♥ Saved", about_title:"About", reviews_title:"Reviews",
+    starting_from:"Starting from", available:"● Available", busy:"● Currently busy",
     booking_title:"Book a professional", booking_sub:"Choose a time and tell us what you need.",
     service_sub:"Professionals available near you.",
     date:"Date", time:"Time", name:"Name", phone:"Phone", location:"Location",
-    choose_location_map:"📍 Choose governorate & delegation",
-    describe_problem:"Describe the problem",
-    describe_placeholder:"Tell the professional what happened...",
-    confirm_booking:"Confirm booking",
-    my_bookings:"My bookings", bookings_sub:"Your upcoming and previous requests.",
+    describe_problem:"Describe the problem", describe_placeholder:"Tell the professional what happened...",
+    confirm_booking:"Confirm booking", my_bookings:"My bookings", bookings_sub:"Your upcoming and previous requests.",
     no_bookings:"No bookings yet.",
     favorites_title:"Favorites", favorites_sub:"Your saved professionals.", no_favorites:"No favorites yet.",
     profile_title:"Profile", edit_profile:"Edit profile", change_appearance:"◐ Change appearance",
-    language:"🌐 Language", choose_language:"Language",
-    edit_profile_title:"Edit profile", save_changes:"Save changes",
+    language:"🌐 Language", choose_language:"Language", edit_profile_title:"Edit profile", save_changes:"Save changes",
     notifications_title:"Notifications", no_new_notifications:"No notifications yet.",
     cancel:"Cancel", confirm:"Confirm", mark_done:"Mark done", reschedule:"Reschedule",
     leave_review:"Leave a review", submit_review:"Submit review", review_comment_placeholder:"How was your experience?",
     tap_map:"Tap anywhere on the map to choose your location.",
-    use_current_location:"◎ Use my current location", confirm_location:"Confirm location",
-    lang_changed:"Language changed ✓",
+    confirm_location:"Confirm location", lang_changed:"Language changed ✓",
     booking_confirmed:"Booking confirmed ✓", fill_required:"Please complete the required fields.",
     choose_location_first:"Please choose your location.", select_professional:"Please select a professional.",
     removed_favorite:"Removed from favorites", added_favorite:"Added to favorites ♥",
     profile_updated:"Profile updated ✓", enter_name:"Please enter your name.",
     location_saved:"Location saved ✓", finding_address:"Finding address...",
     finding_location:"Finding your location...", location_denied:"Location permission was denied.",
-    location_unsupported:"Location is not supported.",
     dark_mode_on:"Dark mode enabled ✦", light_mode_on:"Light mode enabled ✦",
     review_thanks:"Thanks for your review ✓", booking_rescheduled:"Booking rescheduled ✓",
     status_pending:"Pending", status_confirmed:"Confirmed", status_done:"Done", status_cancelled:"Cancelled",
@@ -4592,65 +2681,51 @@ const translations = {
     notif_cancelled:"Booking with {name} was cancelled.",
     notif_rescheduled:"Booking with {name} moved to {date} {time}.",
     notif_booking_sent:"Booking request sent to {name}.",
-    loading:"Loading professionals...",
-    how_fixi_works:"How Fixi works",
+    loading:"Loading professionals...", how_fixi_works:"How Fixi works",
     step1_title:"Book a service", step1_sub:"Pick the professional you need and choose a time that works for you.",
     step2_title:"Fill in your details", step2_sub:"Tell us where you are and describe what needs fixing.",
     step3_title:"We call to confirm", step3_sub:"The Fixi team calls you to confirm the details and arrange payment.",
     step4_title:"Artisan comes to you", step4_sub:"Your professional arrives at your home, ready to work.",
-    got_it:"Got it",
-    fixi_team:"Fixi Team", fixi_team_sub:"Need help? We're one call away.",
+    got_it:"Got it", fixi_team:"Fixi Team", fixi_team_sub:"Need help? We're one call away.",
     profile_default_name:"Add your name", profile_default_phone:"Add your phone number",
     change_photo:"Change photo", remove_photo:"Remove photo",
-    map_fallback_text:"Choose your governorate above, or use your current location — no map plugin needed.",
-    fallback_address_placeholder:"Street, building, area (optional)",
-    governorate:"Governorate", delegation:"Delegation", select_governorate:"-- Select your governorate --", select_delegation:"-- Select a delegation --", choose_location_area:"📍 Choose your governorate and delegation"
+    governorate:"Governorate", delegation:"Delegation",
+    select_governorate:"-- Select your governorate --", select_delegation:"-- Select a delegation --",
+    choose_location_area:"📍 Choose your governorate and delegation"
   },
-
   fr:{
     nav_home:"Accueil", nav_bookings:"Réservations", nav_favorites:"Favoris", nav_profile:"Profil",
     hero_title1:"Besoin d'aide ?", hero_title2:"On répare ça.",
     hero_sub:"Des professionnels locaux de confiance, quand vous en avez besoin.",
-    search_placeholder:"De quoi avez-vous besoin ?",
-    services_title:"Services", see_all:"Tout voir",
+    search_placeholder:"De quoi avez-vous besoin ?", services_title:"Services", see_all:"Tout voir",
     svc_plumber:"Plombier", svc_electrician:"Électricien", svc_carpenter:"Menuisier", svc_painter:"Peintre",
     svc_ac:"Climatisation", svc_cleaning:"Ménage", svc_gardening:"Jardinage", svc_moving:"Déménagement",
     banner_title:"Besoin de quelqu'un aujourd'hui ?", banner_sub:"Trouvez un professionnel proche en quelques secondes.",
-    popular_title:"Professionnels populaires",
-    choose_location:"Choisissez votre localisation",
+    popular_title:"Professionnels populaires", choose_location:"Choisissez votre localisation",
     filter_top_rated:"⭐ Mieux notés", filter_lowest_price:"💰 Prix bas", filter_available:"✓ Disponible",
-    no_results:"Aucun professionnel trouvé.",
-    book_now:"Réserver", unavailable:"Indisponible",
-    add_favorite:"♡ Ajouter aux favoris", saved:"♥ Enregistré",
-    about_title:"À propos", reviews_title:"Avis",
-    starting_from:"À partir de",
-    available:"● Disponible", busy:"● Occupé",
+    no_results:"Aucun professionnel trouvé.", book_now:"Réserver", unavailable:"Indisponible",
+    add_favorite:"♡ Ajouter aux favoris", saved:"♥ Enregistré", about_title:"À propos", reviews_title:"Avis",
+    starting_from:"À partir de", available:"● Disponible", busy:"● Occupé",
     booking_title:"Réserver un professionnel", booking_sub:"Choisissez un horaire et décrivez votre besoin.",
     service_sub:"Professionnels disponibles près de chez vous.",
     date:"Date", time:"Heure", name:"Nom", phone:"Téléphone", location:"Localisation",
-    choose_location_map:"📍 Choisir le gouvernorat et la délégation",
-    describe_problem:"Décrivez le problème",
-    describe_placeholder:"Dites au professionnel ce qui s'est passé...",
-    confirm_booking:"Confirmer la réservation",
-    my_bookings:"Mes réservations", bookings_sub:"Vos demandes en cours et passées.",
+    describe_problem:"Décrivez le problème", describe_placeholder:"Dites au professionnel ce qui s'est passé...",
+    confirm_booking:"Confirmer la réservation", my_bookings:"Mes réservations", bookings_sub:"Vos demandes en cours et passées.",
     no_bookings:"Aucune réservation.",
     favorites_title:"Favoris", favorites_sub:"Vos professionnels enregistrés.", no_favorites:"Aucun favori.",
     profile_title:"Profil", edit_profile:"Modifier le profil", change_appearance:"◐ Changer l'apparence",
-    language:"🌐 Langue", choose_language:"Langue",
-    edit_profile_title:"Modifier le profil", save_changes:"Enregistrer",
+    language:"🌐 Langue", choose_language:"Langue", edit_profile_title:"Modifier le profil", save_changes:"Enregistrer",
     notifications_title:"Notifications", no_new_notifications:"Aucune notification.",
     cancel:"Annuler", confirm:"Confirmer", mark_done:"Marquer terminé", reschedule:"Reporter",
     leave_review:"Laisser un avis", submit_review:"Envoyer l'avis", review_comment_placeholder:"Comment s'est passée l'expérience ?",
     tap_map:"Touchez la carte pour choisir votre position.",
-    use_current_location:"◎ Utiliser ma position actuelle", confirm_location:"Confirmer la position",
-    lang_changed:"Langue modifiée ✓",
+    confirm_location:"Confirmer la position", lang_changed:"Langue modifiée ✓",
     booking_confirmed:"Réservation confirmée ✓", fill_required:"Veuillez compléter les champs requis.",
     choose_location_first:"Veuillez choisir votre position.", select_professional:"Veuillez sélectionner un professionnel.",
     removed_favorite:"Retiré des favoris", added_favorite:"Ajouté aux favoris ♥",
     profile_updated:"Profil mis à jour ✓", enter_name:"Veuillez entrer votre nom.",
     location_saved:"Position enregistrée ✓", finding_address:"Recherche de l'adresse...",
     finding_location:"Recherche de votre position...", location_denied:"Autorisation de localisation refusée.",
-    location_unsupported:"La localisation n'est pas prise en charge.",
     dark_mode_on:"Mode sombre activé ✦", light_mode_on:"Mode clair activé ✦",
     review_thanks:"Merci pour votre avis ✓", booking_rescheduled:"Réservation reportée ✓",
     status_pending:"En attente", status_confirmed:"Confirmée", status_done:"Terminée", status_cancelled:"Annulée",
@@ -4659,65 +2734,51 @@ const translations = {
     notif_cancelled:"La réservation avec {name} a été annulée.",
     notif_rescheduled:"La réservation avec {name} a été déplacée au {date} {time}.",
     notif_booking_sent:"Demande de réservation envoyée à {name}.",
-    loading:"Chargement des professionnels...",
-    how_fixi_works:"Comment fonctionne Fixi",
+    loading:"Chargement des professionnels...", how_fixi_works:"Comment fonctionne Fixi",
     step1_title:"Réservez un service", step1_sub:"Choisissez le professionnel dont vous avez besoin et un horaire qui vous convient.",
     step2_title:"Renseignez vos informations", step2_sub:"Indiquez-nous où vous êtes et décrivez ce qui doit être réparé.",
     step3_title:"Nous vous appelons", step3_sub:"L'équipe Fixi vous appelle pour confirmer les détails et organiser le paiement.",
     step4_title:"L'artisan vient chez vous", step4_sub:"Votre professionnel arrive chez vous, prêt à travailler.",
-    got_it:"Compris",
-    fixi_team:"Équipe Fixi", fixi_team_sub:"Besoin d'aide ? Nous sommes à un appel.",
+    got_it:"Compris", fixi_team:"Équipe Fixi", fixi_team_sub:"Besoin d'aide ? Nous sommes à un appel.",
     profile_default_name:"Ajoutez votre nom", profile_default_phone:"Ajoutez votre numéro",
     change_photo:"Changer la photo", remove_photo:"Supprimer la photo",
-    map_fallback_text:"Choisissez votre gouvernorat ci-dessus, ou utilisez votre position actuelle — aucun plugin de carte nécessaire.",
-    fallback_address_placeholder:"Rue, immeuble, quartier (optionnel)",
-    governorate:"Gouvernorat", delegation:"Délégation", select_governorate:"-- Choisissez votre gouvernorat --", select_delegation:"-- Choisissez une délégation --", choose_location_area:"📍 Choisissez votre gouvernorat et votre délégation"
+    governorate:"Gouvernorat", delegation:"Délégation",
+    select_governorate:"-- Choisissez votre gouvernorat --", select_delegation:"-- Choisissez une délégation --",
+    choose_location_area:"📍 Choisissez votre gouvernorat et votre délégation"
   },
-
   ar:{
     nav_home:"الرئيسية", nav_bookings:"الحجوزات", nav_favorites:"المفضلة", nav_profile:"الملف الشخصي",
     hero_title1:"تحتاج مساعدة؟", hero_title2:"نصلحها لك.",
     hero_sub:"محترفون محليون موثوقون، وقتما احتجتهم.",
-    search_placeholder:"ما الذي تحتاجه؟",
-    services_title:"الخدمات", see_all:"عرض الكل",
+    search_placeholder:"ما الذي تحتاجه؟", services_title:"الخدمات", see_all:"عرض الكل",
     svc_plumber:"سباك", svc_electrician:"كهربائي", svc_carpenter:"نجار", svc_painter:"دهّان",
     svc_ac:"تكييف", svc_cleaning:"تنظيف", svc_gardening:"بستنة", svc_moving:"نقل الأثاث",
     banner_title:"تحتاج شخصًا اليوم؟", banner_sub:"اعثر على محترف قريب في ثوانٍ.",
-    popular_title:"المحترفون الأكثر طلبًا",
-    choose_location:"اختر موقعك",
+    popular_title:"المحترفون الأكثر طلبًا", choose_location:"اختر موقعك",
     filter_top_rated:"⭐ الأعلى تقييمًا", filter_lowest_price:"💰 الأقل سعرًا", filter_available:"✓ متاح الآن",
-    no_results:"لم يتم العثور على محترفين.",
-    book_now:"احجز الآن", unavailable:"غير متاح حاليًا",
-    add_favorite:"♡ أضف للمفضلة", saved:"♥ محفوظ",
-    about_title:"نبذة", reviews_title:"التقييمات",
-    starting_from:"يبدأ من",
-    available:"● متاح", busy:"● مشغول",
+    no_results:"لم يتم العثور على محترفين.", book_now:"احجز الآن", unavailable:"غير متاح حاليًا",
+    add_favorite:"♡ أضف للمفضلة", saved:"♥ محفوظ", about_title:"نبذة", reviews_title:"التقييمات",
+    starting_from:"يبدأ من", available:"● متاح", busy:"● مشغول",
     booking_title:"احجز محترفًا", booking_sub:"اختر الوقت وصف ما تحتاجه.",
     service_sub:"محترفون متاحون بالقرب منك.",
     date:"التاريخ", time:"الوقت", name:"الاسم", phone:"الهاتف", location:"الموقع",
-    choose_location_map:"📍 اختر الولاية والمعتمدية",
-    describe_problem:"صف المشكلة",
-    describe_placeholder:"أخبر المحترف بما حدث...",
-    confirm_booking:"تأكيد الحجز",
-    my_bookings:"حجوزاتي", bookings_sub:"طلباتك الحالية والسابقة.",
+    describe_problem:"صف المشكلة", describe_placeholder:"أخبر المحترف بما حدث...",
+    confirm_booking:"تأكيد الحجز", my_bookings:"حجوزاتي", bookings_sub:"طلباتك الحالية والسابقة.",
     no_bookings:"لا توجد حجوزات بعد.",
     favorites_title:"المفضلة", favorites_sub:"المحترفون المحفوظون.", no_favorites:"لا توجد مفضلة بعد.",
     profile_title:"الملف الشخصي", edit_profile:"تعديل الملف", change_appearance:"◐ تغيير المظهر",
-    language:"🌐 اللغة", choose_language:"اللغة",
-    edit_profile_title:"تعديل الملف الشخصي", save_changes:"حفظ التغييرات",
+    language:"🌐 اللغة", choose_language:"اللغة", edit_profile_title:"تعديل الملف الشخصي", save_changes:"حفظ التغييرات",
     notifications_title:"الإشعارات", no_new_notifications:"لا توجد إشعارات.",
     cancel:"إلغاء", confirm:"تأكيد", mark_done:"وضع علامة منتهي", reschedule:"إعادة الجدولة",
     leave_review:"أضف تقييمًا", submit_review:"إرسال التقييم", review_comment_placeholder:"كيف كانت تجربتك؟",
     tap_map:"اضغط في أي مكان على الخريطة لاختيار موقعك.",
-    use_current_location:"◎ استخدام موقعي الحالي", confirm_location:"تأكيد الموقع",
-    lang_changed:"تم تغيير اللغة ✓",
+    confirm_location:"تأكيد الموقع", lang_changed:"تم تغيير اللغة ✓",
     booking_confirmed:"تم تأكيد الحجز ✓", fill_required:"الرجاء إكمال الحقول المطلوبة.",
     choose_location_first:"الرجاء اختيار موقعك.", select_professional:"الرجاء اختيار محترف.",
     removed_favorite:"أُزيل من المفضلة", added_favorite:"أُضيف إلى المفضلة ♥",
     profile_updated:"تم تحديث الملف الشخصي ✓", enter_name:"الرجاء إدخال اسمك.",
     location_saved:"تم حفظ الموقع ✓", finding_address:"جارٍ تحديد العنوان...",
     finding_location:"جارٍ تحديد موقعك...", location_denied:"تم رفض إذن تحديد الموقع.",
-    location_unsupported:"تحديد الموقع غير مدعوم.",
     dark_mode_on:"تم تفعيل الوضع الداكن ✦", light_mode_on:"تم تفعيل الوضع الفاتح ✦",
     review_thanks:"شكرًا على تقييمك ✓", booking_rescheduled:"تمت إعادة جدولة الحجز ✓",
     status_pending:"قيد الانتظار", status_confirmed:"مؤكد", status_done:"منتهي", status_cancelled:"ملغى",
@@ -4726,21 +2787,18 @@ const translations = {
     notif_cancelled:"تم إلغاء الحجز مع {name}.",
     notif_rescheduled:"تم تأجيل الحجز مع {name} إلى {date} {time}.",
     notif_booking_sent:"تم إرسال طلب الحجز إلى {name}.",
-    loading:"جارٍ تحميل المحترفين...",
-    how_fixi_works:"كيف يعمل Fixi",
+    loading:"جارٍ تحميل المحترفين...", how_fixi_works:"كيف يعمل Fixi",
     step1_title:"احجز خدمة", step1_sub:"اختر المحترف الذي تحتاجه والوقت المناسب لك.",
     step2_title:"أدخل بياناتك", step2_sub:"أخبرنا بمكانك وصف ما يحتاج إلى إصلاح.",
     step3_title:"نتصل بك للتأكيد", step3_sub:"يتصل بك فريق Fixi لتأكيد التفاصيل وترتيب الدفع.",
     step4_title:"يصل المحترف إليك", step4_sub:"يصل محترفك إلى منزلك، جاهزًا للعمل.",
-    got_it:"فهمت",
-    fixi_team:"فريق Fixi", fixi_team_sub:"تحتاج مساعدة؟ نحن على بعد مكالمة واحدة.",
+    got_it:"فهمت", fixi_team:"فريق Fixi", fixi_team_sub:"تحتاج مساعدة؟ نحن على بعد مكالمة واحدة.",
     profile_default_name:"أضف اسمك", profile_default_phone:"أضف رقم هاتفك",
     change_photo:"تغيير الصورة", remove_photo:"إزالة الصورة",
-    map_fallback_text:"اختر ولايتك أعلاه، أو استخدم موقعك الحالي — دون الحاجة لأي خريطة.",
-    fallback_address_placeholder:"الشارع، العمارة، الحي (اختياري)",
-    governorate:"الولاية", delegation:"المعتمدية", select_governorate:"-- اختر ولايتك --", select_delegation:"-- اختر المعتمدية --", choose_location_area:"📍 اختر الولاية والمعتمدية"
+    governorate:"الولاية", delegation:"المعتمدية",
+    select_governorate:"-- اختر ولايتك --", select_delegation:"-- اختر المعتمدية --",
+    choose_location_area:"📍 اختر الولاية والمعتمدية"
   }
-
 };
 
 let currentLang = "en";
@@ -4751,24 +2809,18 @@ function t(key){
 
 function fmt(key, vars){
   let s = t(key);
-  for(const k in vars){
-    s = s.replace("{" + k + "}", vars[k]);
-  }
+  for(const k in vars){ s = s.replace("{" + k + "}", vars[k]); }
   return s;
 }
 
 function applyTranslations(){
-
   document.querySelectorAll("[data-i18n]").forEach(el=>{
     el.textContent = t(el.dataset.i18n);
   });
-
   document.querySelectorAll("[data-i18n-placeholder]").forEach(el=>{
     el.placeholder = t(el.dataset.i18nPlaceholder);
   });
-
 }
-
 
 /* =========================================================
    STATE
@@ -4777,21 +2829,9 @@ function applyTranslations(){
 let currentPage = "home";
 let previousPage = "home";
 let currentServiceName = null;
-
 let selectedArtisan = null;
 
-let selectedLocation = {
-  lat:null,
-  lng:null,
-  governorate:"",
-  delegation:"",
-  detail:"",
-  address:""
-};
-
-let map = null;
-let marker = null;
-let geocoder = null;
+let selectedLocation = {lat:null,lng:null,governorate:"",delegation:"",detail:"",address:""};
 
 try {
   const savedLocation = JSON.parse(localStorage.getItem("fixiLocation") || "null");
@@ -4800,107 +2840,38 @@ try {
   }
 } catch(e) {}
 
-let filterState = {
-  sort:null,
-  availableOnly:false
-};
-
+let filterState = {sort:null,availableOnly:false};
 let reviewBookingId = null;
 let reviewStars = 5;
 let rescheduleId = null;
-
 
 /* =========================================================
    STORAGE
 ========================================================= */
 
-let bookings =
-  JSON.parse(
-    localStorage.getItem("fixiBookings") || "[]"
-  );
-
-let favorites =
-  JSON.parse(
-    localStorage.getItem("fixiFavorites") || "[]"
-  );
-
-let profile =
-  JSON.parse(
-    localStorage.getItem("fixiProfile") || "null"
-  ) || {
-    name:"",
-    phone:"",
-    photo:null
-  };
-
+let bookings = JSON.parse(localStorage.getItem("fixiBookings") || "[]");
+let favorites = JSON.parse(localStorage.getItem("fixiFavorites") || "[]");
+let profile = JSON.parse(localStorage.getItem("fixiProfile") || "null") || {name:"",phone:"",photo:null};
 let pendingPhoto = null;
-
-let notifications =
-  JSON.parse(
-    localStorage.getItem("fixiNotifications") || "[]"
-  );
-
-let extraReviews =
-  JSON.parse(
-    localStorage.getItem("fixiReviews") || "{}"
-  );
-
-let reviewedBookings =
-  JSON.parse(
-    localStorage.getItem("fixiReviewed") || "[]"
-  );
-
+let notifications = JSON.parse(localStorage.getItem("fixiNotifications") || "[]");
+let extraReviews = JSON.parse(localStorage.getItem("fixiReviews") || "{}");
+let reviewedBookings = JSON.parse(localStorage.getItem("fixiReviewed") || "[]");
 
 function saveBookings(){
   localStorage.setItem("fixiBookings", JSON.stringify(bookings));
 }
 
-
-/* =========================================================
-   STATUS HELPERS
-   Internal UI statuses are:
-     pending | confirmed | completed | cancelled
-   Same values are sent to and read from Supabase.
-========================================================= */
-
 function normalizeStatus(rawStatus){
-
-  if(!rawStatus){
-    return "pending";
-  }
-
-  const s =
-    String(rawStatus)
-      .trim()
-      .toLowerCase();
-
-  if(s === "pending"){
-    return "pending";
-  }
-
-  if(s === "confirmed"){
-    return "confirmed";
-  }
-
-  if(s === "completed" || s === "done"){
-    return "completed";
-  }
-
-  if(s === "cancelled" || s === "canceled"){
-    return "cancelled";
-  }
-
+  if(!rawStatus){ return "pending"; }
+  const s = String(rawStatus).trim().toLowerCase();
+  if(s === "pending"){ return "pending"; }
+  if(s === "confirmed"){ return "confirmed"; }
+  if(s === "completed" || s === "done"){ return "completed"; }
+  if(s === "cancelled" || s === "canceled"){ return "cancelled"; }
   return "pending";
-
 }
 
-
-/* =========================================================
-   MAP A BOOKING FROM SUPABASE ROW -> LOCAL SHAPE
-========================================================= */
-
 function mapSupabaseRow(row){
-
   return {
     id: row.id,
     supabaseId: row.id,
@@ -4917,389 +2888,145 @@ function mapSupabaseRow(row){
     status: normalizeStatus(row.status),
     created_at: row.created_at || null
   };
-
 }
-
-
-/* =========================================================
-   FETCH BOOKINGS FROM SUPABASE (for the current user)
-   - Anonymous clients (no auth) will read only their own
-     inserted rows via RLS, or if RLS allows public read,
-     we fall back to fetching all.
-   - We match by phone + name where possible.
-========================================================= */
 
 async function syncBookingsFromSupabase(){
-
-  if(!supabaseClient){
-    return;
-  }
-
+  if(!supabaseClient){ return; }
   try{
-
-    const {
-      data,
-      error
-    } =
-      await supabaseClient
-        .from("bookings")
-        .select("*")
-        .order("created_at", { ascending:false });
-
-    if(error){
-      console.warn("Supabase fetch bookings failed:", error.message);
-      return;
-    }
-
-    if(!Array.isArray(data)){
-      return;
-    }
-
-    /*
-      Merge Supabase rows with local bookings.
-      - If a booking exists locally and also in Supabase, keep Supabase version.
-      - If a booking exists in Supabase but not locally, add it.
-      - If a booking exists only locally (offline), keep it until we can push it.
-    */
-
-    const localBySupabaseId =
-      new Map();
-
-    bookings.forEach(b => {
-      if(b.supabaseId){
-        localBySupabaseId.set(String(b.supabaseId), b);
-      }
-    });
-
+    const {data, error} = await supabaseClient.from("bookings").select("*").order("created_at", { ascending:false });
+    if(error){ console.warn("Supabase fetch failed:", error.message); return; }
+    if(!Array.isArray(data)){ return; }
+    const localBySupabaseId = new Map();
+    bookings.forEach(b => { if(b.supabaseId){ localBySupabaseId.set(String(b.supabaseId), b); } });
     const merged = [];
-
     data.forEach(row => {
-
-      const mapped =
-        mapSupabaseRow(row);
-
+      const mapped = mapSupabaseRow(row);
       merged.push(mapped);
-
       localBySupabaseId.delete(String(row.id));
-
     });
-
-    // Keep any local-only bookings that were never synced
-    localBySupabaseId.forEach(localBooking => {
-      merged.push(localBooking);
-    });
-
+    localBySupabaseId.forEach(localBooking => { merged.push(localBooking); });
     bookings = merged;
-
     saveBookings();
-
-    if(currentPage === "bookings"){
-      renderBookings();
-    }
-
-  }catch(err){
-    console.warn("Supabase sync error:", err);
-  }
-
+    if(currentPage === "bookings"){ renderBookings(); }
+  }catch(err){ console.warn("Supabase sync error:", err); }
 }
-
-
-/* =========================================================
-   REALTIME — listen to changes from Admin / other devices
-========================================================= */
 
 function subscribeToBookingsRealtime(){
-
-  if(!supabaseClient){
-    return;
-  }
-
+  if(!supabaseClient){ return; }
   try{
-
-    supabaseClient
-      .channel("fixi-bookings-realtime")
-      .on(
-        "postgres_changes",
-        {
-          event:"*",
-          schema:"public",
-          table:"bookings"
-        },
-        payload => {
-
-          if(payload.eventType === "INSERT"){
-
-            const row =
-              mapSupabaseRow(payload.new);
-
-            const exists =
-              bookings.some(
-                b =>
-                  String(b.supabaseId) === String(row.supabaseId) ||
-                  String(b.id) === String(row.id)
-              );
-
-            if(!exists){
-              bookings.unshift(row);
-              saveBookings();
-              if(currentPage === "bookings"){
-                renderBookings();
-              }
-            }
-
-          }else if(payload.eventType === "UPDATE"){
-
-            const row =
-              mapSupabaseRow(payload.new);
-
-            let changed = false;
-
-            bookings = bookings.map(b => {
-
-              if(
-                String(b.supabaseId) === String(row.supabaseId) ||
-                String(b.id) === String(row.id)
-              ){
-                changed = true;
-                return { ...b, ...row };
-              }
-
-              return b;
-
-            });
-
-            if(changed){
-              saveBookings();
-              if(currentPage === "bookings"){
-                renderBookings();
-              }
-            }
-
-          }else if(payload.eventType === "DELETE"){
-
-            const removedId =
-              payload.old && payload.old.id;
-
-            if(removedId){
-
-              const before = bookings.length;
-
-              bookings = bookings.filter(
-                b =>
-                  String(b.supabaseId) !== String(removedId) &&
-                  String(b.id) !== String(removedId)
-              );
-
-              if(bookings.length !== before){
-                saveBookings();
-                if(currentPage === "bookings"){
-                  renderBookings();
-                }
-              }
-
-            }
-
-          }
-
+    supabaseClient.channel("fixi-bookings-realtime").on("postgres_changes",{event:"*",schema:"public",table:"bookings"},payload => {
+      if(payload.eventType === "INSERT"){
+        const row = mapSupabaseRow(payload.new);
+        const exists = bookings.some(b => String(b.supabaseId) === String(row.supabaseId) || String(b.id) === String(row.id));
+        if(!exists){
+          bookings.unshift(row);
+          saveBookings();
+          if(currentPage === "bookings"){ renderBookings(); }
         }
-      )
-      .subscribe();
-
-  }catch(err){
-    console.warn("Realtime subscribe failed:", err);
-  }
-
+      }else if(payload.eventType === "UPDATE"){
+        const row = mapSupabaseRow(payload.new);
+        let changed = false;
+        bookings = bookings.map(b => {
+          if(String(b.supabaseId) === String(row.supabaseId) || String(b.id) === String(row.id)){
+            changed = true;
+            return { ...b, ...row };
+          }
+          return b;
+        });
+        if(changed){
+          saveBookings();
+          if(currentPage === "bookings"){ renderBookings(); }
+        }
+      }else if(payload.eventType === "DELETE"){
+        const removedId = payload.old && payload.old.id;
+        if(removedId){
+          const before = bookings.length;
+          bookings = bookings.filter(b => String(b.supabaseId) !== String(removedId) && String(b.id) !== String(removedId));
+          if(bookings.length !== before){
+            saveBookings();
+            if(currentPage === "bookings"){ renderBookings(); }
+          }
+        }
+      }
+    }).subscribe();
+  }catch(err){ console.warn("Realtime subscribe failed:", err); }
 }
-
 
 /* =========================================================
    INIT
 ========================================================= */
 
-document.addEventListener(
-  "DOMContentLoaded",
-  () => {
+document.addEventListener("DOMContentLoaded", () => {
+  const theme = localStorage.getItem("fixiTheme");
+  if(theme === "dark"){ document.body.classList.add("dark"); }
 
-    const theme =
-      localStorage.getItem("fixiTheme");
+  loadLanguage();
+  loadProfile();
+  updateNotifBadge();
+  showLoadingThenRender();
+  renderBookings();
+  renderFavorites();
 
-    if(theme === "dark"){
-      document.body.classList.add("dark");
-    }
-
-    loadLanguage();
-
-    loadProfile();
-
-    updateNotifBadge();
-
-    showLoadingThenRender();
-
-    renderBookings();
-
-    renderFavorites();
-
-    const saved =
-      localStorage.getItem("fixiLocation");
-
-    if(saved){
-
-      try{
-
-        selectedLocation =
-          JSON.parse(saved);
-
-        document
-          .getElementById("homeLocation")
-          .textContent =
-            selectedLocation.address ||
-            t("choose_location");
-
-      }catch(e){}
-
-    }
-
-    const today =
-      new Date()
-        .toISOString()
-        .split("T")[0];
-
-    document.getElementById(
-      "bookingDate"
-    ).min = today;
-
-    // Sync + realtime
-    syncBookingsFromSupabase();
-    subscribeToBookingsRealtime();
-
+  const saved = localStorage.getItem("fixiLocation");
+  if(saved){
+    try{
+      selectedLocation = JSON.parse(saved);
+      document.getElementById("homeLocation").textContent = selectedLocation.address || t("choose_location");
+    }catch(e){}
   }
-);
 
+  const today = new Date().toISOString().split("T")[0];
+  document.getElementById("bookingDate").min = today;
 
-/* =========================================================
-   SPLASH SCREEN
-========================================================= */
-
-window.addEventListener("load", () => {
-
-  setTimeout(() => {
-
-    const splash =
-      document.getElementById("splashScreen");
-
-    if(splash){
-
-      splash.classList.add("hide");
-
-      setTimeout(() => {
-        splash.remove();
-      }, 600);
-
-    }
-
-  }, 900);
-
+  syncBookingsFromSupabase();
+  subscribeToBookingsRealtime();
 });
 
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    const splash = document.getElementById("splashScreen");
+    if(splash){
+      splash.classList.add("hide");
+      setTimeout(() => { splash.remove(); }, 600);
+    }
+  }, 900);
+});
 
 /* =========================================================
    NAVIGATION
 ========================================================= */
 
 function hidePages(){
-
-  document
-    .querySelectorAll("main.page")
-    .forEach(
-      page =>
-        page.classList.add("hidden")
-    );
-
+  document.querySelectorAll("main.page").forEach(page => page.classList.add("hidden"));
 }
 
 function navigate(page,button){
-
   hidePages();
-
   currentPage = page;
-
-  const target =
-    document.getElementById(
-      page + "Page"
-    );
-
-  if(target){
-    target.classList.remove("hidden");
-  }
-
-  document
-    .querySelectorAll(".nav-btn")
-    .forEach(
-      btn =>
-        btn.classList.remove("active")
-    );
-
-  if(button){
-    button.classList.add("active");
-  }
-
-  if(page === "home"){
-    renderHome();
-  }
-
-  if(page === "bookings"){
-    syncBookingsFromSupabase();
-    renderBookings();
-  }
-
-  if(page === "favorites"){
-    renderFavorites();
-  }
-
+  const target = document.getElementById(page + "Page");
+  if(target){ target.classList.remove("hidden"); }
+  document.querySelectorAll(".nav-btn").forEach(btn => btn.classList.remove("active"));
+  if(button){ button.classList.add("active"); }
+  if(page === "home"){ renderHome(); }
+  if(page === "bookings"){ syncBookingsFromSupabase(); renderBookings(); }
+  if(page === "favorites"){ renderFavorites(); }
 }
 
 function goHome(){
-
   hidePages();
-
-  document
-    .getElementById("homePage")
-    .classList.remove("hidden");
-
+  document.getElementById("homePage").classList.remove("hidden");
   currentPage = "home";
-
-  document
-    .querySelectorAll(".nav-btn")
-    .forEach(
-      btn =>
-        btn.classList.remove("active")
-    );
-
-  document
-    .querySelector(".nav-btn")
-    .classList.add("active");
-
+  document.querySelectorAll(".nav-btn").forEach(btn => btn.classList.remove("active"));
+  document.querySelector(".nav-btn").classList.add("active");
 }
 
 function goBack(){
-
   if(previousPage === "service"){
-
-    showService(
-      currentServiceName ||
-      (selectedArtisan
-        ? selectedArtisan.service
-        : "Plombier")
-    );
-
+    showService(currentServiceName || (selectedArtisan ? selectedArtisan.service : "Plombier"));
   }else{
-
     goHome();
-
   }
-
 }
-
 
 /* =========================================================
    FILTERS
@@ -5318,1335 +3045,511 @@ function toggleAvailableOnly(){
 }
 
 function syncFilterUI(){
-
   document.querySelectorAll("[data-sort]").forEach(btn=>{
     btn.classList.toggle("active", filterState.sort === btn.dataset.sort);
   });
-
   document.querySelectorAll(".avail-toggle").forEach(btn=>{
     btn.classList.toggle("active", filterState.availableOnly);
   });
-
 }
 
 function applyFilters(list){
-
   let result = [...list];
-
-  if(filterState.availableOnly){
-    result = result.filter(a => a.available);
-  }
-
-  if(filterState.sort === "rating"){
-    result.sort((a,b) => b.rating - a.rating);
-  }else if(filterState.sort === "price"){
-    result.sort((a,b) => a.price - b.price);
-  }
-
+  if(filterState.availableOnly){ result = result.filter(a => a.available); }
+  if(filterState.sort === "rating"){ result.sort((a,b) => b.rating - a.rating); }
+  else if(filterState.sort === "price"){ result.sort((a,b) => a.price - b.price); }
   return result;
-
 }
 
 function refreshCurrentList(){
-
   if(currentPage === "service"){
-
     showService(currentServiceName, true);
-
   }else{
-
-    const q =
-      document.getElementById("searchInput").value.trim();
-
-    if(q){
-      searchArtisans();
-    }else{
-      renderHome();
-    }
-
+    const q = document.getElementById("searchInput").value.trim();
+    if(q){ searchArtisans(); }else{ renderHome(); }
   }
-
 }
 
-
 /* =========================================================
-   UNIFIED SERVICE AVATARS
+   SERVICE AVATARS
 ========================================================= */
 
 const serviceAvatars = {
-  "Plombier":       {icon:"🔧", gradient:"linear-gradient(135deg,#3b82f6,#2563eb)"},
-  "Électricien":    {icon:"⚡", gradient:"linear-gradient(135deg,#f59e0b,#d97706)"},
-  "Menuisier":      {icon:"🪚", gradient:"linear-gradient(135deg,#f97316,#ea580c)"},
-  "Peintre":        {icon:"🎨", gradient:"linear-gradient(135deg,#ec4899,#db2777)"},
-  "Climatisation":  {icon:"❄️", gradient:"linear-gradient(135deg,#0ea5e9,#0284c7)"},
-  "Ménage":         {icon:"🧹", gradient:"linear-gradient(135deg,#22c55e,#16a34a)"},
-  "Jardinage":      {icon:"🌿", gradient:"linear-gradient(135deg,#84cc16,#65a30d)"},
-  "Déménagement":   {icon:"📦", gradient:"linear-gradient(135deg,#a855f7,#9333ea)"}
+  "Plombier":{icon:"🔧",gradient:"linear-gradient(135deg,#3b82f6,#2563eb)"},
+  "Électricien":{icon:"⚡",gradient:"linear-gradient(135deg,#f59e0b,#d97706)"},
+  "Menuisier":{icon:"🪚",gradient:"linear-gradient(135deg,#f97316,#ea580c)"},
+  "Peintre":{icon:"🎨",gradient:"linear-gradient(135deg,#ec4899,#db2777)"},
+  "Climatisation":{icon:"❄️",gradient:"linear-gradient(135deg,#0ea5e9,#0284c7)"},
+  "Ménage":{icon:"🧹",gradient:"linear-gradient(135deg,#22c55e,#16a34a)"},
+  "Jardinage":{icon:"🌿",gradient:"linear-gradient(135deg,#84cc16,#65a30d)"},
+  "Déménagement":{icon:"📦",gradient:"linear-gradient(135deg,#a855f7,#9333ea)"}
 };
 
 function getServiceAvatar(service){
-  return serviceAvatars[service] || {icon:"🛠️", gradient:"linear-gradient(135deg,#6366f1,#8b5cf6)"};
+  return serviceAvatars[service] || {icon:"🛠️",gradient:"linear-gradient(135deg,#6366f1,#8b5cf6)"};
 }
-
 
 /* =========================================================
    HOME
 ========================================================= */
 
 function showLoadingThenRender(){
-
-  const container =
-    document.getElementById("homeArtisans");
-
-  container.innerHTML = `
-    <div class="loading-wrap">
-      <div class="spinner"></div>
-      <span>${t("loading")}</span>
-    </div>
-  `;
-
-  setTimeout(() => {
-    renderHome();
-  }, 500);
-
+  const container = document.getElementById("homeArtisans");
+  container.innerHTML = `<div class="loading-wrap"><div class="spinner"></div><span>${t("loading")}</span></div>`;
+  setTimeout(() => { renderHome(); }, 500);
 }
 
 function renderHome(){
-
-  const container =
-    document.getElementById(
-      "homeArtisans"
-    );
-
-  const list =
-    applyFilters(artisans).slice(0,6);
-
-  container.innerHTML =
-    list.length
-      ? list.map(artisanCard).join("")
-      : `<p style="color:var(--muted)">${t("no_results")}</p>`;
-
+  const container = document.getElementById("homeArtisans");
+  const list = applyFilters(artisans).slice(0,6);
+  container.innerHTML = list.length ? list.map(artisanCard).join("") : `<p style="color:var(--muted)">${t("no_results")}</p>`;
 }
-
-
-/* =========================================================
-   ARTISAN CARD
-========================================================= */
 
 function artisanCard(a){
-
   const avatar = getServiceAvatar(a.service);
-
   return `
-
-    <div
-      class="artisan"
-      onclick="openArtisan(${a.id})"
-    >
-
-      <div class="avatar" style="background:${avatar.gradient}">
-        ${avatar.icon}
-      </div>
-
-
+    <div class="artisan" onclick="openArtisan(${a.id})">
+      <div class="avatar" style="background:${avatar.gradient}">${avatar.icon}</div>
       <div class="artisan-info">
-
-        <div class="artisan-name">
-          ${a.name}
-        </div>
-
-        <div class="artisan-meta">
-          ${a.service} · ${a.location}
-        </div>
-
-        <div class="rating">
-          ⭐ ${a.rating}
-          · ${a.jobs} jobs
-          · ${a.price} DT
-        </div>
-
+        <div class="artisan-name">${a.name}</div>
+        <div class="artisan-meta">${a.service} · ${a.location}</div>
+        <div class="rating">⭐ ${a.rating} · ${a.jobs} jobs · ${a.price} DT</div>
       </div>
-
-
-      <div
-        class="${a.available ? "available" : "busy"}"
-        style="font-size:10px"
-      >
-        ●
-      </div>
-
+      <div class="${a.available ? "available" : "busy"}" style="font-size:10px">●</div>
     </div>
-
   `;
-
 }
-
-
-/* =========================================================
-   SERVICES
-========================================================= */
 
 function showService(service, refresh){
-
   currentServiceName = service;
-
   if(!refresh){
-
     previousPage = "home";
-
     hidePages();
-
-    document
-      .getElementById("servicePage")
-      .classList.remove("hidden");
-
+    document.getElementById("servicePage").classList.remove("hidden");
     currentPage = "service";
-
   }
-
-  document
-    .getElementById("serviceTitle")
-    .textContent = service;
-
-  let list =
-    artisans.filter(
-      a =>
-        a.service === service
-    );
-
+  document.getElementById("serviceTitle").textContent = service;
+  let list = artisans.filter(a => a.service === service);
   list = applyFilters(list);
-
-  document
-    .getElementById("serviceArtisans")
-    .innerHTML =
-      list.length
-        ? list.map(artisanCard).join("")
-        : `<p style="color:var(--muted)">${t("no_results")}</p>`;
-
+  document.getElementById("serviceArtisans").innerHTML = list.length ? list.map(artisanCard).join("") : `<p style="color:var(--muted)">${t("no_results")}</p>`;
 }
-
-
-/* =========================================================
-   SEARCH
-========================================================= */
 
 function searchArtisans(){
-
-  const q =
-    document
-      .getElementById("searchInput")
-      .value
-      .toLowerCase()
-      .trim();
-
-  if(!q){
-
-    renderHome();
-
-    return;
-
-  }
-
-  let result =
-    artisans.filter(
-      a =>
-        a.name
-          .toLowerCase()
-          .includes(q)
-
-        ||
-
-        a.service
-          .toLowerCase()
-          .includes(q)
-
-        ||
-
-        a.location
-          .toLowerCase()
-          .includes(q)
-    );
-
+  const q = document.getElementById("searchInput").value.toLowerCase().trim();
+  if(!q){ renderHome(); return; }
+  let result = artisans.filter(a => a.name.toLowerCase().includes(q) || a.service.toLowerCase().includes(q) || a.location.toLowerCase().includes(q));
   result = applyFilters(result);
-
-  document
-    .getElementById("homeArtisans")
-    .innerHTML =
-      result.length
-        ? result.map(artisanCard).join("")
-        : `<p style="color:var(--muted)">${t("no_results")}</p>`;
-
+  document.getElementById("homeArtisans").innerHTML = result.length ? result.map(artisanCard).join("") : `<p style="color:var(--muted)">${t("no_results")}</p>`;
 }
-
-
-/* =========================================================
-   ARTISAN PROFILE
-========================================================= */
 
 function openArtisan(id){
-
-  selectedArtisan =
-    artisans.find(
-      a => a.id === id
-    );
-
+  selectedArtisan = artisans.find(a => a.id === id);
   previousPage = currentPage;
-
   hidePages();
-
-  document
-    .getElementById("artisanPage")
-    .classList.remove("hidden");
-
-  const a =
-    selectedArtisan;
-
-  const avatar =
-    getServiceAvatar(a.service);
-
-  const isFav =
-    favorites.includes(a.id);
-
-  const reviewsHtml =
-    getReviewsFor(a).map(r => `
-      <div class="review-item">
-        <div class="review-head">
-          <span>${r.author}</span>
-          <span class="stars">${"★".repeat(r.rating)}${"☆".repeat(5 - r.rating)}</span>
-        </div>
-        <p>${r.comment}</p>
+  document.getElementById("artisanPage").classList.remove("hidden");
+  const a = selectedArtisan;
+  const avatar = getServiceAvatar(a.service);
+  const isFav = favorites.includes(a.id);
+  const reviewsHtml = getReviewsFor(a).map(r => `
+    <div class="review-item">
+      <div class="review-head">
+        <span>${r.author}</span>
+        <span class="stars">${"★".repeat(r.rating)}${"☆".repeat(5 - r.rating)}</span>
       </div>
-    `).join("");
-
-  document
-    .getElementById("artisanDetails")
-    .innerHTML = `
-
-      <div
-        class="profile-card glass"
-      >
-
-        <div class="profile-avatar" style="background:${avatar.gradient}">
-          ${avatar.icon}
-        </div>
-
-        <h2>
-          ${a.name}
-        </h2>
-
-        <p>
-          ${a.service} · ${a.location}
-        </p>
-
-        <br>
-
-        <div style="font-weight:800">
-          ⭐ ${a.rating}
-          · ${a.jobs} completed jobs
-        </div>
-
-        <br>
-
-        <button
-          class="secondary"
-          onclick="toggleFavorite(${a.id})"
-        >
-          ${isFav
-            ? t("saved")
-            : t("add_favorite")}
-        </button>
-
-      </div>
-
-
+      <p>${r.comment}</p>
+    </div>
+  `).join("");
+  document.getElementById("artisanDetails").innerHTML = `
+    <div class="profile-card glass">
+      <div class="profile-avatar" style="background:${avatar.gradient}">${avatar.icon}</div>
+      <h2>${a.name}</h2>
+      <p>${a.service} · ${a.location}</p>
       <br>
-
-
-      <div
-        class="glass"
-        style="
-          padding:20px;
-          border-radius:25px
-        "
-      >
-
-        <h3>
-          ${t("about_title")}
-        </h3>
-
-        <p
-          style="
-            color:var(--muted);
-            line-height:1.6
-          "
-        >
-          ${a.about}
-        </p>
-
-        <hr
-          style="
-            border:0;
-            border-top:
-              1px solid
-              var(--border)
-          "
-        >
-
-        <p>
-          ⭐ ${a.rating}
-          · ${a.reviews} reviews
-        </p>
-
-        <p>
-          ${t("starting_from")}
-          <b>${a.price} DT</b>
-        </p>
-
-        <p
-          class="${a.available
-            ? "available"
-            : "busy"}"
-        >
-          ${a.available
-            ? t("available")
-            : t("busy")}
-        </p>
-
-      </div>
-
-
+      <div style="font-weight:800">⭐ ${a.rating} · ${a.jobs} completed jobs</div>
       <br>
-
-
-      <div
-        class="glass"
-        style="
-          padding:20px;
-          border-radius:25px
-        "
-      >
-
-        <h3>
-          ${t("reviews_title")}
-        </h3>
-
-        ${reviewsHtml}
-
-      </div>
-
-
-      <br>
-
-
-      <button
-        class="primary"
-        onclick="openBooking()"
-        ${a.available
-          ? ""
-          : "disabled"}
-      >
-        ${a.available
-          ? t("book_now")
-          : t("unavailable")}
-      </button>
-
-    `;
-
+      <button class="secondary" onclick="toggleFavorite(${a.id})">${isFav ? t("saved") : t("add_favorite")}</button>
+    </div>
+    <br>
+    <div class="glass" style="padding:20px;border-radius:25px">
+      <h3>${t("about_title")}</h3>
+      <p style="color:var(--muted);line-height:1.6">${a.about}</p>
+      <hr style="border:0;border-top:1px solid var(--border)">
+      <p>⭐ ${a.rating} · ${a.reviews} reviews</p>
+      <p>${t("starting_from")} <b>${a.price} DT</b></p>
+      <p class="${a.available ? "available" : "busy"}">${a.available ? t("available") : t("busy")}</p>
+    </div>
+    <br>
+    <div class="glass" style="padding:20px;border-radius:25px">
+      <h3>${t("reviews_title")}</h3>
+      ${reviewsHtml}
+    </div>
+    <br>
+    <button class="primary" onclick="openBooking()" ${a.available ? "" : "disabled"}>
+      ${a.available ? t("book_now") : t("unavailable")}
+    </button>
+  `;
 }
 
-
-/* =========================================================
-   BOOKING
-========================================================= */
-
 function openBooking(){
-
   previousPage = "artisan";
-
   hidePages();
-
-  document
-    .getElementById("bookingPage")
-    .classList.remove("hidden");
-
-  document
-    .getElementById("bookingName")
-    .value =
-      profile.name || "";
-
-  document
-    .getElementById("bookingPhone")
-    .value =
-      profile.phone || "";
-
+  document.getElementById("bookingPage").classList.remove("hidden");
+  document.getElementById("bookingName").value = profile.name || "";
+  document.getElementById("bookingPhone").value = profile.phone || "";
   updateBookingLocation();
-
 }
 
 function updateBookingLocation(){
-
-  const btn =
-    document.getElementById(
-      "bookingLocationButton"
-    );
-
-  if(
-    selectedLocation.address
-  ){
-
-    btn.innerHTML =
-      "📍 " +
-      selectedLocation.address;
-
-  }else{
-
-    btn.innerHTML =
-      t("choose_location_area");
-
-  }
-
+  const btn = document.getElementById("bookingLocationButton");
+  if(selectedLocation.address){ btn.innerHTML = "📍 " + selectedLocation.address; }
+  else{ btn.innerHTML = t("choose_location_area"); }
 }
 
 async function confirmBooking(){
+  const date = document.getElementById("bookingDate").value;
+  const time = document.getElementById("bookingTime").value;
+  const name = document.getElementById("bookingName").value.trim();
+  const phone = document.getElementById("bookingPhone").value.trim();
+  const problem = document.getElementById("bookingProblem").value.trim();
+  const email = document.getElementById("bookingEmail").value.trim();
 
-  const date =
-    document
-      .getElementById("bookingDate")
-      .value;
+  if(!date || !name || !phone){ toast(t("fill_required")); return; }
+  if(!selectedLocation.address){ toast(t("choose_location_first")); return; }
+  if(!selectedArtisan){ toast(t("select_professional")); return; }
 
-  const time =
-    document
-      .getElementById("bookingTime")
-      .value;
-
-  const name =
-    document
-      .getElementById("bookingName")
-      .value
-      .trim();
-
-  const phone =
-    document
-      .getElementById("bookingPhone")
-      .value
-      .trim();
-
-  const problem =
-    document
-      .getElementById("bookingProblem")
-      .value
-      .trim();
-  const email =
-    document
-      .getElementById("bookingEmail")
-      .value
-      .trim();
-  if(
-    !date ||
-    !name ||
-    !phone
-  ){
-
-    toast(t("fill_required"));
-
-    return;
-
-  }
-
-  if(
-    !selectedLocation.address
-  ){
-
-    toast(t("choose_location_first"));
-
-    return;
-
-  }
-
-  if(!selectedArtisan){
-
-    toast(t("select_professional"));
-
-    return;
-
-  }
-
-  const wilaya =
-    selectedLocation.governorate || "";
+  const wilaya = selectedLocation.governorate || "";
 
   const localBooking = {
-
     id: Date.now(),
-
     supabaseId: null,
-
-    artisan:
-      selectedArtisan.name,
-
-    service:
-      selectedArtisan.service,
-
-    date,
-    time,
-
-    name,
-    phone,
-    email,
-
-    address:
-      selectedLocation.address,
-
+    artisan: selectedArtisan.name,
+    service: selectedArtisan.service,
+    date, time, name, phone, email,
+    address: selectedLocation.address,
     wilaya,
-
-    lat:
-      selectedLocation.lat,
-
-    lng:
-      selectedLocation.lng,
-
+    lat: selectedLocation.lat,
+    lng: selectedLocation.lng,
     problem,
-
     status:"pending",
-
-    created_at:
-      new Date().toISOString()
-
+    created_at: new Date().toISOString()
   };
 
-  // 1) Save locally right away (works offline)
   bookings.unshift(localBooking);
   saveBookings();
   renderBookings();
 
-  addNotification(
-    fmt("notif_booking_sent", {name:selectedArtisan.name})
-  );
-
+  addNotification(fmt("notif_booking_sent", {name:selectedArtisan.name}));
   toast(t("booking_confirmed"));
 
-  // 2) Push to Supabase
   if(supabaseClient){
-
     try{
+      const {data, error} = await supabaseClient.from("bookings").insert([{
+        name: localBooking.name,
+        phone: localBooking.phone,
+        email: email,
+        service: localBooking.service,
+        date: localBooking.date,
+        time: localBooking.time,
+        wilaya: localBooking.wilaya,
+        address: localBooking.address,
+        problem: localBooking.problem,
+        status: "pending",
+        language: currentLang || "fr"
+      }]).select();
 
-      const {
-        data,
-        error
-      } =
-        await supabaseClient
-          .from("bookings")
-          .insert([
-            {
- name: localBooking.name,
-              phone: localBooking.phone,
-              email: email,
-              service: localBooking.service,
-              date: localBooking.date,
-              time: localBooking.time,
-              wilaya: localBooking.wilaya,
-              address: localBooking.address,
-              problem: localBooking.problem,
-              status: "pending",
-              language: currentLang || "fr"
-            }
-          ])
-          .select();
-
-      if(error){
-
-        console.warn(
-          "Supabase insert failed:",
-          error.message
-        );
-
-      }else if(
-        Array.isArray(data) &&
-        data[0] &&
-        data[0].id
-      ){
-
-        // Attach the Supabase id to the local booking
-        localBooking.supabaseId =
-          data[0].id;
-
-        // Replace local entry with the canonical row
+      if(error){ console.warn("Supabase insert failed:", error.message); }
+      else if(Array.isArray(data) && data[0] && data[0].id){
+        localBooking.supabaseId = data[0].id;
         bookings = bookings.map(b => {
           if(b.id === localBooking.id){
-            return {
-              ...b,
-              supabaseId: data[0].id,
-              created_at: data[0].created_at || b.created_at
-            };
+            return { ...b, supabaseId: data[0].id, created_at: data[0].created_at || b.created_at };
           }
           return b;
         });
-
         saveBookings();
-
       }
-
-    }catch(err){
-
-      console.warn(
-        "Supabase insert error:",
-        err
-      );
-
-    }
-
+    }catch(err){ console.warn("Supabase insert error:", err); }
   }
 
-  setTimeout(
-    () => {
-
-      navigate(
-        "bookings",
-        document.querySelectorAll(
-          ".nav-btn"
-        )[1]
-      );
-
-    },
-    700
-  );
-
+  setTimeout(() => {
+    navigate("bookings", document.querySelectorAll(".nav-btn")[1]);
+  }, 700);
 }
-
 
 /* =========================================================
    BOOKINGS
 ========================================================= */
 
 function statusLabel(status){
-
-  const map = {
-    pending:"status_pending",
-    confirmed:"status_confirmed",
-    completed:"status_done",
-    cancelled:"status_cancelled"
-  };
-
+  const map = {pending:"status_pending",confirmed:"status_confirmed",completed:"status_done",cancelled:"status_cancelled"};
   return t(map[status] || status);
-
 }
 
 function renderBookings(){
-
-  const container =
-    document.getElementById(
-      "bookingsList"
-    );
-
+  const container = document.getElementById("bookingsList");
   if(!bookings.length){
-
-    container.innerHTML = `
-      <p style="color:var(--muted)">
-        ${t("no_bookings")}
-      </p>
-    `;
-
+    container.innerHTML = `<p style="color:var(--muted)">${t("no_bookings")}</p>`;
     return;
-
   }
-
-  container.innerHTML =
-    bookings
-      .map(
-        b => {
-
-          const status =
-            normalizeStatus(b.status);
-
-          const reviewed =
-            reviewedBookings.includes(b.id) ||
-            reviewedBookings.includes(b.supabaseId);
-
-          let actions = "";
-
-          if(status === "pending"){
-
-            actions = `
-              <button onclick="openReschedule('${b.supabaseId || b.id}')">${t("reschedule")}</button>
-            `;
-
-          }else if(status === "completed" && !reviewed){
-
-            actions = `
-              <button class="primary-mini" onclick="openReview('${b.supabaseId || b.id}')">${t("leave_review")}</button>
-            `;
-
-          }
-
-          const statusClass =
-            status === "cancelled"
-              ? "busy"
-              : (status === "completed" ? "available" : "");
-
-          return `
-
-            <div class="artisan" style="cursor:default">
-
-              <div class="avatar" style="background:${getServiceAvatar(b.service).gradient}">
-                ${getServiceAvatar(b.service).icon}
-              </div>
-
-              <div class="artisan-info">
-
-                <div class="artisan-name">
-                  ${b.artisan}
-                </div>
-
-                <div class="artisan-meta">
-                  ${b.service}
-                </div>
-
-                <div class="rating">
-                  📅 ${b.date} · ${b.time}
-                </div>
-
-                <div class="artisan-meta">
-                  📍 ${b.address}
-                </div>
-
-                <div class="booking-actions">
-                  ${actions}
-                </div>
-
-              </div>
-
-              <div class="${statusClass}" style="font-size:11px;font-weight:800">
-                ${statusLabel(status)}
-              </div>
-
-            </div>
-
-          `;
-
-        }
-      )
-      .join("");
-
+  container.innerHTML = bookings.map(b => {
+    const status = normalizeStatus(b.status);
+    const reviewed = reviewedBookings.includes(b.id) || reviewedBookings.includes(b.supabaseId);
+    let actions = "";
+    if(status === "pending"){
+      actions = `<button onclick="openReschedule('${b.supabaseId || b.id}')">${t("reschedule")}</button>`;
+    }else if(status === "completed" && !reviewed){
+      actions = `<button class="primary-mini" onclick="openReview('${b.supabaseId || b.id}')">${t("leave_review")}</button>`;
+    }
+    const statusClass = status === "cancelled" ? "busy" : (status === "completed" ? "available" : "");
+    return `
+      <div class="artisan" style="cursor:default">
+        <div class="avatar" style="background:${getServiceAvatar(b.service).gradient}">${getServiceAvatar(b.service).icon}</div>
+        <div class="artisan-info">
+          <div class="artisan-name">${b.artisan}</div>
+          <div class="artisan-meta">${b.service}</div>
+          <div class="rating">📅 ${b.date} · ${b.time}</div>
+          <div class="artisan-meta">📍 ${b.address}</div>
+          <div class="booking-actions">${actions}</div>
+        </div>
+        <div class="${statusClass}" style="font-size:11px;font-weight:800">${statusLabel(status)}</div>
+      </div>
+    `;
+  }).join("");
 }
 
 function findBookingByAnyId(id){
-
-  return bookings.find(
-    b =>
-      String(b.id) === String(id) ||
-      String(b.supabaseId) === String(id)
-  );
-
+  return bookings.find(b => String(b.id) === String(id) || String(b.supabaseId) === String(id));
 }
 
 async function advanceBooking(id){
-
-  const b =
-    findBookingByAnyId(id);
-
-  if(!b){
-    return;
-  }
-
-  const currentStatus =
-    normalizeStatus(b.status);
-
+  const b = findBookingByAnyId(id);
+  if(!b){ return; }
+  const currentStatus = normalizeStatus(b.status);
   let nextStatus = currentStatus;
-
   if(currentStatus === "pending"){
-
     nextStatus = "confirmed";
-
-    addNotification(
-      fmt("notif_confirmed", {name:b.artisan, date:b.date})
-    );
-
+    addNotification(fmt("notif_confirmed", {name:b.artisan, date:b.date}));
   }else if(currentStatus === "confirmed"){
-
     nextStatus = "completed";
-
-    addNotification(
-      fmt("notif_done", {name:b.artisan})
-    );
-
+    addNotification(fmt("notif_done", {name:b.artisan}));
   }
-
   b.status = nextStatus;
-
   saveBookings();
   renderBookings();
-
-  // Sync with Supabase if we have a remote id
   if(supabaseClient && b.supabaseId){
-
     try{
-
-      const { error } =
-        await supabaseClient
-          .from("bookings")
-          .update({ status: nextStatus })
-          .eq("id", b.supabaseId);
-
-      if(error){
-        console.warn("Supabase update status failed:", error.message);
-      }
-
-    }catch(err){
-      console.warn("Supabase update status error:", err);
-    }
-
+      const { error } = await supabaseClient.from("bookings").update({ status: nextStatus }).eq("id", b.supabaseId);
+      if(error){ console.warn("Supabase update status failed:", error.message); }
+    }catch(err){ console.warn("Supabase update status error:", err); }
   }
-
 }
 
 async function cancelBooking(id){
-
-  const b =
-    findBookingByAnyId(id);
-
-  if(!b){
-    return;
-  }
-
+  const b = findBookingByAnyId(id);
+  if(!b){ return; }
   b.status = "cancelled";
-
-  addNotification(
-    fmt("notif_cancelled", {name:b.artisan})
-  );
-
+  addNotification(fmt("notif_cancelled", {name:b.artisan}));
   saveBookings();
   renderBookings();
-
   if(supabaseClient && b.supabaseId){
-
     try{
-
-      const { error } =
-        await supabaseClient
-          .from("bookings")
-          .update({ status: "cancelled" })
-          .eq("id", b.supabaseId);
-
-      if(error){
-        console.warn("Supabase cancel failed:", error.message);
-      }
-
-    }catch(err){
-      console.warn("Supabase cancel error:", err);
-    }
-
+      const { error } = await supabaseClient.from("bookings").update({ status: "cancelled" }).eq("id", b.supabaseId);
+      if(error){ console.warn("Supabase cancel failed:", error.message); }
+    }catch(err){ console.warn("Supabase cancel error:", err); }
   }
-
 }
-
 
 /* =========================================================
    RESCHEDULE
 ========================================================= */
 
 function openReschedule(id){
-
   rescheduleId = id;
-
-  const b =
-    findBookingByAnyId(id);
-
-  if(!b){
-    return;
-  }
-
+  const b = findBookingByAnyId(id);
+  if(!b){ return; }
   document.getElementById("rescheduleDate").value = b.date;
   document.getElementById("rescheduleTime").value = b.time;
-
-  document
-    .getElementById("rescheduleModal")
-    .classList.add("show");
-
+  document.getElementById("rescheduleModal").classList.add("show");
 }
 
 function closeReschedule(){
-
-  document
-    .getElementById("rescheduleModal")
-    .classList.remove("show");
-
+  document.getElementById("rescheduleModal").classList.remove("show");
 }
 
 async function saveReschedule(){
-
-  const b =
-    findBookingByAnyId(rescheduleId);
-
-  if(!b){
-    return;
-  }
-
+  const b = findBookingByAnyId(rescheduleId);
+  if(!b){ return; }
   b.date = document.getElementById("rescheduleDate").value;
   b.time = document.getElementById("rescheduleTime").value;
-
-  addNotification(
-    fmt("notif_rescheduled", {name:b.artisan, date:b.date, time:b.time})
-  );
-
+  addNotification(fmt("notif_rescheduled", {name:b.artisan, date:b.date, time:b.time}));
   saveBookings();
   closeReschedule();
   renderBookings();
-
   if(supabaseClient && b.supabaseId){
-
     try{
-
-      const { error } =
-        await supabaseClient
-          .from("bookings")
-          .update({
-            date: b.date,
-            time: b.time
-          })
-          .eq("id", b.supabaseId);
-
-      if(error){
-        console.warn("Supabase reschedule failed:", error.message);
-      }
-
-    }catch(err){
-      console.warn("Supabase reschedule error:", err);
-    }
-
+      const { error } = await supabaseClient.from("bookings").update({ date: b.date, time: b.time }).eq("id", b.supabaseId);
+      if(error){ console.warn("Supabase reschedule failed:", error.message); }
+    }catch(err){ console.warn("Supabase reschedule error:", err); }
   }
-
   toast(t("booking_rescheduled"));
-
 }
-
 
 /* =========================================================
    REVIEWS
 ========================================================= */
 
 function openReview(bookingId){
-
   reviewBookingId = bookingId;
-
   reviewStars = 5;
-
   renderStarPicker();
-
   document.getElementById("reviewComment").value = "";
-
-  document
-    .getElementById("reviewModal")
-    .classList.add("show");
-
+  document.getElementById("reviewModal").classList.add("show");
 }
 
 function closeReview(){
-
-  document
-    .getElementById("reviewModal")
-    .classList.remove("show");
-
+  document.getElementById("reviewModal").classList.remove("show");
 }
 
 function renderStarPicker(){
-
-  const el =
-    document.getElementById("starPicker");
-
-  el.innerHTML =
-    [1,2,3,4,5]
-      .map(i => `<span class="${i <= reviewStars ? "filled" : ""}" onclick="setStars(${i})">★</span>`)
-      .join("");
-
+  const el = document.getElementById("starPicker");
+  el.innerHTML = [1,2,3,4,5].map(i => `<span class="${i <= reviewStars ? "filled" : ""}" onclick="setStars(${i})">★</span>`).join("");
 }
 
 function setStars(n){
-
   reviewStars = n;
-
   renderStarPicker();
-
 }
 
 function submitReview(){
-
-  const b =
-    findBookingByAnyId(reviewBookingId);
-
-  if(!b){
-    return;
-  }
-
-  const artisan =
-    artisans.find(a => a.name === b.artisan);
-
-  if(!artisan){
-    return;
-  }
-
-  const comment =
-    document
-      .getElementById("reviewComment")
-      .value
-      .trim();
-
-  if(!extraReviews[artisan.id]){
-    extraReviews[artisan.id] = [];
-  }
-
+  const b = findBookingByAnyId(reviewBookingId);
+  if(!b){ return; }
+  const artisan = artisans.find(a => a.name === b.artisan);
+  if(!artisan){ return; }
+  const comment = document.getElementById("reviewComment").value.trim();
+  if(!extraReviews[artisan.id]){ extraReviews[artisan.id] = []; }
   extraReviews[artisan.id].unshift({
     author: profile.name || "Customer",
     rating: reviewStars,
     comment: comment || "Great work!"
   });
-
-  if(b.supabaseId && !reviewedBookings.includes(b.supabaseId)){
-    reviewedBookings.push(b.supabaseId);
-  }
-  if(!reviewedBookings.includes(b.id)){
-    reviewedBookings.push(b.id);
-  }
-
+  if(b.supabaseId && !reviewedBookings.includes(b.supabaseId)){ reviewedBookings.push(b.supabaseId); }
+  if(!reviewedBookings.includes(b.id)){ reviewedBookings.push(b.id); }
   localStorage.setItem("fixiReviews", JSON.stringify(extraReviews));
   localStorage.setItem("fixiReviewed", JSON.stringify(reviewedBookings));
-
   closeReview();
-
   renderBookings();
-
   toast(t("review_thanks"));
-
 }
-
 
 /* =========================================================
    FAVORITES
 ========================================================= */
 
 function toggleFavorite(id){
-
-  if(
-    favorites.includes(id)
-  ){
-
-    favorites =
-      favorites.filter(
-        x => x !== id
-      );
-
+  if(favorites.includes(id)){
+    favorites = favorites.filter(x => x !== id);
     toast(t("removed_favorite"));
-
   }else{
-
     favorites.push(id);
-
     toast(t("added_favorite"));
-
   }
-
-  localStorage.setItem(
-    "fixiFavorites",
-    JSON.stringify(favorites)
-  );
-
+  localStorage.setItem("fixiFavorites", JSON.stringify(favorites));
   renderFavorites();
-
-  if(selectedArtisan){
-
-    openArtisan(
-      selectedArtisan.id
-    );
-
-  }
-
+  if(selectedArtisan){ openArtisan(selectedArtisan.id); }
 }
 
 function renderFavorites(){
-
-  const container =
-    document.getElementById(
-      "favoritesList"
-    );
-
-  const list =
-    artisans.filter(
-      a =>
-        favorites.includes(a.id)
-    );
-
-  container.innerHTML =
-    list.length
-      ? list.map(artisanCard).join("")
-      : `<p style="color:var(--muted)">${t("no_favorites")}</p>`;
-
+  const container = document.getElementById("favoritesList");
+  const list = artisans.filter(a => favorites.includes(a.id));
+  container.innerHTML = list.length ? list.map(artisanCard).join("") : `<p style="color:var(--muted)">${t("no_favorites")}</p>`;
 }
-
 
 /* =========================================================
    NOTIFICATIONS
 ========================================================= */
 
 function addNotification(text){
-
-  notifications.unshift({
-    text,
-    time: new Date().toLocaleString(),
-    read:false
-  });
-
-  localStorage.setItem(
-    "fixiNotifications",
-    JSON.stringify(notifications)
-  );
-
+  notifications.unshift({text,time: new Date().toLocaleString(),read:false});
+  localStorage.setItem("fixiNotifications", JSON.stringify(notifications));
   updateNotifBadge();
-
 }
 
 function updateNotifBadge(){
-
-  const count =
-    notifications.filter(n => !n.read).length;
-
-  const badge =
-    document.getElementById("notifBadge");
-
+  const count = notifications.filter(n => !n.read).length;
+  const badge = document.getElementById("notifBadge");
   if(count > 0){
-
-    badge.textContent =
-      count > 9 ? "9+" : count;
-
+    badge.textContent = count > 9 ? "9+" : count;
     badge.classList.add("show");
-
   }else{
-
     badge.classList.remove("show");
-
   }
-
 }
 
 function openNotifications(){
-
-  document
-    .getElementById("notifModal")
-    .classList.add("show");
-
+  document.getElementById("notifModal").classList.add("show");
   renderNotifications();
-
   notifications.forEach(n => n.read = true);
-
-  localStorage.setItem(
-    "fixiNotifications",
-    JSON.stringify(notifications)
-  );
-
+  localStorage.setItem("fixiNotifications", JSON.stringify(notifications));
   updateNotifBadge();
-
 }
 
 function closeNotifications(){
-
-  document
-    .getElementById("notifModal")
-    .classList.remove("show");
-
+  document.getElementById("notifModal").classList.remove("show");
 }
 
 function renderNotifications(){
-
-  const container =
-    document.getElementById("notifList");
-
-  container.innerHTML =
-    notifications.length
-      ? notifications.map(n => `
-          <div class="notif-item">
-            ${n.text}
-            <div class="notif-time">${n.time}</div>
-          </div>
-        `).join("")
-      : `<p style="color:var(--muted)">${t("no_new_notifications")}</p>`;
-
+  const container = document.getElementById("notifList");
+  container.innerHTML = notifications.length
+    ? notifications.map(n => `<div class="notif-item">${n.text}<div class="notif-time">${n.time}</div></div>`).join("")
+    : `<p style="color:var(--muted)">${t("no_new_notifications")}</p>`;
 }
 
+function openInfo(){ document.getElementById("infoModal").classList.add("show"); }
+function closeInfo(){ document.getElementById("infoModal").classList.remove("show"); }
 
 /* =========================================================
-   INFO MODAL
-========================================================= */
-
-function openInfo(){
-
-  document
-    .getElementById("infoModal")
-    .classList.add("show");
-
-}
-
-function closeInfo(){
-
-  document
-    .getElementById("infoModal")
-    .classList.remove("show");
-
-}
-
-
-/* =========================================================
-   LOCATION — GOVERNORATES & DELEGATIONS
+   LOCATION
 ========================================================= */
 
 const governorates = [
-  {name:"Tunis",        lat:36.8065, lng:10.1815},
-  {name:"Ariana",       lat:36.8625, lng:10.1956},
-  {name:"Ben Arous",    lat:36.7545, lng:10.2181},
-  {name:"Manouba",      lat:36.8081, lng:10.0972},
-  {name:"Nabeul",       lat:36.4561, lng:10.7376},
-  {name:"Zaghouan",     lat:36.4029, lng:10.1429},
-  {name:"Bizerte",      lat:37.2744, lng:9.8739},
-  {name:"Béja",         lat:36.7256, lng:9.1817},
-  {name:"Jendouba",     lat:36.5011, lng:8.7803},
-  {name:"Le Kef",       lat:36.1826, lng:8.7148},
-  {name:"Siliana",      lat:36.0844, lng:9.3708},
-  {name:"Kairouan",     lat:35.6781, lng:10.0963},
-  {name:"Kasserine",    lat:35.1676, lng:8.8365},
-  {name:"Sidi Bouzid",  lat:35.0381, lng:9.4858},
-  {name:"Sousse",       lat:35.8256, lng:10.6084},
-  {name:"Monastir",     lat:35.7780, lng:10.8262},
-  {name:"Mahdia",       lat:35.5047, lng:11.0622},
-  {name:"Sfax",         lat:34.7406, lng:10.7603},
-  {name:"Gafsa",        lat:34.4250, lng:8.7842},
-  {name:"Tozeur",       lat:33.9197, lng:8.1335},
-  {name:"Kébili",       lat:33.7050, lng:8.9690},
-  {name:"Gabès",        lat:33.8814, lng:10.0982},
-  {name:"Médenine",     lat:33.3549, lng:10.5055},
-  {name:"Tataouine",    lat:32.9297, lng:10.4518}
+  {name:"Tunis",lat:36.8065,lng:10.1815},
+  {name:"Ariana",lat:36.8625,lng:10.1956},
+  {name:"Ben Arous",lat:36.7545,lng:10.2181},
+  {name:"Manouba",lat:36.8081,lng:10.0972},
+  {name:"Nabeul",lat:36.4561,lng:10.7376},
+  {name:"Zaghouan",lat:36.4029,lng:10.1429},
+  {name:"Bizerte",lat:37.2744,lng:9.8739},
+  {name:"Béja",lat:36.7256,lng:9.1817},
+  {name:"Jendouba",lat:36.5011,lng:8.7803},
+  {name:"Le Kef",lat:36.1826,lng:8.7148},
+  {name:"Siliana",lat:36.0844,lng:9.3708},
+  {name:"Kairouan",lat:35.6781,lng:10.0963},
+  {name:"Kasserine",lat:35.1676,lng:8.8365},
+  {name:"Sidi Bouzid",lat:35.0381,lng:9.4858},
+  {name:"Sousse",lat:35.8256,lng:10.6084},
+  {name:"Monastir",lat:35.7780,lng:10.8262},
+  {name:"Mahdia",lat:35.5047,lng:11.0622},
+  {name:"Sfax",lat:34.7406,lng:10.7603},
+  {name:"Gafsa",lat:34.4250,lng:8.7842},
+  {name:"Tozeur",lat:33.9197,lng:8.1335},
+  {name:"Kébili",lat:33.7050,lng:8.9690},
+  {name:"Gabès",lat:33.8814,lng:10.0982},
+  {name:"Médenine",lat:33.3549,lng:10.5055},
+  {name:"Tataouine",lat:32.9297,lng:10.4518}
 ];
 
 let govPopulated = false;
 
 function populateGovernoratesOnce(){
-
-  if(govPopulated){
-    return;
-  }
-
-  const select =
-    document.getElementById("governorateSelect");
-
+  if(govPopulated){ return; }
+  const select = document.getElementById("governorateSelect");
   governorates.forEach(g => {
-
-    const opt =
-      document.createElement("option");
-
+    const opt = document.createElement("option");
     opt.value = g.name;
     opt.textContent = g.name;
-
     select.appendChild(opt);
-
   });
-
   govPopulated = true;
-
 }
 
 const delegationsByGovernorate = {
@@ -6677,616 +3580,217 @@ const delegationsByGovernorate = {
 };
 
 function populateDelegations(){
-  const govSelect=document.getElementById("governorateSelect");
-  const delSelect=document.getElementById("delegationSelect");
+  const govSelect = document.getElementById("governorateSelect");
+  const delSelect = document.getElementById("delegationSelect");
   if(!govSelect || !delSelect) return;
-  const gov=govSelect.value;
-  delSelect.innerHTML='<option value="" data-i18n="select_delegation">-- Select a delegation --</option>';
+  const gov = govSelect.value;
+  delSelect.innerHTML = '<option value="" data-i18n="select_delegation">-- Select a delegation --</option>';
   (delegationsByGovernorate[gov]||[]).forEach(name=>{
-    const opt=document.createElement("option");
-    opt.value=name; opt.textContent=name; delSelect.appendChild(opt);
+    const opt = document.createElement("option");
+    opt.value = name;
+    opt.textContent = name;
+    delSelect.appendChild(opt);
   });
-  delSelect.disabled=!gov;
-  delSelect.value=(gov===selectedLocation.governorate ? (selectedLocation.delegation||"") : "");
+  delSelect.disabled = !gov;
+  delSelect.value = (gov === selectedLocation.governorate ? (selectedLocation.delegation||"") : "");
 }
 
 function onGovernorateSelect(){
-  const gov=document.getElementById("governorateSelect").value;
-  selectedLocation.governorate=gov;
-  selectedLocation.delegation="";
-  selectedLocation.detail="";
-  selectedLocation.address="";
+  const gov = document.getElementById("governorateSelect").value;
+  selectedLocation.governorate = gov;
+  selectedLocation.delegation = "";
+  selectedLocation.detail = "";
+  selectedLocation.address = "";
   populateDelegations();
-  const selected=document.getElementById("selectedAddress");
-  if(selected) selected.textContent=gov || t("map_fallback_text");
+  const selected = document.getElementById("selectedAddress");
+  if(selected) selected.textContent = gov || t("map_fallback_text");
 }
 
 function onDelegationSelect(){
-  const gov=document.getElementById("governorateSelect").value;
-  const delegation=document.getElementById("delegationSelect").value;
+  const gov = document.getElementById("governorateSelect").value;
+  const delegation = document.getElementById("delegationSelect").value;
   if(!gov || !delegation) return;
-  selectedLocation.governorate=gov;
-  selectedLocation.delegation=delegation;
-  selectedLocation.detail="";
-  selectedLocation.address=`${delegation}, ${gov}`;
-  localStorage.setItem("fixiLocation",JSON.stringify(selectedLocation));
-  const home=document.getElementById("homeLocation");
-  if(home) home.textContent=selectedLocation.address;
+  selectedLocation.governorate = gov;
+  selectedLocation.delegation = delegation;
+  selectedLocation.detail = "";
+  selectedLocation.address = `${delegation}, ${gov}`;
+  localStorage.setItem("fixiLocation", JSON.stringify(selectedLocation));
+  const home = document.getElementById("homeLocation");
+  if(home) home.textContent = selectedLocation.address;
   updateBookingLocation();
-  const selected=document.getElementById("selectedAddress");
-  if(selected) selected.textContent=selectedLocation.address;
+  const selected = document.getElementById("selectedAddress");
+  if(selected) selected.textContent = selectedLocation.address;
   closeMap();
   toast(t("location_saved"));
 }
 
-let mapAvailable = false;
-
 function openMap(){
   populateGovernoratesOnce();
-  const modal=document.getElementById("mapModal");
+  const modal = document.getElementById("mapModal");
   if(modal) modal.classList.add("show");
   prefillLocationFields();
 }
 
 function prefillLocationFields(){
-  const select=document.getElementById("governorateSelect");
-  if(select) select.value=selectedLocation.governorate || "";
+  const select = document.getElementById("governorateSelect");
+  if(select) select.value = selectedLocation.governorate || "";
   populateDelegations();
-  const delegation=document.getElementById("delegationSelect");
-  if(delegation) delegation.value=selectedLocation.delegation || "";
-  const input=document.getElementById("fallbackAddress");
-  if(input) input.value=selectedLocation.detail || "";
-  const selected=document.getElementById("selectedAddress");
-  if(selected) selected.textContent=selectedLocation.address || t("map_fallback_text");
-}
-
-function onLocationFieldsChange(){
-
-  const gov =
-    document.getElementById("governorateSelect").value;
-
-  const detail =
-    document
-      .getElementById("fallbackAddress")
-      .value
-      .trim();
-
-  selectedLocation.governorate = gov;
-  selectedLocation.detail = detail;
-
-  const combined =
-    detail && gov
-      ? `${detail}, ${gov}`
-      : (detail || gov);
-
-  selectedLocation.address = combined;
-
-  document
-    .getElementById("selectedAddress")
-    .textContent =
-      combined || t("tap_map");
-
-  if(mapAvailable && map && gov){
-
-    const g =
-      governorates.find(x => x.name === gov);
-
-    if(g){
-
-      setMapLocation(g.lat, g.lng, false);
-
-      map.setZoom(11);
-
-    }
-
-  }
-
+  const delegation = document.getElementById("delegationSelect");
+  if(delegation) delegation.value = selectedLocation.delegation || "";
+  const selected = document.getElementById("selectedAddress");
+  if(selected) selected.textContent = selectedLocation.address || t("map_fallback_text");
 }
 
 function closeMap(){
-
-  document
-    .getElementById("mapModal")
-    .classList.remove("show");
-
+  document.getElementById("mapModal").classList.remove("show");
 }
 
 function closeMapOutside(event){
-
-  if(
-    event.target.id ===
-    "mapModal"
-  ){
-
-    closeMap();
-
-  }
-
+  if(event.target.id === "mapModal"){ closeMap(); }
 }
-
-
-/* =========================================================
-   CURRENT LOCATION
-========================================================= */
-
-function useCurrentLocation(){
-
-  if(
-    !navigator.geolocation
-  ){
-
-    toast(t("location_unsupported"));
-
-    return;
-
-  }
-
-  toast(t("finding_location"));
-
-  navigator.geolocation.getCurrentPosition(
-
-    position => {
-
-      const lat =
-        position.coords.latitude;
-
-      const lng =
-        position.coords.longitude;
-
-      selectedLocation.lat = lat;
-      selectedLocation.lng = lng;
-
-      document
-        .getElementById("selectedAddress")
-        .textContent =
-          t("finding_address");
-
-      reverseGeocodeFallback(lat, lng);
-
-    },
-
-    () => {
-
-      toast(t("location_denied"));
-
-    },
-
-    {
-      enableHighAccuracy:true,
-      timeout:10000,
-      maximumAge:0
-    }
-
-  );
-
-}
-
-async function reverseGeocodeFallback(lat, lng){
-
-  try{
-
-    const res =
-      await fetch(
-        `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`
-      );
-
-    const data =
-      await res.json();
-
-    selectedLocation.detail =
-      data.display_name ||
-      `${lat.toFixed(5)}, ${lng.toFixed(5)}`;
-
-  }catch(e){
-
-    selectedLocation.detail =
-      `${lat.toFixed(5)}, ${lng.toFixed(5)}`;
-
-  }
-
-  const gov =
-    document.getElementById("governorateSelect").value;
-
-  selectedLocation.governorate = gov;
-
-  selectedLocation.address =
-    gov
-      ? `${selectedLocation.detail}, ${gov}`
-      : selectedLocation.detail;
-
-  document
-    .getElementById("selectedAddress")
-    .textContent =
-      selectedLocation.address;
-
-  const input =
-    document.getElementById("fallbackAddress");
-
-  if(input){
-    input.value = selectedLocation.detail;
-  }
-
-}
-
-
-/* =========================================================
-   CONFIRM LOCATION
-========================================================= */
 
 function confirmLocation(){
-
-  if(
-    !selectedLocation.address
-  ){
-
-    toast(t("choose_location_first"));
-
-    return;
-
-  }
-
-  localStorage.setItem(
-    "fixiLocation",
-    JSON.stringify(
-      selectedLocation
-    )
-  );
-
-  document
-    .getElementById(
-      "homeLocation"
-    )
-    .textContent =
-      selectedLocation.address;
-
+  if(!selectedLocation.address){ toast(t("choose_location_first")); return; }
+  localStorage.setItem("fixiLocation", JSON.stringify(selectedLocation));
+  document.getElementById("homeLocation").textContent = selectedLocation.address;
   updateBookingLocation();
-
   closeMap();
-
   toast(t("location_saved"));
-
 }
-
 
 /* =========================================================
    PROFILE
 ========================================================= */
 
 function loadProfile(){
-
   const nameEl = document.getElementById("profileName");
   const phoneEl = document.getElementById("profilePhone");
   const avatarEl = document.getElementById("profileAvatar");
-
-  nameEl.textContent =
-    profile.name || t("profile_default_name");
-
-  phoneEl.textContent =
-    profile.phone || t("profile_default_phone");
-
+  nameEl.textContent = profile.name || t("profile_default_name");
+  phoneEl.textContent = profile.phone || t("profile_default_phone");
   if(profile.photo){
-
-    avatarEl.innerHTML =
-      `<img src="${profile.photo}" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:28px">`;
-
+    avatarEl.innerHTML = `<img src="${profile.photo}" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:28px">`;
   }else{
-
-    avatarEl.textContent =
-      profile.name
-        ? profile.name[0].toUpperCase()
-        : "👤";
-
+    avatarEl.textContent = profile.name ? profile.name[0].toUpperCase() : "👤";
   }
-
 }
 
 function openEditProfile(){
-
-  document
-    .getElementById(
-      "editModal"
-    )
-    .classList.add("show");
-
-  document
-    .getElementById(
-      "editName"
-    )
-    .value =
-      profile.name || "";
-
-  document
-    .getElementById(
-      "editPhone"
-    )
-    .value =
-      profile.phone || "";
-
+  document.getElementById("editModal").classList.add("show");
+  document.getElementById("editName").value = profile.name || "";
+  document.getElementById("editPhone").value = profile.phone || "";
   pendingPhoto = profile.photo || null;
-
   renderEditPhotoPreview();
-
 }
 
 function closeEditProfile(){
-
-  document
-    .getElementById(
-      "editModal"
-    )
-    .classList.remove("show");
-
+  document.getElementById("editModal").classList.remove("show");
 }
 
 function renderEditPhotoPreview(){
-
-  const el =
-    document.getElementById("editPhotoPreview");
-
-  if(pendingPhoto){
-
-    el.innerHTML =
-      `<img src="${pendingPhoto}" alt="">`;
-
-  }else{
-
-    el.textContent = "👤";
-
-  }
-
+  const el = document.getElementById("editPhotoPreview");
+  if(pendingPhoto){ el.innerHTML = `<img src="${pendingPhoto}" alt="">`; }
+  else{ el.textContent = "👤"; }
 }
 
 function handlePhotoUpload(event){
-
-  const file =
-    event.target.files && event.target.files[0];
-
-  if(!file){
-    return;
-  }
-
+  const file = event.target.files && event.target.files[0];
+  if(!file){ return; }
   const reader = new FileReader();
-
   reader.onload = e => {
-
     const img = new Image();
-
     img.onload = () => {
-
       const size = 240;
-
       const canvas = document.createElement("canvas");
       canvas.width = size;
       canvas.height = size;
-
       const ctx = canvas.getContext("2d");
-
       const minSide = Math.min(img.width, img.height);
       const sx = (img.width - minSide) / 2;
       const sy = (img.height - minSide) / 2;
-
       ctx.drawImage(img, sx, sy, minSide, minSide, 0, 0, size, size);
-
       pendingPhoto = canvas.toDataURL("image/jpeg", 0.85);
-
       renderEditPhotoPreview();
-
     };
-
     img.src = e.target.result;
-
   };
-
   reader.readAsDataURL(file);
-
 }
 
 function removePhoto(){
-
   pendingPhoto = null;
-
   renderEditPhotoPreview();
-
 }
 
 function saveProfile(){
-
-  const name =
-    document
-      .getElementById(
-        "editName"
-      )
-      .value
-      .trim();
-
-  const phone =
-    document
-      .getElementById(
-        "editPhone"
-      )
-      .value
-      .trim();
-
-  if(!name){
-
-    toast(t("enter_name"));
-
-    return;
-
-  }
-
-  profile.name =
-    name;
-
-  profile.phone =
-    phone;
-
-  profile.photo =
-    pendingPhoto;
-
-  localStorage.setItem(
-    "fixiProfile",
-    JSON.stringify(profile)
-  );
-
+  const name = document.getElementById("editName").value.trim();
+  const phone = document.getElementById("editPhone").value.trim();
+  if(!name){ toast(t("enter_name")); return; }
+  profile.name = name;
+  profile.phone = phone;
+  profile.photo = pendingPhoto;
+  localStorage.setItem("fixiProfile", JSON.stringify(profile));
   loadProfile();
-
   closeEditProfile();
-
   toast(t("profile_updated"));
-
 }
 
-function closeModalOutside(
-  event,
-  id
-){
-
-  if(
-    event.target.id === id
-  ){
-
-    document
-      .getElementById(id)
-      .classList.remove("show");
-
+function closeModalOutside(event, id){
+  if(event.target.id === id){
+    document.getElementById(id).classList.remove("show");
   }
-
 }
-
 
 /* =========================================================
    THEME
 ========================================================= */
 
 function toggleTheme(){
-
-  document
-    .body
-    .classList
-    .toggle("dark");
-
-  const isDark =
-    document.body.classList.contains(
-      "dark"
-    );
-
-  localStorage.setItem(
-    "fixiTheme",
-    isDark
-      ? "dark"
-      : "light"
-  );
-
-  toast(
-    isDark
-      ? t("dark_mode_on")
-      : t("light_mode_on")
-  );
-
+  document.body.classList.toggle("dark");
+  const isDark = document.body.classList.contains("dark");
+  localStorage.setItem("fixiTheme", isDark ? "dark" : "light");
+  toast(isDark ? t("dark_mode_on") : t("light_mode_on"));
 }
-
 
 /* =========================================================
    LANGUAGE
 ========================================================= */
 
-function openLanguage(){
-
-  document
-    .getElementById(
-      "languageModal"
-    )
-    .classList.add("show");
-
-}
-
-function closeLanguage(){
-
-  document
-    .getElementById(
-      "languageModal"
-    )
-    .classList.remove("show");
-
-}
+function openLanguage(){ document.getElementById("languageModal").classList.add("show"); }
+function closeLanguage(){ document.getElementById("languageModal").classList.remove("show"); }
 
 function setLanguage(lang){
-
-  localStorage.setItem(
-    "fixiLanguage",
-    lang
-  );
-
+  localStorage.setItem("fixiLanguage", lang);
   currentLang = lang;
-
   if(lang === "ar"){
-
-    document.documentElement.dir =
-      "rtl";
-
-    document.documentElement.lang =
-      "ar";
-
+    document.documentElement.dir = "rtl";
+    document.documentElement.lang = "ar";
   }else{
-
-    document.documentElement.dir =
-      "ltr";
-
-    document.documentElement.lang =
-      lang;
-
+    document.documentElement.dir = "ltr";
+    document.documentElement.lang = lang;
   }
-
   closeLanguage();
-
   applyTranslations();
-
   refreshCurrentList();
-
   renderBookings();
-
   renderFavorites();
-
   toast(t("lang_changed"));
-
 }
 
 function loadLanguage(){
-
-  const lang =
-    localStorage.getItem(
-      "fixiLanguage"
-    );
-
+  const lang = localStorage.getItem("fixiLanguage");
   if(lang){
-
     currentLang = lang;
-
     if(lang === "ar"){
-
-      document.documentElement.dir =
-        "rtl";
-
-      document.documentElement.lang =
-        "ar";
-
+      document.documentElement.dir = "rtl";
+      document.documentElement.lang = "ar";
     }else{
-
-      document.documentElement.dir =
-        "ltr";
-
-      document.documentElement.lang =
-        lang;
-
+      document.documentElement.dir = "ltr";
+      document.documentElement.lang = lang;
     }
-
   }
-
   applyTranslations();
-
 }
-
 
 /* =========================================================
    TOAST
@@ -7295,35 +3799,11 @@ function loadLanguage(){
 let toastTimer;
 
 function toast(message){
-
-  const el =
-    document.getElementById(
-      "toast"
-    );
-
-  el.textContent =
-    message;
-
-  el.classList.add(
-    "show"
-  );
-
-  clearTimeout(
-    toastTimer
-  );
-
-  toastTimer =
-    setTimeout(
-      () => {
-
-        el.classList.remove(
-          "show"
-        );
-
-      },
-      2200
-    );
-
+  const el = document.getElementById("toast");
+  el.textContent = message;
+  el.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => { el.classList.remove("show"); }, 2200);
 }
 
 </script>
