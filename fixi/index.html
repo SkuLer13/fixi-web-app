@@ -6032,28 +6032,19 @@ function renderBookings(){
 
           let actions = "";
 
-          if(status === "pending"){
+if(status === "pending"){
 
-            actions = `
-              <button class="primary-mini" onclick="advanceBooking('${b.supabaseId || b.id}')">${t("confirm")}</button>
-              <button onclick="openReschedule('${b.supabaseId || b.id}')">${t("reschedule")}</button>
-              <button class="danger" onclick="cancelBooking('${b.supabaseId || b.id}')">${t("cancel")}</button>
-            `;
+  actions = `
+    <button onclick="openReschedule('${b.supabaseId || b.id}')">${t("reschedule")}</button>
+  `;
 
-          }else if(status === "confirmed"){
+}else if(status === "completed" && !reviewed){
 
-            actions = `
-              <button class="primary-mini" onclick="advanceBooking('${b.supabaseId || b.id}')">${t("mark_done")}</button>
-              <button class="danger" onclick="cancelBooking('${b.supabaseId || b.id}')">${t("cancel")}</button>
-            `;
+  actions = `
+    <button class="primary-mini" onclick="openReview('${b.supabaseId || b.id}')">${t("leave_review")}</button>
+  `;
 
-          }else if(status === "completed" && !reviewed){
-
-            actions = `
-              <button class="primary-mini" onclick="openReview('${b.supabaseId || b.id}')">${t("leave_review")}</button>
-            `;
-
-          }
+}
 
           const statusClass =
             status === "cancelled"
