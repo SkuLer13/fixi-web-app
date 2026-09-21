@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Fixi — Admin Dashboard</title>
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%234f46e5'/%3E%3Cstop offset='50%25' stop-color='%237c3aed'/%3E%3Cstop offset='100%25' stop-color='%2306b6d4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='4' y='4' width='92' height='92' rx='22' fill='url(%23g)'/%3E%3Cpath d='M 50 22 L 78 46 L 71 46 L 71 76 Q 71 78 69 78 L 31 78 Q 29 78 29 76 L 29 46 L 22 46 Z' fill='%23ffffff'/%3E%3Cpath d='M 38 60 L 47 69 L 63 51' fill='none' stroke='url(%23g)' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%234f46e5'/%3E%3Cstop offset='50%25' stop-color='%237c3aed'/%3E%3Cstop offset='100%25' stop-color='%2306b6d4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='4' y='4' width='92' height='92' rx='22' fill='url(%23g)'/%3E%3Cpath d='M 50 22 L 78 46 L 71 46 L 71 76 Q 71 78 69 78 L 31 78 Q 29 78 29 76 L 29 46 L 22 46 Z' fill='%23ffffff'/%3E%3Cpath d='M 38 60 L 47 69 L 63 51' fill='none' stroke='%234f46e5' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <meta name="theme-color" content="#4f46e5">
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -69,58 +69,95 @@ body{
 .login-card{
   width:100%;
   max-width:430px;
-  padding:36px;
+  padding:40px 36px;
   border:1px solid var(--border);
   background:var(--card);
   backdrop-filter:blur(25px);
   -webkit-backdrop-filter:blur(25px);
   border-radius:28px;
   box-shadow:var(--shadow);
+  text-align:center;
+
+  animation:cardIn .6s cubic-bezier(.22,1,.36,1);
+}
+
+@keyframes cardIn{
+  from{
+    opacity:0;
+    transform:translateY(20px) scale(.97);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
 }
 
 .logo{
   display:flex;
   align-items:center;
+  justify-content:center;
   gap:12px;
-  margin-bottom:30px;
+  margin-bottom:28px;
 }
 
 .logo-mark{
-  width:48px;
-  height:48px;
-  border-radius:15px;
+  width:52px;
+  height:52px;
+  border-radius:16px;
   display:grid;
   place-items:center;
   background:linear-gradient(135deg,var(--primary),var(--purple),var(--cyan));
-  color:white;
-  font-size:23px;
-  font-weight:900;
-  box-shadow:0 10px 30px rgba(99,91,255,.28);
+  box-shadow:0 12px 30px rgba(99,91,255,.28);
+  overflow:hidden;
+  flex:none;
+
+  animation:logoPulse 3s ease-in-out infinite;
+}
+
+@keyframes logoPulse{
+  0%,100%{
+    transform:scale(1) rotate(-3deg);
+    box-shadow:0 12px 30px rgba(99,91,255,.28);
+  }
+  50%{
+    transform:scale(1.06) rotate(3deg);
+    box-shadow:0 16px 40px rgba(99,91,255,.40);
+  }
+}
+
+.logo-mark svg{
+  width:58%;
+  height:58%;
+  display:block;
 }
 
 .logo-text{
-  font-size:25px;
+  font-size:30px;
   font-weight:900;
-  letter-spacing:-1px;
-}
-
-.logo-text span{
-  color:var(--primary);
+  letter-spacing:-1.2px;
+  background:linear-gradient(110deg,#4f46e5,#7c3aed,#06b6d4);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
 }
 
 .login-card h1{
-  font-size:30px;
+  font-size:28px;
   margin-bottom:8px;
+  text-align:center;
 }
 
 .login-card p{
   color:var(--muted);
-  margin-bottom:25px;
+  margin-bottom:26px;
   line-height:1.5;
+  text-align:center;
 }
 
 .field{
   margin-bottom:17px;
+  text-align:left;
+  position:relative;
 }
 
 .field label{
@@ -128,19 +165,53 @@ body{
   margin-bottom:8px;
   font-size:13px;
   font-weight:700;
+  transition:color .3s, transform .3s;
+}
+
+.field:focus-within label{
+  color:var(--primary);
+  transform:translateX(3px);
+}
+
+.input-wrap{
+  position:relative;
+  display:flex;
+  align-items:center;
+}
+
+.input-icon{
+  position:absolute;
+  left:15px;
+  width:18px;
+  height:18px;
+  color:var(--muted);
+  transition:color .3s, transform .3s;
+  pointer-events:none;
+}
+
+.field:focus-within .input-icon{
+  color:var(--primary);
+  transform:scale(1.15);
 }
 
 .field input,
 .search-input,
 .filter-select{
   width:100%;
-  padding:14px 15px;
+  padding:14px 15px 14px 44px;
   border-radius:14px;
   border:1px solid var(--border);
   outline:none;
   background:rgba(255,255,255,.45);
   color:var(--text);
   font-size:14px;
+  transition:border-color .3s, box-shadow .3s, transform .3s, background .3s;
+}
+
+.field input:hover,
+.search-input:hover,
+.filter-select:hover{
+  border-color:rgba(99,91,255,.35);
 }
 
 body.dark .field input,
@@ -153,7 +224,31 @@ body.dark .filter-select{
 .search-input:focus,
 .filter-select:focus{
   border-color:var(--primary);
-  box-shadow:0 0 0 3px rgba(99,91,255,.12);
+  box-shadow:0 0 0 4px rgba(99,91,255,.14);
+  transform:translateY(-1px);
+  background:rgba(255,255,255,.72);
+}
+
+body.dark .field input:focus{
+  background:rgba(99,91,255,.08);
+}
+
+/* Ripple effect on focus (subtle) */
+.field::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:-2px;
+  width:0;
+  height:2px;
+  background:linear-gradient(110deg,#4f46e5,#7c3aed,#06b6d4);
+  border-radius:2px;
+  transition:width .4s cubic-bezier(.22,1,.36,1), left .4s cubic-bezier(.22,1,.36,1);
+}
+
+.field:focus-within::after{
+  width:100%;
+  left:0;
 }
 
 .primary-btn{
@@ -166,12 +261,34 @@ body.dark .filter-select{
   font-size:15px;
   font-weight:800;
   cursor:pointer;
-  transition:.2s;
+  transition:.25s;
+  position:relative;
+  overflow:hidden;
+  margin-top:6px;
+}
+
+.primary-btn::after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:100%;
+  height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);
+  transition:left .6s;
+}
+
+.primary-btn:hover::after{
+  left:100%;
 }
 
 .primary-btn:hover{
   transform:translateY(-2px);
-  box-shadow:0 12px 30px rgba(99,91,255,.25);
+  box-shadow:0 12px 30px rgba(99,91,255,.28);
+}
+
+.primary-btn:active{
+  transform:translateY(0) scale(.98);
 }
 
 .primary-btn:disabled{
@@ -185,6 +302,15 @@ body.dark .filter-select{
   font-size:13px;
   margin-top:12px;
   min-height:18px;
+  text-align:center;
+
+  animation:shake .4s ease;
+}
+
+@keyframes shake{
+  0%,100%{transform:translateX(0);}
+  25%{transform:translateX(-4px);}
+  75%{transform:translateX(4px);}
 }
 
 /* =========================
@@ -229,7 +355,7 @@ body.dark .topbar{
   width:40px;
   height:40px;
   border-radius:12px;
-  font-size:18px;
+  animation:logoPulse 4s ease-in-out infinite;
 }
 
 .brand strong{
@@ -256,6 +382,12 @@ body.dark .topbar{
   color:var(--text);
   cursor:pointer;
   font-size:17px;
+  transition:transform .2s, box-shadow .2s;
+}
+
+.icon-btn:hover{
+  transform:translateY(-2px) scale(1.04);
+  box-shadow:0 8px 20px rgba(99,91,255,.15);
 }
 
 .logout-btn{
@@ -266,6 +398,12 @@ body.dark .topbar{
   border-radius:12px;
   cursor:pointer;
   font-weight:700;
+  transition:transform .2s, background .2s;
+}
+
+.logout-btn:hover{
+  transform:translateY(-2px);
+  background:rgba(239,68,68,.15);
 }
 
 .container{
@@ -276,6 +414,9 @@ body.dark .topbar{
 
 .hero{
   margin-bottom:28px;
+  text-align:center;
+
+  animation:cardIn .6s cubic-bezier(.22,1,.36,1);
 }
 
 .hero h1{
@@ -288,10 +429,6 @@ body.dark .topbar{
   color:var(--muted);
 }
 
-/* =========================
-   STATS
-========================= */
-
 .stats{
   display:grid;
   grid-template-columns:repeat(4,1fr);
@@ -300,12 +437,26 @@ body.dark .topbar{
 }
 
 .stat{
-  padding:22px;
+  padding:24px;
   border-radius:22px;
   background:var(--card);
   border:1px solid var(--border);
   box-shadow:var(--shadow);
+  text-align:center;
+
+  animation:cardIn .6s cubic-bezier(.22,1,.36,1) backwards;
+  transition:transform .3s, box-shadow .3s;
 }
+
+.stat:hover{
+  transform:translateY(-4px);
+  box-shadow:0 25px 70px rgba(99,91,255,.15);
+}
+
+.stat:nth-child(1){animation-delay:.05s;}
+.stat:nth-child(2){animation-delay:.10s;}
+.stat:nth-child(3){animation-delay:.15s;}
+.stat:nth-child(4){animation-delay:.20s;}
 
 .stat-label{
   color:var(--muted);
@@ -319,15 +470,16 @@ body.dark .topbar{
   font-weight:900;
 }
 
-/* =========================
-   TOOLBAR
-========================= */
-
 .toolbar{
   display:grid;
   grid-template-columns:1fr 180px 180px;
   gap:12px;
   margin-bottom:18px;
+}
+
+.toolbar input,
+.toolbar select{
+  padding-left:15px !important;
 }
 
 .panel{
@@ -336,6 +488,8 @@ body.dark .topbar{
   border-radius:22px;
   box-shadow:var(--shadow);
   overflow:hidden;
+
+  animation:cardIn .6s cubic-bezier(.22,1,.36,1) .25s backwards;
 }
 
 .table-wrap{
@@ -419,6 +573,12 @@ tbody tr:hover{
   color:var(--text);
   font-size:12px;
   outline:none;
+  transition:border-color .25s, box-shadow .25s;
+}
+
+.status-select:focus{
+  border-color:var(--primary);
+  box-shadow:0 0 0 3px rgba(99,91,255,.14);
 }
 
 .empty{
@@ -432,10 +592,6 @@ tbody tr:hover{
   text-align:center;
   color:var(--muted);
 }
-
-/* =========================
-   MOBILE
-========================= */
 
 @media(max-width:900px){
   .stats{
@@ -491,10 +647,6 @@ tbody tr:hover{
   }
 }
 
-/* =========================
-   TOAST
-========================= */
-
 .toast{
   position:fixed;
   right:20px;
@@ -531,10 +683,15 @@ tbody tr:hover{
   <div class="login-card">
 
     <div class="logo">
-      <div class="logo-mark">✦</div>
+      <div class="logo-mark">
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 50 22 L 78 46 L 71 46 L 71 76 Q 71 78 69 78 L 31 78 Q 29 78 29 76 L 29 46 L 22 46 Z" fill="#ffffff"/>
+          <path d="M 38 60 L 47 69 L 63 51" stroke="#4f46e5" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+      </div>
 
       <div class="logo-text">
-        Fixi<span>.</span>
+        fixi
       </div>
     </div>
 
@@ -546,24 +703,34 @@ tbody tr:hover{
 
     <div class="field">
       <label for="email">Email</label>
-
-      <input
-        id="email"
-        type="email"
-        placeholder="admin@example.com"
-        autocomplete="email"
-      >
+      <div class="input-wrap">
+        <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="4" width="20" height="16" rx="3"/>
+          <path d="m3 7 9 6 9-6"/>
+        </svg>
+        <input
+          id="email"
+          type="email"
+          placeholder="admin@example.com"
+          autocomplete="email"
+        >
+      </div>
     </div>
 
     <div class="field">
       <label for="password">Password</label>
-
-      <input
-        id="password"
-        type="password"
-        placeholder="••••••••"
-        autocomplete="current-password"
-      >
+      <div class="input-wrap">
+        <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="4" y="10" width="16" height="11" rx="2"/>
+          <path d="M8 10V7a4 4 0 0 1 8 0v3"/>
+        </svg>
+        <input
+          id="password"
+          type="password"
+          placeholder="••••••••"
+          autocomplete="current-password"
+        >
+      </div>
     </div>
 
     <button
@@ -597,7 +764,10 @@ tbody tr:hover{
       <div class="brand">
 
         <div class="logo-mark">
-          ✦
+          <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 50 22 L 78 46 L 71 46 L 71 76 Q 71 78 69 78 L 31 78 Q 29 78 29 76 L 29 46 L 22 46 Z" fill="#ffffff"/>
+            <path d="M 38 60 L 47 69 L 63 51" stroke="#4f46e5" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
         </div>
 
         <div>
@@ -653,66 +823,23 @@ tbody tr:hover{
     <div class="stats">
 
       <div class="stat">
-
-        <div class="stat-label">
-          Total Bookings
-        </div>
-
-        <div
-          class="stat-value"
-          id="totalCount"
-        >
-          0
-        </div>
-
+        <div class="stat-label">Total Bookings</div>
+        <div class="stat-value" id="totalCount">0</div>
       </div>
 
-
       <div class="stat">
-
-        <div class="stat-label">
-          Pending
-        </div>
-
-        <div
-          class="stat-value"
-          id="pendingCount"
-        >
-          0
-        </div>
-
+        <div class="stat-label">Pending</div>
+        <div class="stat-value" id="pendingCount">0</div>
       </div>
 
-
       <div class="stat">
-
-        <div class="stat-label">
-          Confirmed
-        </div>
-
-        <div
-          class="stat-value"
-          id="confirmedCount"
-        >
-          0
-        </div>
-
+        <div class="stat-label">Confirmed</div>
+        <div class="stat-value" id="confirmedCount">0</div>
       </div>
 
-
       <div class="stat">
-
-        <div class="stat-label">
-          Completed
-        </div>
-
-        <div
-          class="stat-value"
-          id="completedCount"
-        >
-          0
-        </div>
-
+        <div class="stat-label">Completed</div>
+        <div class="stat-value" id="completedCount">0</div>
       </div>
 
     </div>
@@ -730,46 +857,24 @@ tbody tr:hover{
         oninput="renderBookings()"
       >
 
-
       <select
         id="statusFilter"
         class="filter-select"
         onchange="renderBookings()"
       >
-
-        <option value="all">
-          All statuses
-        </option>
-
-        <option value="pending">
-          Pending
-        </option>
-
-        <option value="confirmed">
-          Confirmed
-        </option>
-
-        <option value="completed">
-          Completed
-        </option>
-
-        <option value="cancelled">
-          Cancelled
-        </option>
-
+        <option value="all">All statuses</option>
+        <option value="pending">Pending</option>
+        <option value="confirmed">Confirmed</option>
+        <option value="completed">Completed</option>
+        <option value="cancelled">Cancelled</option>
       </select>
-
 
       <select
         id="wilayaFilter"
         class="filter-select"
         onchange="renderBookings()"
       >
-
-        <option value="all">
-          All wilayas
-        </option>
-
+        <option value="all">All wilayas</option>
       </select>
 
     </div>
@@ -779,63 +884,28 @@ tbody tr:hover{
 
     <div class="panel">
 
-      <div
-        id="loading"
-        class="loading"
-      >
+      <div id="loading" class="loading">
         Loading bookings...
       </div>
 
-
-      <div
-        id="empty"
-        class="empty"
-        style="display:none"
-      >
+      <div id="empty" class="empty" style="display:none">
         No bookings found.
       </div>
 
-
-      <div
-        id="tableWrap"
-        class="table-wrap"
-        style="display:none"
-      >
+      <div id="tableWrap" class="table-wrap" style="display:none">
 
         <table>
 
           <thead>
-
             <tr>
-
-              <th>
-                Customer
-              </th>
-
-              <th>
-                Service
-              </th>
-
-              <th>
-                Wilaya
-              </th>
-
-              <th>
-                Date & Time
-              </th>
-
-              <th>
-                Status
-              </th>
-
-              <th>
-                Actions
-              </th>
-
+              <th>Customer</th>
+              <th>Service</th>
+              <th>Wilaya</th>
+              <th>Date & Time</th>
+              <th>Status</th>
+              <th>Actions</th>
             </tr>
-
           </thead>
-
 
           <tbody id="bookingsTableBody">
             <!-- Dynamic entries -->
@@ -852,17 +922,10 @@ tbody tr:hover{
 </section>
 
 
-<div
-  id="toast"
-  class="toast"
-></div>
+<div id="toast" class="toast"></div>
 
 
 <script>
-
-/* =====================================================
-   SUPABASE CONFIGURATION
-===================================================== */
 
 const SUPABASE_URL =
   'https://yzeemgbkeorkummqfzmx.supabase.co';
@@ -870,1055 +933,350 @@ const SUPABASE_URL =
 const SUPABASE_ANON_KEY =
   'sb_publishable_CzzPIrC6ZjLrVT9-U8ndEg_9-7PTnr7';
 
-
-/* =====================================================
-   SUPABASE CLIENT
-===================================================== */
-
 let supabaseClient = null;
 
 if (
   typeof supabase !== 'undefined' &&
   supabase.createClient
 ) {
-
   supabaseClient =
     supabase.createClient(
       SUPABASE_URL,
       SUPABASE_ANON_KEY
     );
-
 }
-
-
-/* =====================================================
-   GLOBAL DATA
-===================================================== */
 
 let allBookings = [];
 let realtimeChannel = null;
 
-
-/* =====================================================
-   THEME
-===================================================== */
-
 function toggleDark(){
-
   document.body.classList.toggle('dark');
-
 }
-
-
-/* =====================================================
-   TOAST
-===================================================== */
 
 function showToast(message){
-
-  const toast =
-    document.getElementById('toast');
-
+  const toast = document.getElementById('toast');
   if(!toast) return;
-
   toast.textContent = message;
-
   toast.classList.add('show');
-
   setTimeout(() => {
-
     toast.classList.remove('show');
-
   },3000);
-
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+  const emailInput = document.getElementById('email');
+  const passwordInput = document.getElementById('password');
 
-/* =====================================================
-   DOM READY
-===================================================== */
+  [emailInput,passwordInput].forEach(input => {
+    if(input){
+      input.addEventListener('keydown', event => {
+        if(event.key === 'Enter'){ login(); }
+      });
+    }
+  });
 
-document.addEventListener(
-  'DOMContentLoaded',
-  () => {
-
-    const emailInput =
-      document.getElementById('email');
-
-    const passwordInput =
-      document.getElementById('password');
-
-
-    [emailInput,passwordInput].forEach(
-      input => {
-
-        if(input){
-
-          input.addEventListener(
-            'keydown',
-            event => {
-
-              if(event.key === 'Enter'){
-
-                login();
-
-              }
-
-            }
-          );
-
-        }
-
-      }
-    );
-
-
-    checkSession();
-
-  }
-);
-
-
-/* =====================================================
-   CHECK EXISTING SESSION
-===================================================== */
+  checkSession();
+});
 
 async function checkSession(){
-
   if(!supabaseClient){
-
-    console.error(
-      'Supabase client is not initialized.'
-    );
-
+    console.error('Supabase client is not initialized.');
     return;
-
   }
-
 
   try{
-
-    const {
-      data,
-      error
-    } =
-      await supabaseClient.auth.getSession();
-
-
-    if(error){
-
-      console.error(
-        'Session check error:',
-        error
-      );
-
-      return;
-
-    }
-
-
-    const session =
-      data?.session;
-
-
-    if(session){
-
-      showDashboard();
-
-    }
-
+    const {data, error} = await supabaseClient.auth.getSession();
+    if(error){ console.error('Session check error:', error); return; }
+    const session = data?.session;
+    if(session){ showDashboard(); }
   }catch(error){
-
-    console.error(
-      'Session check failed:',
-      error
-    );
-
+    console.error('Session check failed:', error);
   }
-
 }
 
-
-/* =====================================================
-   ADMIN LOGIN
-===================================================== */
-
 async function login(){
+  const emailInput = document.getElementById('email');
+  const passwordInput = document.getElementById('password');
+  const errorDiv = document.getElementById('loginError');
+  const loginBtn = document.getElementById('loginBtn');
 
-  const emailInput =
-    document.getElementById('email');
-
-  const passwordInput =
-    document.getElementById('password');
-
-  const errorDiv =
-    document.getElementById('loginError');
-
-  const loginBtn =
-    document.getElementById('loginBtn');
-
-
-  const email =
-    emailInput
-      ? emailInput.value.trim()
-      : '';
-
-
-  const password =
-    passwordInput
-      ? passwordInput.value
-      : '';
-
+  const email = emailInput ? emailInput.value.trim() : '';
+  const password = passwordInput ? passwordInput.value : '';
 
   errorDiv.textContent = '';
 
-
   if(!email || !password){
-
-    errorDiv.textContent =
-      'Please enter both email and password.';
-
+    errorDiv.textContent = 'Please enter both email and password.';
     return;
-
   }
-
 
   if(!supabaseClient){
-
-    errorDiv.textContent =
-      'Supabase client is not initialized. Please check the Supabase configuration.';
-
+    errorDiv.textContent = 'Supabase client is not initialized. Please check the Supabase configuration.';
     return;
-
   }
 
-
   try{
-
     loginBtn.disabled = true;
+    loginBtn.textContent = 'Signing in...';
 
-    loginBtn.textContent =
-      'Signing in...';
-
-
-    const {
-      data,
-      error
-    } =
-      await supabaseClient.auth.signInWithPassword({
-
-        email: email,
-
-        password: password
-
-      });
-
+    const {data, error} = await supabaseClient.auth.signInWithPassword({
+      email: email,
+      password: password
+    });
 
     if(error){
-
-      console.error(
-        'Supabase login error:',
-        error
-      );
-
-      errorDiv.textContent =
-        error.message ||
-        'Invalid email or password.';
-
+      console.error('Supabase login error:', error);
+      errorDiv.textContent = error.message || 'Invalid email or password.';
       return;
-
     }
-
 
     if(data && data.session){
-
       errorDiv.textContent = '';
-
       showDashboard();
-
     }else{
-
-      errorDiv.textContent =
-        'Login failed. No active session was created.';
-
+      errorDiv.textContent = 'Login failed. No active session was created.';
     }
-
-
   }catch(error){
-
-    console.error(
-      'Unexpected login error:',
-      error
-    );
-
-    errorDiv.textContent =
-      'An unexpected error occurred. Please try again.';
-
+    console.error('Unexpected login error:', error);
+    errorDiv.textContent = 'An unexpected error occurred. Please try again.';
   }finally{
-
     loginBtn.disabled = false;
-
-    loginBtn.textContent =
-      'Sign in';
-
+    loginBtn.textContent = 'Sign in';
   }
-
 }
-
-
-/* =====================================================
-   SHOW DASHBOARD
-===================================================== */
 
 function showDashboard(){
+  const loginPage = document.getElementById('loginPage');
+  const dashboard = document.getElementById('dashboard');
 
-  const loginPage =
-    document.getElementById('loginPage');
-
-  const dashboard =
-    document.getElementById('dashboard');
-
-
-  loginPage.style.display =
-    'none';
-
-  dashboard.style.display =
-    'block';
-
+  loginPage.style.display = 'none';
+  dashboard.style.display = 'block';
 
   fetchBookings();
-
   subscribeToBookingsRealtime();
-
 }
 
-
-/* =====================================================
-   LOGOUT
-===================================================== */
-
 async function logout(){
-
   try{
-
     if(realtimeChannel && supabaseClient){
       await supabaseClient.removeChannel(realtimeChannel);
       realtimeChannel = null;
     }
-
   }catch(e){}
 
   try{
-
     if(supabaseClient){
-
       await supabaseClient.auth.signOut();
-
     }
-
   }catch(error){
-
-    console.error(
-      'Logout error:',
-      error
-    );
-
+    console.error('Logout error:', error);
   }
 
-
-  document.getElementById(
-    'dashboard'
-  ).style.display = 'none';
-
-
-  document.getElementById(
-    'loginPage'
-  ).style.display = 'flex';
-
-
-  document.getElementById(
-    'email'
-  ).value = '';
-
-
-  document.getElementById(
-    'password'
-  ).value = '';
-
-
-  document.getElementById(
-    'loginError'
-  ).textContent = '';
-
+  document.getElementById('dashboard').style.display = 'none';
+  document.getElementById('loginPage').style.display = 'flex';
+  document.getElementById('email').value = '';
+  document.getElementById('password').value = '';
+  document.getElementById('loginError').textContent = '';
 }
-
-
-/* =====================================================
-   REALTIME — listen for new / updated bookings
-===================================================== */
 
 function subscribeToBookingsRealtime(){
-
-  if(!supabaseClient || realtimeChannel){
-    return;
-  }
+  if(!supabaseClient || realtimeChannel){ return; }
 
   try{
-
-    realtimeChannel =
-      supabaseClient
-        .channel('fixi-admin-bookings')
-        .on(
-          'postgres_changes',
-          {
-            event:'*',
-            schema:'public',
-            table:'bookings'
-          },
-          payload => {
-
-            if(payload.eventType === 'INSERT'){
-
-              const row =
-                payload.new;
-
-              const exists =
-                allBookings.some(
-                  b => String(b.id) === String(row.id)
-                );
-
-              if(!exists){
-
-                allBookings.unshift(row);
-
-                populateWilayaFilter();
-
-                renderBookings();
-
-                showToast('New booking received');
-
-              }
-
-            }else if(payload.eventType === 'UPDATE'){
-
-              allBookings =
-                allBookings.map(b => {
-
-                  if(String(b.id) === String(payload.new.id)){
-
-                    return {
-                      ...b,
-                      ...payload.new
-                    };
-
-                  }
-
-                  return b;
-
-                });
-
-              renderBookings();
-
-            }else if(payload.eventType === 'DELETE'){
-
-              allBookings =
-                allBookings.filter(
-                  b => String(b.id) !== String(payload.old.id)
-                );
-
+    realtimeChannel = supabaseClient
+      .channel('fixi-admin-bookings')
+      .on('postgres_changes',
+        {event:'*',schema:'public',table:'bookings'},
+        payload => {
+          if(payload.eventType === 'INSERT'){
+            const row = payload.new;
+            const exists = allBookings.some(b => String(b.id) === String(row.id));
+            if(!exists){
+              allBookings.unshift(row);
               populateWilayaFilter();
-
               renderBookings();
-
+              showToast('New booking received');
             }
-
+          }else if(payload.eventType === 'UPDATE'){
+            allBookings = allBookings.map(b => {
+              if(String(b.id) === String(payload.new.id)){
+                return { ...b, ...payload.new };
+              }
+              return b;
+            });
+            renderBookings();
+          }else if(payload.eventType === 'DELETE'){
+            allBookings = allBookings.filter(b => String(b.id) !== String(payload.old.id));
+            populateWilayaFilter();
+            renderBookings();
           }
-        )
-        .subscribe();
-
+        }
+      ).subscribe();
   }catch(err){
-
     console.warn('Realtime subscription failed:', err);
-
   }
-
 }
-
-
-/* =====================================================
-   FETCH BOOKINGS
-===================================================== */
 
 async function fetchBookings(){
+  const loadingEl = document.getElementById('loading');
+  const emptyEl = document.getElementById('empty');
+  const tableWrap = document.getElementById('tableWrap');
 
-  const loadingEl =
-    document.getElementById('loading');
-
-  const emptyEl =
-    document.getElementById('empty');
-
-  const tableWrap =
-    document.getElementById('tableWrap');
-
-
-  loadingEl.style.display =
-    'block';
-
-  loadingEl.textContent =
-    'Loading bookings...';
-
-  emptyEl.style.display =
-    'none';
-
-  tableWrap.style.display =
-    'none';
-
+  loadingEl.style.display = 'block';
+  loadingEl.textContent = 'Loading bookings...';
+  emptyEl.style.display = 'none';
+  tableWrap.style.display = 'none';
 
   try{
-
     if(!supabaseClient){
-
-      throw new Error(
-        'Supabase client is not initialized.'
-      );
-
+      throw new Error('Supabase client is not initialized.');
     }
 
+    const {data, error} = await supabaseClient
+      .from('bookings')
+      .select('*')
+      .order('created_at', {ascending:false});
 
-    const {
-      data,
-      error
-    } =
-      await supabaseClient
-        .from('bookings')
-        .select('*')
-        .order(
-          'created_at',
-          {
-            ascending:false
-          }
-        );
+    if(error){ throw error; }
 
-
-    if(error){
-
-      throw error;
-
-    }
-
-
-    allBookings =
-      data || [];
-
-
+    allBookings = data || [];
     populateWilayaFilter();
-
     renderBookings();
-
-
   }catch(error){
-
-    console.error(
-      'Error fetching bookings:',
-      error
-    );
-
-
-    loadingEl.textContent =
-      'Failed to load bookings: ' +
-      (
-        error?.message ||
-        'Unknown error'
-      );
-
+    console.error('Error fetching bookings:', error);
+    loadingEl.textContent = 'Failed to load bookings: ' + (error?.message || 'Unknown error');
   }
-
 }
-
-
-/* =====================================================
-   WILAYA FILTER
-===================================================== */
 
 function populateWilayaFilter(){
-
-  const wilayaFilter =
-    document.getElementById(
-      'wilayaFilter'
-    );
-
-
+  const wilayaFilter = document.getElementById('wilayaFilter');
   if(!wilayaFilter) return;
 
+  const wilayas = [...new Set(allBookings.map(b => b.wilaya).filter(Boolean))].sort();
+  const current = wilayaFilter.value || 'all';
 
-  const wilayas =
-    [
-      ...new Set(
-        allBookings
-          .map(
-            b => b.wilaya
-          )
-          .filter(Boolean)
-      )
-    ]
-    .sort();
+  wilayaFilter.innerHTML = '<option value="all">All wilayas</option>';
 
-
-  const current =
-    wilayaFilter.value || 'all';
-
-
-  wilayaFilter.innerHTML =
-    '<option value="all">All wilayas</option>';
-
-
-  wilayas.forEach(
-    wilaya => {
-
-      const option =
-        document.createElement(
-          'option'
-        );
-
-
-      option.value =
-        wilaya;
-
-
-      option.textContent =
-        wilaya;
-
-
-      wilayaFilter.appendChild(
-        option
-      );
-
-    }
-  );
-
+  wilayas.forEach(wilaya => {
+    const option = document.createElement('option');
+    option.value = wilaya;
+    option.textContent = wilaya;
+    wilayaFilter.appendChild(option);
+  });
 
   if([...wilayaFilter.options].some(o => o.value === current)){
-
     wilayaFilter.value = current;
-
   }
-
 }
-
-
-/* =====================================================
-   RENDER BOOKINGS
-===================================================== */
 
 function renderBookings(){
+  const loadingEl = document.getElementById('loading');
+  const emptyEl = document.getElementById('empty');
+  const tableWrap = document.getElementById('tableWrap');
+  const tbody = document.getElementById('bookingsTableBody');
 
-  const loadingEl =
-    document.getElementById('loading');
+  const search = (document.getElementById('searchInput')?.value || '').toLowerCase().trim();
+  const statusFilter = document.getElementById('statusFilter')?.value || 'all';
+  const wilayaFilter = document.getElementById('wilayaFilter')?.value || 'all';
 
-  const emptyEl =
-    document.getElementById('empty');
+  const filtered = allBookings.filter(item => {
+    const name = String(item.name || '').toLowerCase();
+    const phone = String(item.phone || '').toLowerCase();
+    const service = String(item.service || '').toLowerCase();
+    const wilaya = String(item.wilaya || '').toLowerCase();
 
-  const tableWrap =
-    document.getElementById('tableWrap');
+    const matchesSearch = !search ||
+      name.includes(search) ||
+      phone.includes(search) ||
+      service.includes(search) ||
+      wilaya.includes(search);
 
-  const tbody =
-    document.getElementById(
-      'bookingsTableBody'
-    );
+    const matchesStatus = statusFilter === 'all' || item.status === statusFilter;
+    const matchesWilaya = wilayaFilter === 'all' || item.wilaya === wilayaFilter;
 
-
-  const search =
-    (
-      document.getElementById(
-        'searchInput'
-      )?.value ||
-      ''
-    )
-    .toLowerCase()
-    .trim();
-
-
-  const statusFilter =
-    document.getElementById(
-      'statusFilter'
-    )?.value ||
-    'all';
-
-
-  const wilayaFilter =
-    document.getElementById(
-      'wilayaFilter'
-    )?.value ||
-    'all';
-
-
-  const filtered =
-    allBookings.filter(
-      item => {
-
-        const name =
-          String(
-            item.name || ''
-          ).toLowerCase();
-
-
-        const phone =
-          String(
-            item.phone || ''
-          ).toLowerCase();
-
-
-        const service =
-          String(
-            item.service || ''
-          ).toLowerCase();
-
-
-        const wilaya =
-          String(
-            item.wilaya || ''
-          ).toLowerCase();
-
-
-        const matchesSearch =
-          !search ||
-          name.includes(search) ||
-          phone.includes(search) ||
-          service.includes(search) ||
-          wilaya.includes(search);
-
-
-        const matchesStatus =
-          statusFilter === 'all' ||
-          item.status === statusFilter;
-
-
-        const matchesWilaya =
-          wilayaFilter === 'all' ||
-          item.wilaya === wilayaFilter;
-
-
-        return (
-          matchesSearch &&
-          matchesStatus &&
-          matchesWilaya
-        );
-
-      }
-    );
-
+    return matchesSearch && matchesStatus && matchesWilaya;
+  });
 
   updateStats();
-
-
-  loadingEl.style.display =
-    'none';
-
+  loadingEl.style.display = 'none';
 
   if(filtered.length === 0){
-
-    emptyEl.style.display =
-      'block';
-
-    tableWrap.style.display =
-      'none';
-
+    emptyEl.style.display = 'block';
+    tableWrap.style.display = 'none';
     tbody.innerHTML = '';
-
     return;
-
   }
 
+  emptyEl.style.display = 'none';
+  tableWrap.style.display = 'block';
 
-  emptyEl.style.display =
-    'none';
-
-  tableWrap.style.display =
-    'block';
-
-
-  tbody.innerHTML =
-    filtered
-      .map(
-        b => `
-
-        <tr>
-
-          <td>
-
-            <div class="customer-name">
-              ${escapeHtml(
-                b.name || 'N/A'
-              )}
-            </div>
-
-            <div class="customer-phone">
-              ${escapeHtml(
-                b.phone || ''
-              )}
-            </div>
-
-          </td>
-
-
-          <td>
-            ${escapeHtml(
-              b.service || 'N/A'
-            )}
-          </td>
-
-
-          <td>
-            ${escapeHtml(
-              b.wilaya || 'N/A'
-            )}
-          </td>
-
-
-          <td>
-            ${escapeHtml(
-              b.date || ''
-            )}
-            ${escapeHtml(
-              b.time || ''
-            )}
-          </td>
-
-
-          <td>
-
-            <span
-              class="status ${escapeHtml(
-                b.status || 'pending'
-              )}"
-            >
-              ${escapeHtml(
-                b.status || 'pending'
-              )}
-            </span>
-
-          </td>
-
-
-          <td>
-
-            <select
-              class="status-select"
-              onchange="updateBookingStatus('${escapeHtml(
-                b.id
-              )}', this.value)"
-            >
-
-              <option
-                value="pending"
-                ${
-                  b.status === 'pending'
-                    ? 'selected'
-                    : ''
-                }
-              >
-                Pending
-              </option>
-
-
-              <option
-                value="confirmed"
-                ${
-                  b.status === 'confirmed'
-                    ? 'selected'
-                    : ''
-                }
-              >
-                Confirmed
-              </option>
-
-
-              <option
-                value="completed"
-                ${
-                  b.status === 'completed'
-                    ? 'selected'
-                    : ''
-                }
-              >
-                Completed
-              </option>
-
-
-              <option
-                value="cancelled"
-                ${
-                  b.status === 'cancelled'
-                    ? 'selected'
-                    : ''
-                }
-              >
-                Cancelled
-              </option>
-
-            </select>
-
-          </td>
-
-        </tr>
-
-      `
-      )
-      .join('');
-
+  tbody.innerHTML = filtered.map(b => `
+    <tr>
+      <td>
+        <div class="customer-name">${escapeHtml(b.name || 'N/A')}</div>
+        <div class="customer-phone">${escapeHtml(b.phone || '')}</div>
+      </td>
+      <td>${escapeHtml(b.service || 'N/A')}</td>
+      <td>${escapeHtml(b.wilaya || 'N/A')}</td>
+      <td>${escapeHtml(b.date || '')} ${escapeHtml(b.time || '')}</td>
+      <td>
+        <span class="status ${escapeHtml(b.status || 'pending')}">
+          ${escapeHtml(b.status || 'pending')}
+        </span>
+      </td>
+      <td>
+        <select
+          class="status-select"
+          onchange="updateBookingStatus('${escapeHtml(b.id)}', this.value)"
+        >
+          <option value="pending" ${b.status === 'pending' ? 'selected' : ''}>Pending</option>
+          <option value="confirmed" ${b.status === 'confirmed' ? 'selected' : ''}>Confirmed</option>
+          <option value="completed" ${b.status === 'completed' ? 'selected' : ''}>Completed</option>
+          <option value="cancelled" ${b.status === 'cancelled' ? 'selected' : ''}>Cancelled</option>
+        </select>
+      </td>
+    </tr>
+  `).join('');
 }
 
-
-/* =====================================================
-   UPDATE BOOKING STATUS
-===================================================== */
-
-async function updateBookingStatus(
-  id,
-  newStatus
-){
-
+async function updateBookingStatus(id, newStatus){
   try{
-
     if(!supabaseClient){
-
-      throw new Error(
-        'Supabase client is not initialized.'
-      );
-
+      throw new Error('Supabase client is not initialized.');
     }
 
+    const {error} = await supabaseClient
+      .from('bookings')
+      .update({status:newStatus})
+      .eq('id', id);
 
-    const {
-      error
-    } =
-      await supabaseClient
-        .from('bookings')
-        .update({
-          status:newStatus
-        })
-        .eq(
-          'id',
-          id
-        );
+    if(error){ throw error; }
 
-
-    if(error){
-
-      throw error;
-
-    }
-
-
-    const booking =
-      allBookings.find(
-        b => String(b.id) === String(id)
-      );
-
-
-    if(booking){
-
-      booking.status =
-        newStatus;
-
-    }
-
+    const booking = allBookings.find(b => String(b.id) === String(id));
+    if(booking){ booking.status = newStatus; }
 
     renderBookings();
-
-    showToast(
-      'Status updated successfully'
-    );
-
-
+    showToast('Status updated successfully');
   }catch(error){
-
-    console.error(
-      'Error updating status:',
-      error
-    );
-
-
-    showToast(
-      'Failed to update status'
-    );
-
+    console.error('Error updating status:', error);
+    showToast('Failed to update status');
   }
-
 }
-
-
-/* =====================================================
-   UPDATE STATS
-===================================================== */
 
 function updateStats(){
-
-  document.getElementById(
-    'totalCount'
-  ).textContent =
-    allBookings.length;
-
-
-  document.getElementById(
-    'pendingCount'
-  ).textContent =
-    allBookings.filter(
-      b => b.status === 'pending'
-    ).length;
-
-
-  document.getElementById(
-    'confirmedCount'
-  ).textContent =
-    allBookings.filter(
-      b => b.status === 'confirmed'
-    ).length;
-
-
-  document.getElementById(
-    'completedCount'
-  ).textContent =
-    allBookings.filter(
-      b => b.status === 'completed'
-    ).length;
-
+  document.getElementById('totalCount').textContent = allBookings.length;
+  document.getElementById('pendingCount').textContent = allBookings.filter(b => b.status === 'pending').length;
+  document.getElementById('confirmedCount').textContent = allBookings.filter(b => b.status === 'confirmed').length;
+  document.getElementById('completedCount').textContent = allBookings.filter(b => b.status === 'completed').length;
 }
 
-
-/* =====================================================
-   ESCAPE HTML
-===================================================== */
-
 function escapeHtml(str){
-
   return String(str)
-
-    .replace(
-      /&/g,
-      "&amp;"
-    )
-
-    .replace(
-      /</g,
-      "&lt;"
-    )
-
-    .replace(
-      />/g,
-      "&gt;"
-    )
-
-    .replace(
-      /"/g,
-      "&quot;"
-    )
-
-    .replace(
-      /'/g,
-      "&#039;"
-    );
-
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 }
 
 </script>
