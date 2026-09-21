@@ -5927,7 +5927,7 @@ async function confirmBooking(){
           .from("bookings")
           .insert([
             {
-              name: localBooking.name,
+ name: localBooking.name,
               phone: localBooking.phone,
               email: email,
               service: localBooking.service,
@@ -5936,7 +5936,8 @@ async function confirmBooking(){
               wilaya: localBooking.wilaya,
               address: localBooking.address,
               problem: localBooking.problem,
-              status: "pending"
+              status: "pending",
+              language: currentLang || "fr"
             }
           ])
           .select();
