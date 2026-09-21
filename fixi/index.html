@@ -3355,6 +3355,19 @@ body.dark .splash-screen{
       >
 
     </div>
+        <div class="field">
+
+      <label>
+        Email
+      </label>
+
+      <input
+        id="bookingEmail"
+        type="email"
+        placeholder="your@email.com"
+      >
+
+    </div>
 
 
     <div class="field">
@@ -4887,6 +4900,7 @@ function mapSupabaseRow(row){
     time: row.time || "",
     name: row.name || "",
     phone: row.phone || "",
+    email: row.email || "",
     address: row.address || "",
     wilaya: row.wilaya || row.governorate || "",
     problem: row.problem || "",
@@ -5812,7 +5826,11 @@ async function confirmBooking(){
       .getElementById("bookingProblem")
       .value
       .trim();
-
+  const email =
+    document
+      .getElementById("bookingEmail")
+      .value
+      .trim();
   if(
     !date ||
     !name ||
@@ -5863,6 +5881,7 @@ async function confirmBooking(){
 
     name,
     phone,
+    email,
 
     address:
       selectedLocation.address,
@@ -5910,6 +5929,7 @@ async function confirmBooking(){
             {
               name: localBooking.name,
               phone: localBooking.phone,
+              email: email,
               service: localBooking.service,
               date: localBooking.date,
               time: localBooking.time,
