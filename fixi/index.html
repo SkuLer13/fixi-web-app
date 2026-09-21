@@ -40,6 +40,7 @@ body{
     var(--bg);
   color:var(--text);
   transition:background .45s ease,color .3s ease;
+  -webkit-text-size-adjust:100%;
 }
 
 body.dark{
@@ -66,10 +67,10 @@ body.dark .hero p,body.dark .artisan-meta,body.dark .section-head button,body.da
 body.dark input,body.dark textarea,body.dark select{color:#f8fafc!important;}
 body.dark input::placeholder,body.dark textarea::placeholder{color:#778196!important;}
 
-button,input,textarea,select{font:inherit;}
+button,input,textarea,select{font:inherit;-webkit-appearance:none;appearance:none;}
 button{border:0;cursor:pointer;}
 
-#app{width:100%;max-width:480px;min-height:100vh;margin:auto;padding-bottom:110px;position:relative;}
+#app{width:100%;max-width:480px;min-height:100vh;margin:auto;padding-bottom:130px;position:relative;}
 
 .blob{position:fixed;width:220px;height:220px;border-radius:50%;filter:blur(65px);opacity:.18;pointer-events:none;z-index:-1;animation:auroraFloat 12s ease-in-out infinite;}
 .blob.one{background:#6366f1;top:2%;left:-100px;}
@@ -194,12 +195,100 @@ body.dark .service:nth-child(8) .service-icon{background:linear-gradient(145deg,
 .secondary:hover{transform:translateY(-2px);box-shadow:0 10px 25px rgba(99,91,255,.10);}
 .secondary:active{transform:scale(.97);}
 
+/* =========================================================
+   FORM — كل الحقول بنفس الحجم
+========================================================= */
+
 .form{display:grid;gap:13px;}
+
 .field label{display:block;font-size:12px;font-weight:850;margin:0 0 7px 5px;color:var(--text);}
-.field input,.field textarea,.field select{width:100%;border:1px solid var(--border);outline:none;color:var(--text);background:var(--glass);backdrop-filter:blur(20px);padding:15px;border-radius:18px;transition:border-color .2s,box-shadow .2s;}
-.field input:focus,.field textarea:focus,.field select:focus{border-color:rgba(99,91,255,.45);box-shadow:0 0 0 4px rgba(99,91,255,.08);}
-.field input::placeholder,.field textarea::placeholder{color:var(--muted);}
-.field textarea{min-height:110px;resize:none;}
+
+.field input,
+.field textarea,
+.field select{
+  width:100%;
+  min-height:56px;
+  box-sizing:border-box;
+  border:1px solid var(--border);
+  outline:none;
+  color:var(--text);
+  background:var(--glass);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  padding:15px 16px;
+  border-radius:18px;
+  font-size:14px;
+  line-height:1.3;
+  transition:border-color .2s,box-shadow .2s;
+  -webkit-appearance:none;
+  appearance:none;
+}
+
+.field input[type="date"],
+.field input[type="time"]{
+  min-height:56px;
+  line-height:1.3;
+  display:flex;
+  align-items:center;
+}
+
+.field textarea{
+  min-height:110px;
+  resize:none;
+  padding:15px 16px;
+}
+
+.field select{
+  background-image:url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236d7285' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right 14px center;
+  background-size:18px;
+  padding-right:44px;
+}
+
+body.dark .field select{
+  background-image:url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a7b0c0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+}
+
+.field input:focus,
+.field textarea:focus,
+.field select:focus{
+  border-color:rgba(99,91,255,.45);
+  box-shadow:0 0 0 4px rgba(99,91,255,.08);
+}
+
+.field input::placeholder,
+.field textarea::placeholder{color:var(--muted);}
+
+/* زر الـlocation — نفس حجم الحقول، سطر واحد */
+#bookingLocationButton{
+  width:100%;
+  min-height:56px;
+  box-sizing:border-box;
+  padding:15px 16px;
+  border-radius:18px;
+  font-weight:850;
+  font-size:14px;
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  text-align:left;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  gap:6px;
+}
+
+#bookingLocationButton .loc-text{
+  flex:1;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+/* =========================================================
+   DEVIS
+========================================================= */
 
 .devis-card{padding:22px;border-radius:24px;margin-bottom:18px;background:linear-gradient(135deg,rgba(79,70,229,.08),rgba(6,182,212,.06));border:1px solid rgba(79,70,229,.18);}
 .devis-card h3{margin:0 0 16px;font-size:16px;font-weight:900;color:var(--text);display:flex;align-items:center;gap:8px;}
@@ -228,11 +317,48 @@ body.dark .service:nth-child(8) .service-icon{background:linear-gradient(145deg,
 .modal{position:fixed;inset:0;z-index:200;display:none;align-items:flex-end;justify-content:center;background:rgba(2,6,23,.48);backdrop-filter:blur(10px);}
 .modal.show{display:flex;animation:fadeIn .25s ease;}
 @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
-.sheet{width:min(480px,100%);max-height:92vh;overflow:auto;border-radius:32px 32px 0 0;padding:18px;background:var(--glass-strong);color:var(--text);backdrop-filter:blur(35px) saturate(180%);border:1px solid var(--border);animation:sheetUp .42s cubic-bezier(.22,1,.36,1);}
+.sheet{width:min(480px,100%);max-height:92vh;overflow:auto;border-radius:32px 32px 0 0;padding:18px 18px 24px;background:var(--glass-strong);color:var(--text);backdrop-filter:blur(35px) saturate(180%);border:1px solid var(--border);animation:sheetUp .42s cubic-bezier(.22,1,.36,1);}
 @keyframes sheetUp{from{transform:translateY(100%);}to{transform:translateY(0);}}
 .handle{width:42px;height:5px;border-radius:20px;background:rgba(127,127,127,.30);margin:0 auto 18px;}
 .sheet-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;}
 .sheet-head h3{margin:0;color:var(--text);}
+
+/* Modal selects — same size as main fields */
+.sheet .field{margin-bottom:14px;}
+.sheet .field select{
+  width:100%;
+  min-height:56px;
+  box-sizing:border-box;
+  padding:15px 44px 15px 16px;
+  border-radius:18px;
+  font-size:14px;
+  line-height:1.3;
+  border:1px solid var(--border);
+  background-color:var(--glass);
+  color:var(--text);
+  outline:none;
+  -webkit-appearance:none;
+  appearance:none;
+  background-image:url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236d7285' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right 14px center;
+  background-size:18px;
+}
+
+body.dark .sheet .field select{
+  background-image:url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a7b0c0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-color:var(--glass);
+}
+
+.sheet .field select:focus{
+  border-color:rgba(99,91,255,.45);
+  box-shadow:0 0 0 4px rgba(99,91,255,.08);
+}
+
+.sheet .field select:disabled{
+  opacity:.5;
+  cursor:not-allowed;
+}
 
 #map{width:100%;height:390px;border-radius:25px;overflow:hidden;margin-bottom:13px;}
 .map-location{padding:14px 15px;border-radius:18px;background:var(--glass);color:var(--text);border:1px solid var(--border);margin-bottom:13px;font-size:13px;font-weight:700;}
@@ -298,6 +424,7 @@ body.dark .splash-screen{background:radial-gradient(circle at 0% 0%,rgba(99,91,2
 [dir="rtl"] .location-pill,[dir="rtl"] .artisan{flex-direction:row;}
 [dir="rtl"] .search{direction:rtl;}
 [dir="rtl"] .hero h1{letter-spacing:0;}
+[dir="rtl"] .field select{background-position:left 14px center;padding-right:16px;padding-left:44px;}
 
 @media(max-width:370px){.hero h1{font-size:34px;}.services{gap:6px;}.service{min-height:105px;}.service-icon{width:49px;height:49px;font-size:25px;}.service span{font-size:10px;}}
 
@@ -513,18 +640,20 @@ body.dark .splash-screen{background:radial-gradient(circle at 0% 0%,rgba(99,91,2
   <div class="form">
     <div class="field"><label data-i18n="date">Date</label><input id="bookingDate" type="date"></div>
     <div class="field">
-      <label data-i18n="time">Time</label>
+      <label data-i18n="time">Heure</label>
       <select id="bookingTime">
         <option>09:00</option><option>10:00</option><option>11:00</option><option>12:00</option>
         <option>14:00</option><option>15:00</option><option>16:00</option><option>17:00</option><option>18:00</option>
       </select>
     </div>
-    <div class="field"><label data-i18n="name">Name</label><input id="bookingName" data-i18n-placeholder="name" placeholder="Your name"></div>
-    <div class="field"><label data-i18n="phone">Phone</label><input id="bookingPhone" placeholder="+216 ..."></div>
+    <div class="field"><label data-i18n="name">Nom</label><input id="bookingName" data-i18n-placeholder="name" placeholder="Your name"></div>
+    <div class="field"><label data-i18n="phone">Téléphone</label><input id="bookingPhone" placeholder="+216 ..."></div>
     <div class="field"><label>Email</label><input id="bookingEmail" type="email" placeholder="your@email.com"></div>
     <div class="field">
-      <label data-i18n="location">Location</label>
-      <button class="secondary" onclick="openMap()" style="text-align:left" id="bookingLocationButton" data-i18n="choose_location_area">📍 Choose location on map</button>
+      <label data-i18n="location">Localisation</label>
+      <button type="button" class="secondary" onclick="openMap()" id="bookingLocationButton">
+        <span class="loc-text" data-i18n="choose_location_area">📍 Choisir la localisation</span>
+      </button>
     </div>
     <div class="field">
       <label data-i18n="describe_problem">Décrivez votre problème</label>
@@ -795,7 +924,7 @@ const translations = {
     change_photo:"Change photo", remove_photo:"Remove photo",
     governorate:"Governorate", delegation:"Delegation",
     select_governorate:"-- Select your governorate --", select_delegation:"-- Select a delegation --",
-    choose_location_area:"📍 Choose your governorate and delegation"
+    choose_location_area:"📍 Choose location"
   },
   fr:{
     nav_home:"Accueil", nav_bookings:"Demandes", nav_favorites:"Favoris", nav_profile:"Profil",
@@ -853,7 +982,7 @@ const translations = {
     change_photo:"Changer la photo", remove_photo:"Supprimer la photo",
     governorate:"Gouvernorat", delegation:"Délégation",
     select_governorate:"-- Choisissez votre gouvernorat --", select_delegation:"-- Choisissez une délégation --",
-    choose_location_area:"📍 Choisissez votre gouvernorat et votre délégation"
+    choose_location_area:"📍 Choisir la localisation"
   },
   ar:{
     nav_home:"الرئيسية", nav_bookings:"الطلبات", nav_favorites:"المفضلة", nav_profile:"الملف الشخصي",
@@ -911,7 +1040,7 @@ const translations = {
     change_photo:"تغيير الصورة", remove_photo:"إزالة الصورة",
     governorate:"الولاية", delegation:"المعتمدية",
     select_governorate:"-- اختر ولايتك --", select_delegation:"-- اختر المعتمدية --",
-    choose_location_area:"📍 اختر الولاية والمعتمدية"
+    choose_location_area:"📍 اختر الموقع"
   }
 };
 
@@ -927,7 +1056,6 @@ function fmt(key, vars){
   return s;
 }
 
-/* ⚠️ التصليح: textContent → innerHTML */
 function applyTranslations(){
   document.querySelectorAll("[data-i18n]").forEach(el=>{
     el.innerHTML = t(el.dataset.i18n);
@@ -1291,8 +1419,13 @@ function openBooking(){
 
 function updateBookingLocation(){
   const btn = document.getElementById("bookingLocationButton");
-  if(selectedLocation.address){ btn.innerHTML = "📍 " + selectedLocation.address; }
-  else{ btn.innerHTML = t("choose_location_area"); }
+  const span = btn ? btn.querySelector(".loc-text") : null;
+  if(!span) return;
+  if(selectedLocation.address){
+    span.textContent = "📍 " + selectedLocation.address;
+  }else{
+    span.textContent = t("choose_location_area");
+  }
 }
 
 async function confirmBooking(){
@@ -1609,6 +1742,7 @@ let govPopulated = false;
 function populateGovernoratesOnce(){
   if(govPopulated){ return; }
   const select = document.getElementById("governorateSelect");
+  // Keep first option (already in HTML with data-i18n)
   governorates.forEach(g => {
     const opt = document.createElement("option");
     opt.value = g.name;
@@ -1650,7 +1784,8 @@ function populateDelegations(){
   const delSelect = document.getElementById("delegationSelect");
   if(!govSelect || !delSelect) return;
   const gov = govSelect.value;
-  delSelect.innerHTML = '<option value="" data-i18n="select_delegation">-- Select a delegation --</option>';
+  // ⚠️ التصليح: نستعمل t() بدل النص hardcoded
+  delSelect.innerHTML = `<option value="">${t("select_delegation")}</option>`;
   (delegationsByGovernorate[gov]||[]).forEach(name=>{
     const opt = document.createElement("option");
     opt.value = name;
@@ -1825,6 +1960,8 @@ function setLanguage(lang){
   }
   closeLanguage();
   applyTranslations();
+  // ⚠️ التصليح: بعد تبديل اللغة، نعيد populate للـdelegations باش الـplaceholder يتبدّل
+  populateDelegations();
   refreshCurrentList();
   renderBookings();
   renderFavorites();
