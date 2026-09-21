@@ -6032,19 +6032,19 @@ function renderBookings(){
 
           let actions = "";
 
-if(status === "pending"){
+          if(status === "pending"){
 
-  actions = `
-    <button onclick="openReschedule('${b.supabaseId || b.id}')">${t("reschedule")}</button>
-  `;
+            actions = `
+              <button onclick="openReschedule('${b.supabaseId || b.id}')">${t("reschedule")}</button>
+            `;
 
-}else if(status === "completed" && !reviewed){
+          }else if(status === "completed" && !reviewed){
 
-  actions = `
-    <button class="primary-mini" onclick="openReview('${b.supabaseId || b.id}')">${t("leave_review")}</button>
-  `;
+            actions = `
+              <button class="primary-mini" onclick="openReview('${b.supabaseId || b.id}')">${t("leave_review")}</button>
+            `;
 
-}
+          }
 
           const statusClass =
             status === "cancelled"
