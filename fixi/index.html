@@ -70,7 +70,7 @@ body.dark input::placeholder,body.dark textarea::placeholder{color:#778196!impor
 button,input,textarea,select{font:inherit;-webkit-appearance:none;appearance:none;}
 button{border:0;cursor:pointer;}
 
-#app{width:100%;max-width:480px;min-height:100vh;margin:auto;padding-bottom:130px;position:relative;}
+#app{width:100%;max-width:480px;min-height:100vh;margin:auto;padding-bottom:130px;position:relative;overflow-x:hidden;}
 
 .blob{position:fixed;width:220px;height:220px;border-radius:50%;filter:blur(65px);opacity:.18;pointer-events:none;z-index:-1;animation:auroraFloat 12s ease-in-out infinite;}
 .blob.one{background:#6366f1;top:2%;left:-100px;}
@@ -98,9 +98,30 @@ body.dark .topbar{background:linear-gradient(to bottom,rgba(7,9,20,.80),rgba(7,9
 .notif-badge{position:absolute;top:-4px;right:-4px;min-width:17px;height:17px;padding:0 4px;border-radius:10px;background:#ef4444;color:#fff;font-size:10px;font-weight:900;display:none;align-items:center;justify-content:center;box-shadow:0 4px 10px rgba(239,68,68,.4);}
 .notif-badge.show{display:flex;}
 
-.page{padding:8px 18px 20px;animation:pageIn .42s cubic-bezier(.22,1,.36,1);}
-@keyframes pageIn{from{opacity:0;transform:translateY(14px) scale(.985);}to{opacity:1;transform:translateY(0) scale(1);}}
+.page{padding:8px 18px 20px;}
 .hidden{display:none!important;}
+
+/* =========================================================
+   PAGE TRANSITIONS — slide between tabs
+========================================================= */
+
+@keyframes slideInFromRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInFromLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.page.page-enter-right{
+  animation: slideInFromRight .42s cubic-bezier(.22,1,.36,1);
+}
+
+.page.page-enter-left{
+  animation: slideInFromLeft .42s cubic-bezier(.22,1,.36,1);
+}
 
 .location-pill{display:flex;align-items:center;gap:9px;width:max-content;max-width:100%;padding:9px 13px;border-radius:19px;background:var(--glass);color:var(--text);border:1px solid var(--border);backdrop-filter:blur(22px);cursor:pointer;box-shadow:0 8px 25px rgba(15,23,42,.06);transition:transform .25s,box-shadow .25s;}
 .location-pill:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(99,91,255,.12);}
@@ -297,7 +318,7 @@ body.dark .field select{
 .profile-card p{color:var(--muted);margin:0;}
 
 /* =========================================================
-   BOTTOM NAV — with animations
+   BOTTOM NAV — animations (no line indicator)
 ========================================================= */
 .bottom-nav{
   position:fixed;z-index:100;bottom:14px;left:50%;
@@ -337,7 +358,6 @@ body.dark .field select{
   transition:transform .3s ease,letter-spacing .3s ease;
 }
 
-/* hover effect */
 .nav-btn:hover{
   color:var(--primary);
 }
@@ -345,12 +365,10 @@ body.dark .field select{
   transform:translateY(-2px) scale(1.08);
 }
 
-/* press effect */
 .nav-btn:active svg{
   transform:scale(.85) !important;
 }
 
-/* active state */
 .nav-btn.active{
   color:#4f46e5;
   background:linear-gradient(135deg,rgba(99,91,255,.13),rgba(6,182,212,.08));
@@ -362,37 +380,18 @@ body.dark .field select{
 .nav-btn.active svg{
   transform:translateY(-1px) scale(1.10);
   animation:navIconPop .55s cubic-bezier(.34,1.56,.64,1);
+  filter:drop-shadow(0 4px 8px rgba(99,91,255,.35));
 }
 .nav-btn.active span{
   transform:translateY(1px) scale(1.05);
   letter-spacing:.3px;
 }
 
-/* icon pop animation when tab becomes active */
 @keyframes navIconPop{
   0%   { transform:translateY(0) scale(1); }
   45%  { transform:translateY(-5px) scale(1.28) rotate(-6deg); }
   70%  { transform:translateY(1px) scale(.95) rotate(4deg); }
   100% { transform:translateY(-1px) scale(1.10) rotate(0); }
-}
-
-/* glowing indicator under active tab */
-.nav-btn.active::after{
-  content:"";
-  position:absolute;
-  bottom:2px;left:50%;
-  width:0;height:3px;
-  border-radius:3px;
-  background:linear-gradient(90deg,#4f46e5,#06b6d4);
-  box-shadow:0 0 10px rgba(99,91,255,.6);
-  transform:translateX(-50%);
-  animation:navIndicatorIn .45s cubic-bezier(.34,1.56,.64,1) forwards;
-}
-
-@keyframes navIndicatorIn{
-  0%  { width:0; opacity:0; }
-  60% { width:22px; opacity:1; }
-  100%{ width:18px; opacity:1; }
 }
 
 /* soft ripple on active tab background */
@@ -409,11 +408,6 @@ body.dark .field select{
 @keyframes navRipple{
   0%  { opacity:.9; transform:scale(.6); }
   100%{ opacity:0;  transform:scale(1.2); }
-}
-
-/* floating bounce for the whole nav on idle (very subtle) */
-.nav-btn.active svg{
-  filter:drop-shadow(0 4px 8px rgba(99,91,255,.35));
 }
 
 .modal{position:fixed;inset:0;z-index:200;display:none;align-items:flex-end;justify-content:center;background:rgba(2,6,23,.48);backdrop-filter:blur(10px);}
@@ -700,6 +694,7 @@ body.dark .splash-screen{background:radial-gradient(circle at 0% 0%,rgba(99,91,2
 
 /* =========================================================
    SCROLL REVEAL ANIMATIONS
+   (Works on mobile + PC, respects reduced motion)
 ========================================================= */
 
 .reveal {
@@ -716,7 +711,6 @@ body.dark .splash-screen{background:radial-gradient(circle at 0% 0%,rgba(99,91,2
   transform: translateY(0);
 }
 
-/* تنويعات حسب نوع العنصر */
 .reveal.reveal-left {
   transform: translateX(-40px);
 }
@@ -732,12 +726,15 @@ body.dark .splash-screen{background:radial-gradient(circle at 0% 0%,rgba(99,91,2
   transform: translateX(0) scale(1);
 }
 
-/* منع ظهور وميض قبل التشغيل */
 @media (prefers-reduced-motion: reduce) {
   .reveal {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
+  }
+  .page.page-enter-right,
+  .page.page-enter-left{
+    animation: none !important;
   }
 }
 
@@ -962,19 +959,19 @@ body.dark .splash-screen{background:radial-gradient(circle at 0% 0%,rgba(99,91,2
 </div>
 
 <nav class="bottom-nav">
-  <button class="nav-btn active" onclick="navigate('home',this)">
+  <button class="nav-btn active" data-page="home" onclick="navigate('home',this)">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg>
     <span data-i18n="nav_home">Home</span>
   </button>
-  <button class="nav-btn" onclick="navigate('bookings',this)">
+  <button class="nav-btn" data-page="bookings" onclick="navigate('bookings',this)">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="3"/><path d="M8 3v4"/><path d="M16 3v4"/><path d="M4 10h16"/><path d="m9 15 2 2 4-4"/></svg>
     <span data-i18n="nav_bookings">Requests</span>
   </button>
-  <button class="nav-btn" onclick="navigate('favorites',this)">
+  <button class="nav-btn" data-page="favorites" onclick="navigate('favorites',this)">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 8.7c0 5.5-8.8 10.3-8.8 10.3S3.2 14.2 3.2 8.7A4.7 4.7 0 0 1 12 6.1a4.7 4.7 0 0 1 8.8 2.6Z"/></svg>
     <span data-i18n="nav_favorites">Favorites</span>
   </button>
-  <button class="nav-btn" onclick="navigate('profile',this)">
+  <button class="nav-btn" data-page="profile" onclick="navigate('profile',this)">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
     <span data-i18n="nav_profile">Profile</span>
   </button>
@@ -1495,13 +1492,31 @@ function hidePages(){
   document.querySelectorAll("main.page").forEach(page => page.classList.add("hidden"));
 }
 
-function navigate(page,button){
+const navOrder = ["home", "bookings", "favorites", "profile"];
+
+function navigate(page, button){
+  // تحديد الاتجاه
+  const fromIdx = navOrder.indexOf(currentPage);
+  const toIdx = navOrder.indexOf(page);
+  const direction = (toIdx >= fromIdx) ? "right" : "left";
+
   hidePages();
   currentPage = page;
+
   const target = document.getElementById(page + "Page");
-  if(target){ target.classList.remove("hidden"); }
+  if(target){
+    // إزالة كلاسات الأنيميشن القديمة
+    target.classList.remove("page-enter-right", "page-enter-left");
+    // إجبار إعادة الرسم لضمان تشغيل الأنيميشن
+    void target.offsetWidth;
+    // إضافة كلاس الأنيميشن المناسب
+    target.classList.add(direction === "right" ? "page-enter-right" : "page-enter-left");
+    target.classList.remove("hidden");
+  }
+
   document.querySelectorAll(".nav-btn").forEach(btn => btn.classList.remove("active"));
   if(button){ button.classList.add("active"); }
+
   if(page === "home"){
     renderHome();
     requestAnimationFrame(() => { initHomeReveal(); });
@@ -1512,12 +1527,17 @@ function navigate(page,button){
 
 function goHome(){
   hidePages();
-  document.getElementById("homePage").classList.remove("hidden");
+  const home = document.getElementById("homePage");
+  home.classList.remove("page-enter-right", "page-enter-left");
+  void home.offsetWidth;
+  home.classList.add("page-enter-left");
+  home.classList.remove("hidden");
   currentPage = "home";
-  document.querySelectorAll(".nav-btn").forEach(btn => btn.classList.remove("active"));
-  document.querySelector(".nav-btn").classList.add("active");
 
-  // إعادة تشغيل الـ reveal
+  document.querySelectorAll(".nav-btn").forEach(btn => btn.classList.remove("active"));
+  const homeBtn = document.querySelector('.nav-btn[data-page="home"]');
+  if(homeBtn){ homeBtn.classList.add("active"); }
+
   requestAnimationFrame(() => { initHomeReveal(); });
 }
 
@@ -1594,7 +1614,6 @@ function renderHome(){
     ? list.map(artisanCard).join("")
     : `<p style="color:var(--muted)">${t("no_results")}</p>`;
 
-  // إعادة تفعيل الـ reveal على العناصر الجديدة داخل الـ home
   requestAnimationFrame(() => {
     initHomeReveal();
   });
@@ -1776,7 +1795,7 @@ async function confirmBooking(){
   }
 
   setTimeout(() => {
-    navigate("bookings", document.querySelectorAll(".nav-btn")[1]);
+    navigate("bookings", document.querySelector('.nav-btn[data-page="bookings"]'));
   }, 700);
 }
 
@@ -2273,6 +2292,7 @@ function toast(message){
 
 /* =========================================================
    SCROLL REVEAL — Home page animations
+   (works on mobile + PC)
 ========================================================= */
 
 let homeRevealObserver = null;
@@ -2281,12 +2301,9 @@ function initHomeReveal(){
   const home = document.getElementById("homePage");
   if(!home){ return; }
 
-  // إذا المستخدم يفضّل تقليل الحركة
   const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // العناصر التي نريد مراقبتها داخل الصفحة الرئيسية
   const targets = [
-    // عناصر ثابتة في أعلى الصفحة — نستخدم delay مختلف
     { el: home.querySelector(".location-pill"),        variant: "",         delay: 0 },
     { el: home.querySelector(".hero h1"),              variant: "",         delay: 60 },
     { el: home.querySelector(".hero p"),               variant: "",         delay: 120 },
@@ -2295,16 +2312,14 @@ function initHomeReveal(){
     { el: home.querySelector(".section-head"),         variant: "",         delay: 0 },
     { el: home.querySelector(".services"),             variant: "",         delay: 60 },
     { el: home.querySelector(".banner"),               variant: "reveal-scale", delay: 0 },
-    { el: home.querySelectorAll(".section-head")[1],   variant: "",         delay: 0 }, // عنوان "Popular professionals"
+    { el: home.querySelectorAll(".section-head")[1],   variant: "",         delay: 0 },
     { el: home.querySelector("#homeArtisans"),         variant: "",         delay: 80 },
     { el: home.querySelector(".contact-card"),         variant: "reveal-scale", delay: 0 },
   ];
 
-  // نظّف الـ observer القديم
   if(homeRevealObserver){ homeRevealObserver.disconnect(); homeRevealObserver = null; }
 
   if(prefersReduced){
-    // أظهر كل شيء فوراً بدون أنيميشن
     targets.forEach(({el, variant}) => {
       if(!el) return;
       el.classList.remove("reveal", "reveal-visible", "reveal-left", "reveal-right", "reveal-scale");
@@ -2312,17 +2327,14 @@ function initHomeReveal(){
     return;
   }
 
-  // جهّز العناصر
   targets.forEach(({el, variant, delay}) => {
     if(!el) return;
     el.classList.add("reveal");
     if(variant){ el.classList.add(variant); }
     el.dataset.revealDelay = delay || 0;
-    // تأكد أنها مخفية في البداية
     el.classList.remove("reveal-visible");
   });
 
-  // أنشئ observer جديد
   homeRevealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if(entry.isIntersecting){
@@ -2335,15 +2347,14 @@ function initHomeReveal(){
       }
     });
   }, {
-    threshold: 0.12,
-    rootMargin: "0px 0px -60px 0px"
+    threshold: 0.05,
+    rootMargin: "0px 0px -40px 0px"
   });
 
   targets.forEach(({el}) => {
     if(el){ homeRevealObserver.observe(el); }
   });
 
-  // العناصر داخل قائمة المحترفين — staggered
   const artisanCards = home.querySelectorAll("#homeArtisans .artisan");
   artisanCards.forEach((card, i) => {
     card.classList.add("reveal");
