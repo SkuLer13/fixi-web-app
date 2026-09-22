@@ -1223,15 +1223,16 @@ function renderBookings(){
         <div class="customer-phone">${escapeHtml(b.phone || '')}</div>
         <div class="customer-email">${escapeHtml(b.email || '')}</div>
       </td>
-      <td>${escapeHtml(b.service || 'N/A')}</td>
       <td>
-  <div class="customer-name">
+  <div class="customer-name">${escapeHtml(b.service || 'N/A')}</div>
+  <div class="customer-phone">
     ${escapeHtml(b.artisan_name || 'Not selected')}
   </div>
 </td>
       <td>
-  <div>${escapeHtml(b.wilaya || 'N/A')}</div>
-  <div class="customer-phone">${escapeHtml(b.delegation || '')}</div>
+  <div>
+  ${escapeHtml(b.wilaya || 'N/A')}${b.delegation ? ' - ' + escapeHtml(b.delegation) : ''}
+</div>
 </td>
 
 <td>
