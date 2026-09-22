@@ -587,6 +587,49 @@ body.dark .splash-screen{background:radial-gradient(circle at 0% 0%,rgba(99,91,2
   .artisan-list{grid-template-columns:repeat(2,minmax(0,1fr));}
 }
 
+/* =========================================================
+   SCROLL REVEAL ANIMATIONS
+========================================================= */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(35px);
+  transition:
+    opacity 0.75s cubic-bezier(.22,1,.36,1),
+    transform 0.85s cubic-bezier(.22,1,.36,1);
+  will-change: opacity, transform;
+}
+
+.reveal.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* تنويعات حسب نوع العنصر */
+.reveal.reveal-left {
+  transform: translateX(-40px);
+}
+.reveal.reveal-right {
+  transform: translateX(40px);
+}
+.reveal.reveal-scale {
+  transform: scale(0.92);
+}
+.reveal.reveal-left.reveal-visible,
+.reveal.reveal-right.reveal-visible,
+.reveal.reveal-scale.reveal-visible {
+  transform: translateX(0) scale(1);
+}
+
+/* منع ظهور وميض قبل التشغيل */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
 </style>
 </head>
 
@@ -1322,6 +1365,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   syncBookingsFromSupabase();
   subscribeToBookingsRealtime();
+
+  // تشغيل scroll reveal بعد تحميل الصفحة
+  setTimeout(() => { initHomeReveal(); }, 600);
 });
 
 window.addEventListener("load", () => {
@@ -1345,7 +1391,10 @@ function navigate(page,button){
   if(target){ target.classList.remove("hidden"); }
   document.querySelectorAll(".nav-btn").forEach(btn => btn.classList.remove("active"));
   if(button){ button.classList.add("active"); }
-  if(page === "home"){ renderHome(); }
+  if(page === "home"){
+    renderHome();
+    requestAnimationFrame(() => { initHomeReveal(); });
+  }
   if(page === "bookings"){ syncBookingsFromSupabase(); renderBookings(); }
   if(page === "favorites"){ renderFavorites(); }
 }
@@ -1356,6 +1405,9 @@ function goHome(){
   currentPage = "home";
   document.querySelectorAll(".nav-btn").forEach(btn => btn.classList.remove("active"));
   document.querySelector(".nav-btn").classList.add("active");
+
+  // إعادة تشغيل الـ reveal
+  requestAnimationFrame(() => { initHomeReveal(); });
 }
 
 function goBack(){
@@ -1427,7 +1479,14 @@ function showLoadingThenRender(){
 function renderHome(){
   const container = document.getElementById("homeArtisans");
   const list = applyFilters(artisans).slice(0,6);
-  container.innerHTML = list.length ? list.map(artisanCard).join("") : `<p style="color:var(--muted)">${t("no_results")}</p>`;
+  container.innerHTML = list.length
+    ? list.map(artisanCard).join("")
+    : `<p style="color:var(--muted)">${t("no_results")}</p>`;
+
+  // إعادة تفعيل الـ reveal على العناصر الجديدة داخل الـ home
+  requestAnimationFrame(() => {
+    initHomeReveal();
+  });
 }
 
 function artisanCard(a){
@@ -2099,6 +2158,88 @@ function toast(message){
   el.classList.add("show");
   clearTimeout(toastTimer);
   toastTimer = setTimeout(() => { el.classList.remove("show"); }, 2200);
+}
+
+/* =========================================================
+   SCROLL REVEAL — Home page animations
+========================================================= */
+
+let homeRevealObserver = null;
+
+function initHomeReveal(){
+  const home = document.getElementById("homePage");
+  if(!home){ return; }
+
+  // إذا المستخدم يفضّل تقليل الحركة
+  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // العناصر التي نريد مراقبتها داخل الصفحة الرئيسية
+  const targets = [
+    // عناصر ثابتة في أعلى الصفحة — نستخدم delay مختلف
+    { el: home.querySelector(".location-pill"),        variant: "",         delay: 0 },
+    { el: home.querySelector(".hero h1"),              variant: "",         delay: 60 },
+    { el: home.querySelector(".hero p"),               variant: "",         delay: 120 },
+    { el: home.querySelector(".search"),               variant: "reveal-scale", delay: 160 },
+    { el: home.querySelector(".filter-bar"),           variant: "",         delay: 200 },
+    { el: home.querySelector(".section-head"),         variant: "",         delay: 0 },
+    { el: home.querySelector(".services"),             variant: "",         delay: 60 },
+    { el: home.querySelector(".banner"),               variant: "reveal-scale", delay: 0 },
+    { el: home.querySelectorAll(".section-head")[1],   variant: "",         delay: 0 }, // عنوان "Popular professionals"
+    { el: home.querySelector("#homeArtisans"),         variant: "",         delay: 80 },
+    { el: home.querySelector(".contact-card"),         variant: "reveal-scale", delay: 0 },
+  ];
+
+  // نظّف الـ observer القديم
+  if(homeRevealObserver){ homeRevealObserver.disconnect(); homeRevealObserver = null; }
+
+  if(prefersReduced){
+    // أظهر كل شيء فوراً بدون أنيميشن
+    targets.forEach(({el, variant}) => {
+      if(!el) return;
+      el.classList.remove("reveal", "reveal-visible", "reveal-left", "reveal-right", "reveal-scale");
+    });
+    return;
+  }
+
+  // جهّز العناصر
+  targets.forEach(({el, variant, delay}) => {
+    if(!el) return;
+    el.classList.add("reveal");
+    if(variant){ el.classList.add(variant); }
+    el.dataset.revealDelay = delay || 0;
+    // تأكد أنها مخفية في البداية
+    el.classList.remove("reveal-visible");
+  });
+
+  // أنشئ observer جديد
+  homeRevealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        const el = entry.target;
+        const delay = parseInt(el.dataset.revealDelay || "0", 10);
+        setTimeout(() => {
+          el.classList.add("reveal-visible");
+        }, delay);
+        homeRevealObserver.unobserve(el);
+      }
+    });
+  }, {
+    threshold: 0.12,
+    rootMargin: "0px 0px -60px 0px"
+  });
+
+  targets.forEach(({el}) => {
+    if(el){ homeRevealObserver.observe(el); }
+  });
+
+  // العناصر داخل قائمة المحترفين — staggered
+  const artisanCards = home.querySelectorAll("#homeArtisans .artisan");
+  artisanCards.forEach((card, i) => {
+    card.classList.add("reveal");
+    card.classList.remove("reveal-visible");
+    card.dataset.revealDelay = String(i * 70);
+    homeRevealObserver.observe(card);
+  });
 }
 
 </script>
