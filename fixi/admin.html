@@ -900,6 +900,7 @@ tbody tr:hover{
             <tr>
               <th>Customer</th>
               <th>Service</th>
+              <th>Artisan</th>
               <th>Location</th>
               <th>Problem</th>
               <th>Appointment</th>
@@ -1223,6 +1224,11 @@ function renderBookings(){
         <div class="customer-email">${escapeHtml(b.email || '')}</div>
       </td>
       <td>${escapeHtml(b.service || 'N/A')}</td>
+      <td>
+  <div class="customer-name">
+    ${escapeHtml(b.artisan_name || 'Not selected')}
+  </div>
+</td>
       <td>
   <div>${escapeHtml(b.wilaya || 'N/A')}</div>
   <div class="customer-phone">${escapeHtml(b.delegation || '')}</div>
