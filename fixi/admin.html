@@ -900,8 +900,10 @@ tbody tr:hover{
             <tr>
               <th>Customer</th>
               <th>Service</th>
-              <th>Wilaya</th>
-              <th>Date & Time</th>
+              <th>Location</th>
+              <th>Problem</th>
+              <th>Appointment</th>
+              <th>Booked At</th>
               <th>Status</th>
               <th>Actions</th>
             </tr>
@@ -1218,8 +1220,34 @@ function renderBookings(){
         <div class="customer-email">${escapeHtml(b.email || '')}</div>
       </td>
       <td>${escapeHtml(b.service || 'N/A')}</td>
-      <td>${escapeHtml(b.wilaya || 'N/A')}</td>
-      <td>${escapeHtml(b.date || '')} ${escapeHtml(b.time || '')}</td>
+      <td>
+  <div>${escapeHtml(b.wilaya || 'N/A')}</div>
+  <div class="customer-phone">${escapeHtml(b.delegation || '')}</div>
+</td>
+
+<td>
+  <div class="problem-text">
+    ${escapeHtml(b.problem || 'No problem specified')}
+  </div>
+</td>
+
+<td>
+  <div>${escapeHtml(b.date || b.booking_date || '')}</div>
+  <div class="customer-phone">
+    ${escapeHtml(b.time || b.booking_time || '')}
+  </div>
+</td>
+      <td>
+  <div>
+    ${b.created_at ? new Date(b.created_at).toLocaleDateString() : 'N/A'}
+  </div>
+  <div class="customer-phone">
+    ${b.created_at ? new Date(b.created_at).toLocaleTimeString([], {
+      hour: '2-digit',
+      minute: '2-digit'
+    }) : ''}
+  </div>
+</td>
       <td>
         <span class="status ${escapeHtml(b.status || 'pending')}">
           ${escapeHtml(b.status || 'pending')}
