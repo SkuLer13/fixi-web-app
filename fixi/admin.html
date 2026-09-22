@@ -1142,6 +1142,7 @@ async function fetchBookings(){
     if(error){ throw error; }
 
     allBookings = data || [];
+    console.log('BOOKINGS FROM SUPABASE:', allBookings);
     populateWilayaFilter();
     renderBookings();
   }catch(error){
@@ -1186,12 +1187,14 @@ function renderBookings(){
     const phone = String(item.phone || '').toLowerCase();
     const service = String(item.service || '').toLowerCase();
     const wilaya = String(item.wilaya || '').toLowerCase();
+    const delegation = String(item.delegation || '').toLowerCase();
 
     const matchesSearch = !search ||
-      name.includes(search) ||
-      phone.includes(search) ||
-      service.includes(search) ||
-      wilaya.includes(search);
+  name.includes(search) ||
+  phone.includes(search) ||
+  service.includes(search) ||
+  wilaya.includes(search) ||
+  delegation.includes(search);
 
     const matchesStatus = statusFilter === 'all' || item.status === statusFilter;
     const matchesWilaya = wilayaFilter === 'all' || item.wilaya === wilayaFilter;
