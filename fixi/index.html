@@ -296,14 +296,125 @@ body.dark .field select{
 .profile-card h2{margin:12px 0 3px;color:var(--text);}
 .profile-card p{color:var(--muted);margin:0;}
 
-.bottom-nav{position:fixed;z-index:100;bottom:14px;left:50%;transform:translateX(-50%);width:min(450px,calc(100% - 24px));padding:8px;border-radius:28px;display:grid;grid-template-columns:repeat(4,1fr);background:rgba(255,255,255,.70);backdrop-filter:blur(32px) saturate(190%);-webkit-backdrop-filter:blur(32px) saturate(190%);border:1px solid rgba(255,255,255,.86);box-shadow:0 20px 60px rgba(15,23,42,.20);}
+/* =========================================================
+   BOTTOM NAV — with animations
+========================================================= */
+.bottom-nav{
+  position:fixed;z-index:100;bottom:14px;left:50%;
+  transform:translateX(-50%);
+  width:min(450px,calc(100% - 24px));
+  padding:8px;border-radius:28px;
+  display:grid;grid-template-columns:repeat(4,1fr);
+  background:rgba(255,255,255,.70);
+  backdrop-filter:blur(32px) saturate(190%);
+  -webkit-backdrop-filter:blur(32px) saturate(190%);
+  border:1px solid rgba(255,255,255,.86);
+  box-shadow:0 20px 60px rgba(15,23,42,.20);
+  animation:navEnter .55s cubic-bezier(.22,1,.36,1) backwards;
+}
+
+@keyframes navEnter{
+  from{ opacity:0; transform:translate(-50%, 40px) scale(.9); }
+  to  { opacity:1; transform:translate(-50%, 0) scale(1); }
+}
+
 .dark .bottom-nav{background:rgba(14,19,34,.84);border-color:rgba(255,255,255,.10);}
-.nav-btn{background:none;color:var(--muted);padding:9px 4px;border-radius:20px;display:flex;flex-direction:column;align-items:center;gap:4px;transition:color .25s,background .25s,transform .25s;}
-.nav-btn svg{width:21px;height:21px;transition:transform .25s;}
-.nav-btn span{font-size:9px;font-weight:850;}
-.nav-btn.active{color:#4f46e5;background:linear-gradient(135deg,rgba(99,91,255,.13),rgba(6,182,212,.08));}
-.dark .nav-btn.active{background:linear-gradient(135deg,rgba(99,91,255,.20),rgba(6,182,212,.10));color:#a5b4fc;}
-.nav-btn.active svg{transform:translateY(-1px) scale(1.10);}
+
+.nav-btn{
+  position:relative;
+  background:none;color:var(--muted);
+  padding:9px 4px;border-radius:20px;
+  display:flex;flex-direction:column;align-items:center;gap:4px;
+  transition:color .3s ease,background .3s ease,transform .25s ease;
+  overflow:visible;
+}
+.nav-btn svg{
+  width:21px;height:21px;
+  transition:transform .35s cubic-bezier(.34,1.56,.64,1);
+}
+.nav-btn span{
+  font-size:9px;font-weight:850;
+  transition:transform .3s ease,letter-spacing .3s ease;
+}
+
+/* hover effect */
+.nav-btn:hover{
+  color:var(--primary);
+}
+.nav-btn:hover svg{
+  transform:translateY(-2px) scale(1.08);
+}
+
+/* press effect */
+.nav-btn:active svg{
+  transform:scale(.85) !important;
+}
+
+/* active state */
+.nav-btn.active{
+  color:#4f46e5;
+  background:linear-gradient(135deg,rgba(99,91,255,.13),rgba(6,182,212,.08));
+}
+.dark .nav-btn.active{
+  background:linear-gradient(135deg,rgba(99,91,255,.20),rgba(6,182,212,.10));
+  color:#a5b4fc;
+}
+.nav-btn.active svg{
+  transform:translateY(-1px) scale(1.10);
+  animation:navIconPop .55s cubic-bezier(.34,1.56,.64,1);
+}
+.nav-btn.active span{
+  transform:translateY(1px) scale(1.05);
+  letter-spacing:.3px;
+}
+
+/* icon pop animation when tab becomes active */
+@keyframes navIconPop{
+  0%   { transform:translateY(0) scale(1); }
+  45%  { transform:translateY(-5px) scale(1.28) rotate(-6deg); }
+  70%  { transform:translateY(1px) scale(.95) rotate(4deg); }
+  100% { transform:translateY(-1px) scale(1.10) rotate(0); }
+}
+
+/* glowing indicator under active tab */
+.nav-btn.active::after{
+  content:"";
+  position:absolute;
+  bottom:2px;left:50%;
+  width:0;height:3px;
+  border-radius:3px;
+  background:linear-gradient(90deg,#4f46e5,#06b6d4);
+  box-shadow:0 0 10px rgba(99,91,255,.6);
+  transform:translateX(-50%);
+  animation:navIndicatorIn .45s cubic-bezier(.34,1.56,.64,1) forwards;
+}
+
+@keyframes navIndicatorIn{
+  0%  { width:0; opacity:0; }
+  60% { width:22px; opacity:1; }
+  100%{ width:18px; opacity:1; }
+}
+
+/* soft ripple on active tab background */
+.nav-btn.active::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:20px;
+  background:radial-gradient(circle at center, rgba(99,91,255,.25), transparent 70%);
+  animation:navRipple .6s ease-out forwards;
+  pointer-events:none;
+}
+
+@keyframes navRipple{
+  0%  { opacity:.9; transform:scale(.6); }
+  100%{ opacity:0;  transform:scale(1.2); }
+}
+
+/* floating bounce for the whole nav on idle (very subtle) */
+.nav-btn.active svg{
+  filter:drop-shadow(0 4px 8px rgba(99,91,255,.35));
+}
 
 .modal{position:fixed;inset:0;z-index:200;display:none;align-items:flex-end;justify-content:center;background:rgba(2,6,23,.48);backdrop-filter:blur(10px);}
 .modal.show{display:flex;animation:fadeIn .25s ease;}
