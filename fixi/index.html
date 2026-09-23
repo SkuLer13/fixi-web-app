@@ -740,16 +740,89 @@ body.dark .splash-screen{background:radial-gradient(circle at 0% 0%,rgba(99,91,2
 
 <body class="fixi-site">
 
-<div id="splashScreen" class="splash-screen">
-  <div class="splash-mark">
-    <svg class="brand-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:60%;height:60%">
-      <path d="M 50 22 L 78 46 L 71 46 L 71 76 Q 71 78 69 78 L 31 78 Q 29 78 29 76 L 29 46 L 22 46 Z" fill="currentColor"/>
-      <path d="M 38 60 L 47 69 L 63 51" stroke="#4f46e5" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<!-- FIXI NEW LOADING SCREEN -->
+<div class="fixi-loader" id="fixiLoader">
+  <div class="fixi-logo">
+    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Fixi">
+      <path d="M50 20L80 46H72V77Q72 80 69 80H31Q28 80 28 77V46H20L50 20Z" fill="white"/>
+      <path d="M37 60L47 70L65 49" stroke="#635BFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
   </div>
-  <div class="splash-word">fixi</div>
-  <div class="splash-ring"></div>
+  <div class="fixi-loading-bar">
+    <div class="fixi-loading-progress"></div>
+  </div>
 </div>
+
+<style>
+  .fixi-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #f5f7ff;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+  }
+  @media (prefers-color-scheme: dark) {
+    .fixi-loader { background: #070914; }
+  }
+  .fixi-loader.hide {
+    opacity: 0;
+    visibility: hidden;
+  }
+  .fixi-logo {
+    width: 78px;
+    height: 78px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 22px;
+    background: linear-gradient(135deg, #635bff, #8b5cf6);
+    box-shadow: 0 12px 35px rgba(99, 91, 255, 0.25);
+    margin-bottom: 28px;
+  }
+  .fixi-logo svg {
+    width: 48px;
+    height: 48px;
+  }
+  .fixi-loading-bar {
+    width: 180px;
+    height: 4px;
+    background: rgba(99, 91, 255, 0.14);
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  .fixi-loading-progress {
+    width: 0%;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #635bff, #8b5cf6);
+    animation: fixiLoading 1.8s ease-in-out forwards;
+  }
+  @keyframes fixiLoading {
+    from { width: 0%; }
+    to { width: 100%; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .fixi-loading-progress { animation-duration: 0.8s; }
+  }
+</style>
+
+<script>
+  window.addEventListener("load", function () {
+    setTimeout(function () {
+      const loader = document.getElementById("fixiLoader");
+      if (!loader) return;
+      loader.classList.add("hide");
+      setTimeout(function () {
+        loader.remove();
+      }, 500);
+    }, 1800);
+  });
+</script>
+<!-- END FIXI NEW LOADING SCREEN -->
 
 <div class="blob one"></div>
 <div class="blob two"></div>
@@ -1474,37 +1547,21 @@ document.addEventListener("DOMContentLoaded", () => {
   setTimeout(() => { initHomeReveal(); }, 600);
 });
 
-window.addEventListener("load", () => {
-  setTimeout(() => {
-    const splash = document.getElementById("splashScreen");
-    if(splash){
-      splash.classList.add("hide");
-      setTimeout(() => { splash.remove(); }, 600);
-    }
-  }, 900);
-});
-
 function hidePages(){
   document.querySelectorAll("main.page").forEach(page => page.classList.add("hidden"));
 }
 
 const navOrder = ["home", "bookings", "favorites", "profile"];
 
-/*
- * RULE (as requested):
- *   - Moving LEFT in tab order  (e.g. Profile -> Favorites)  → new page enters FROM RIGHT
- *   - Moving RIGHT in tab order (e.g. Home -> Profile)       → new page enters FROM LEFT
- */
 function navigate(page, button){
   const fromIdx = navOrder.indexOf(currentPage);
   const toIdx = navOrder.indexOf(page);
 
-  // Invert the natural direction: moving left → enter from right, moving right → enter from left
   let enterFromRight;
   if(fromIdx === -1 || toIdx === -1){
     enterFromRight = true;
   }else{
-    enterFromRight = (toIdx < fromIdx); // moving left → enter from RIGHT
+    enterFromRight = (toIdx < fromIdx);
   }
 
   hidePages();
@@ -1530,7 +1587,6 @@ function navigate(page, button){
 }
 
 function goHome(){
-  // Home is leftmost tab → user is always "moving left" → content enters from RIGHT
   hidePages();
   const home = document.getElementById("homePage");
   home.classList.remove("page-enter-right", "page-enter-left");
