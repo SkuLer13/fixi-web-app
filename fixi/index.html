@@ -740,6 +740,17 @@ body.dark .splash-screen{background:radial-gradient(circle at 0% 0%,rgba(99,91,2
 
 <body class="fixi-site">
 
+<!-- Apply saved theme before the loader renders -->
+<script>
+  (function(){
+    try {
+      if (localStorage.getItem("fixiTheme") === "dark") {
+        document.body.classList.add("dark");
+      }
+    } catch(e){}
+  })();
+</script>
+
 <!-- FIXI NEW LOADING SCREEN -->
 <div class="fixi-loader" id="fixiLoader">
   <div class="fixi-logo">
@@ -765,8 +776,8 @@ body.dark .splash-screen{background:radial-gradient(circle at 0% 0%,rgba(99,91,2
     background: #f5f7ff;
     transition: opacity 0.5s ease, visibility 0.5s ease;
   }
-  @media (prefers-color-scheme: dark) {
-    .fixi-loader { background: #070914; }
+  body.dark .fixi-loader {
+    background: #070914;
   }
   .fixi-loader.hide {
     opacity: 0;
