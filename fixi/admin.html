@@ -320,7 +320,7 @@ body{
   align-items:center;
 }
 
-/* Icons — always black */
+/* Icons — always black, always visible (z-index 4 above input) */
 .input-icon{
   position:absolute;
   left:12px;
@@ -329,7 +329,7 @@ body{
   color:#000000;
   transition:color .25s, transform .25s;
   pointer-events:none;
-  z-index:2;
+  z-index:4;
 }
 
 .field:focus-within .input-icon{
@@ -350,7 +350,7 @@ body{
   color:#000000;
   display:none;
   place-items:center;
-  z-index:3;
+  z-index:4;
   transition:color .25s, transform .25s;
 }
 
@@ -388,6 +388,22 @@ body{
     0 2px 0 rgba(0,0,0,.4);
   transition:border-color .2s, box-shadow .2s, transform .2s;
   image-rendering: pixelated;
+}
+
+/* === HIDE the browser's native password reveal (Edge / Chrome eye icon) === */
+.field input[type="password"]::-ms-reveal,
+.field input[type="password"]::-ms-clear{
+  display:none;
+}
+
+.field input[type="password"]::-webkit-credentials-auto-fill-button,
+.field input[type="password"]::-webkit-strong-password-auto-fill-button,
+.field input[type="password"]::-webkit-textfield-decoration-container{
+  visibility:hidden;
+  display:none !important;
+  pointer-events:none;
+  position:absolute;
+  right:0;
 }
 
 .field input::placeholder{
@@ -950,6 +966,7 @@ tbody tr:hover{
     <div class="field">
       <label for="password">Password</label>
       <div class="input-wrap">
+        <!-- Password lock icon — always visible -->
         <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter">
           <rect x="4" y="10" width="16" height="11" rx="1"/>
           <path d="M8 10V7a4 4 0 0 1 8 0v3"/>
