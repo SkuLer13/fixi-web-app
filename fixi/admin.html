@@ -55,7 +55,7 @@ body{
 }
 
 /* =========================
-   LOGIN
+   LOGIN — MINECRAFT THEME
 ========================= */
 
 #loginPage{
@@ -64,50 +64,127 @@ body{
   align-items:center;
   justify-content:center;
   padding:24px;
+  position:relative;
+  overflow:hidden;
+
+  background:
+    radial-gradient(2px 2px at 10% 12%, #ffffff, transparent 60%),
+    radial-gradient(2px 2px at 25% 6%, #ffffff, transparent 60%),
+    radial-gradient(2px 2px at 42% 18%, #e0e0ff, transparent 60%),
+    radial-gradient(2px 2px at 58% 8%, #ffffff, transparent 60%),
+    radial-gradient(2px 2px at 73% 20%, #ffffff, transparent 60%),
+    radial-gradient(2px 2px at 88% 4%, #e0e0ff, transparent 60%),
+    radial-gradient(2px 2px at 15% 30%, #ffffff, transparent 60%),
+    radial-gradient(2px 2px at 35% 34%, #ffffff, transparent 60%),
+    radial-gradient(2px 2px at 52% 38%, #e0e0ff, transparent 60%),
+    radial-gradient(2px 2px at 70% 28%, #ffffff, transparent 60%),
+    radial-gradient(2px 2px at 92% 42%, #ffffff, transparent 60%),
+    radial-gradient(2px 2px at 6% 52%, #ffffff, transparent 60%),
+    radial-gradient(2px 2px at 48% 56%, #e0e0ff, transparent 60%),
+    radial-gradient(2px 2px at 82% 62%, #ffffff, transparent 60%),
+    radial-gradient(circle at 82% 14%, rgba(255,255,240,.9) 0, rgba(255,255,240,.6) 14px, rgba(255,255,240,.15) 28px, transparent 60px),
+    linear-gradient(180deg, #0a1024 0%, #101a34 30%, #182448 55%, #1f2f5c 75%, #263a6b 100%);
+  image-rendering: pixelated;
+}
+
+#loginPage::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:70px;
+  height:180px;
+  background:
+    linear-gradient(135deg, transparent 50%, #0d1530 50%) 0 0 / 90px 100% repeat-x,
+    linear-gradient(45deg, #0d1530 50%, transparent 50%) 45px 0 / 90px 100% repeat-x;
+  z-index:0;
+  pointer-events:none;
+  opacity:.85;
+}
+
+#loginPage::before{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:70px;
+  background:
+    linear-gradient(180deg,
+      #7cbb4f 0px,
+      #5e9c3e 10px,
+      #4a7d31 18px,
+      #8b5a2b 18px,
+      #7a4f25 40px,
+      #6b4423 70px
+    );
+  box-shadow:
+    inset 0 8px 0 rgba(0,0,0,.18),
+    inset 0 -6px 0 rgba(0,0,0,.35);
+  z-index:0;
+  pointer-events:none;
+  image-rendering: pixelated;
 }
 
 .login-card{
   width:100%;
   max-width:430px;
-  padding:40px 36px;
-  border:1px solid var(--border);
-  background:var(--card);
-  backdrop-filter:blur(25px);
-  -webkit-backdrop-filter:blur(25px);
-  border-radius:28px;
-  box-shadow:var(--shadow);
+  padding:0 0 32px;
   text-align:center;
-
-  /* keep only the entrance animation on the card */
-  animation:cardIn .6s cubic-bezier(.22,1,.36,1);
-
-  /* rotating gradient border setup */
   position:relative;
-  border:2px solid transparent;
-  background-clip:padding-box;
+  z-index:1;
+  overflow:hidden;
+
+  background:#8b5a2b;
+  background-image:
+    repeating-linear-gradient(0deg,
+      #8b5a2b 0px, #8b5a2b 8px,
+      #7a4f25 8px, #7a4f25 16px),
+    repeating-linear-gradient(90deg,
+      rgba(0,0,0,.08) 0px, rgba(0,0,0,.08) 8px,
+      transparent 8px, transparent 16px);
+
+  border-radius:4px;
+
+  border:4px solid #2b1a0a;
+  box-shadow:
+    inset 0 0 0 4px #a06b38,
+    inset 0 0 0 8px #6b4423,
+    0 0 0 4px #2b1a0a,
+    0 16px 0 rgba(0,0,0,.4),
+    0 24px 60px rgba(0,0,0,.55);
+
+  animation:cardIn .6s cubic-bezier(.22,1,.36,1);
+  image-rendering: pixelated;
 }
 
-/* rotating gradient border only */
-.login-card::before {
+.login-card::before{
   content:"";
   position:absolute;
-  inset:-2px;
-  border-radius:30px;
-  padding:2px;
-  background:linear-gradient(110deg, #4f46e5, #7c3aed, #06b6d4, #4f46e5);
-  background-size:300% 300%;
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
+  top:0;
+  left:0;
+  right:0;
+  height:28px;
+  background:
+    linear-gradient(180deg, #7cbb4f 0px, #5e9c3e 14px, #4a7d31 22px, #3d6b28 28px);
+  border-bottom:4px solid #2b1a0a;
+  box-shadow:inset 0 -3px 0 rgba(0,0,0,.25);
+  z-index:1;
   pointer-events:none;
-  animation: borderRotate 4s linear infinite;
-  z-index:0;
+  image-rendering: pixelated;
 }
 
-/* remove the outer pulsing glow pseudo-element */
-.login-card::after {
-  content:none;
+.login-card::after{
+  content:"";
+  position:absolute;
+  inset:12px;
+  border-radius:2px;
+  background-image:
+    linear-gradient(to right, rgba(0,0,0,.10) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0,0,0,.10) 1px, transparent 1px);
+  background-size:8px 8px;
+  pointer-events:none;
+  z-index:0;
 }
 
 @keyframes cardIn{
@@ -121,81 +198,119 @@ body{
   }
 }
 
-/* only rotation of the gradient border, no pulsing on the card */
-@keyframes borderRotate {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
 .logo{
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:7px;
-  margin-bottom:28px;
+  gap:12px;
+  margin:56px 0 22px;
+  position:relative;
+  z-index:2;
 }
 
 .logo-mark{
-  width:36px;
-  height:36px;
-  border-radius:12px;
-  display:grid;
-  place-items:center;
-  color:#ffffff;
-  background:linear-gradient(135deg,#6366f1,#8b5cf6,#06b6d4);
-  box-shadow:0 7px 20px rgba(99,91,255,.35);
-  overflow:hidden;
+  width:44px;
+  height:44px;
+  position:relative;
   flex:none;
+  image-rendering: pixelated;
 }
 
-.logo-mark svg{
-  width:78%;
-  height:78%;
-  display:block;
+.logo-mark::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(180deg,
+      #8fd35b 0%,
+      #7cbb4f 20%,
+      #5e9c3e 40%,
+      #4a7d31 55%,
+      transparent 55%
+    ),
+    repeating-conic-gradient(
+      #8b5a2b 0% 25%,
+      #7a4f25 0% 50%,
+      #a06b38 0% 75%,
+      #6b4423 0% 100%
+    );
+  background-size:100% 100%, 8px 8px;
+  background-position:0 0, 0 0;
+  box-shadow:
+    inset -4px -4px 0 rgba(0,0,0,.35),
+    inset 4px 4px 0 rgba(255,255,255,.15),
+    inset 0 0 0 3px #3d2a12,
+    0 4px 0 #2b1a0a,
+    0 6px 12px rgba(0,0,0,.5);
+  border-radius:3px;
+  z-index:0;
+}
+
+.logo-mark::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M 50 20 L 82 48 L 74 48 L 74 80 Q 74 82 72 82 L 28 82 Q 26 82 26 80 L 26 48 L 18 48 Z' fill='%23ffffff' stroke='%232b1a0a' stroke-width='4' stroke-linejoin='round'/%3E%3Cpath d='M 38 60 L 47 70 L 64 50' fill='none' stroke='%232b1a0a' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-size:70% 70%;
+  background-repeat:no-repeat;
+  background-position:center;
+  image-rendering: pixelated;
+  z-index:1;
+  filter:drop-shadow(1px 1px 0 rgba(0,0,0,.4));
 }
 
 .logo-text{
-  font-size:28px;
-  font-weight:950;
-  letter-spacing:-2px;
-  background:linear-gradient(110deg,#4f46e5,#7c3aed,#06b6d4);
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
-  font-family:"Sora","Plus Jakarta Sans","Cairo",sans-serif;
-  display:inline-block;
+  font-size:34px;
+  line-height:44px;
+  height:44px;
+  display:flex;
+  align-items:center;
+  font-weight:800;
+  letter-spacing:-0.5px;
+  color:#7cbb4f;
+  font-family:"Poppins","Sora","Plus Jakarta Sans",Inter,sans-serif;
+  text-shadow:
+    2px 2px 0 #2b1a0a,
+    0 0 12px rgba(124,187,79,.55);
 }
 
 .login-card h1{
-  font-size:28px;
-  margin-bottom:8px;
+  font-size:22px;
+  margin:0 0 26px;
   text-align:center;
-}
-
-.login-card p{
-  color:var(--muted);
-  margin-bottom:26px;
-  line-height:1.5;
-  text-align:center;
+  color:#f0e6d2;
+  font-family:"Courier New",monospace;
+  font-weight:900;
+  letter-spacing:2px;
+  text-shadow:
+    2px 2px 0 #3a2a10,
+    4px 4px 0 rgba(0,0,0,.3);
+  position:relative;
+  z-index:2;
 }
 
 .field{
-  margin-bottom:17px;
+  margin:0 32px 16px;
   text-align:left;
   position:relative;
+  z-index:2;
 }
 
 .field label{
   display:block;
   margin-bottom:8px;
-  font-size:13px;
-  font-weight:700;
+  font-size:12px;
+  font-weight:900;
+  color:#f0e6d2;
+  font-family:"Courier New",monospace;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  text-shadow:1px 1px 0 rgba(0,0,0,.7);
   transition:color .3s, transform .3s;
 }
 
 .field:focus-within label{
-  color:var(--primary);
+  color:#a8e06a;
   transform:translateX(3px);
 }
 
@@ -205,130 +320,183 @@ body{
   align-items:center;
 }
 
+/* Icons — always black */
 .input-icon{
   position:absolute;
-  left:15px;
-  width:18px;
-  height:18px;
-  color:var(--muted);
-  transition:color .3s, transform .3s;
+  left:12px;
+  width:16px;
+  height:16px;
+  color:#000000;
+  transition:color .25s, transform .25s;
   pointer-events:none;
+  z-index:2;
 }
 
 .field:focus-within .input-icon{
-  color:var(--primary);
+  color:#000000;
+  transform:scale(1.1);
+}
+
+/* Eye toggle — hidden by default, black color */
+.toggle-eye{
+  position:absolute;
+  right:10px;
+  width:22px;
+  height:22px;
+  border:none;
+  background:transparent;
+  padding:0;
+  cursor:pointer;
+  color:#000000;
+  display:none;
+  place-items:center;
+  z-index:3;
+  transition:color .25s, transform .25s;
+}
+
+.toggle-eye.visible{
+  display:grid;
+}
+
+.toggle-eye:hover{
+  color:#000000;
   transform:scale(1.15);
+}
+
+.toggle-eye svg{
+  width:18px;
+  height:18px;
+  display:block;
 }
 
 .field input,
 .search-input,
 .filter-select{
   width:100%;
-  padding:14px 15px 14px 44px;
-  border-radius:14px;
-  border:1px solid var(--border);
+  padding:12px 38px 12px 38px;
+  border-radius:3px;
+  border:3px solid #2b1a0a;
   outline:none;
-  background:rgba(255,255,255,.45);
-  color:var(--text);
+  background:#c8b08a;
+  color:#2b1a0a;
   font-size:14px;
-  transition:border-color .3s, box-shadow .3s, transform .3s, background .3s;
+  font-family:Inter,Segoe UI,Arial,sans-serif;
+  font-weight:600;
+  box-shadow:
+    inset 2px 2px 0 rgba(255,255,255,.25),
+    inset -2px -2px 0 rgba(0,0,0,.25),
+    0 2px 0 rgba(0,0,0,.4);
+  transition:border-color .2s, box-shadow .2s, transform .2s;
+  image-rendering: pixelated;
+}
+
+.field input::placeholder{
+  color:#6b4423;
+  opacity:.85;
+  font-family:Inter,Segoe UI,Arial,sans-serif;
 }
 
 .field input:hover,
 .search-input:hover,
 .filter-select:hover{
-  border-color:rgba(99,91,255,.35);
+  border-color:#4a2e14;
 }
 
 body.dark .field input,
 body.dark .search-input,
 body.dark .filter-select{
-  background:rgba(255,255,255,.04);
+  background:#c8b08a;
+  color:#2b1a0a;
 }
 
 .field input:focus,
 .search-input:focus,
 .filter-select:focus{
-  border-color:var(--primary);
-  box-shadow:0 0 0 4px rgba(99,91,255,.14);
+  border-color:#7cbb4f;
+  box-shadow:
+    inset 2px 2px 0 rgba(255,255,255,.25),
+    inset -2px -2px 0 rgba(0,0,0,.25),
+    0 0 0 3px rgba(124,187,79,.45);
   transform:translateY(-1px);
-  background:rgba(255,255,255,.72);
+  background:#d8c39c;
 }
 
 body.dark .field input:focus{
-  background:rgba(99,91,255,.08);
+  background:#d8c39c;
 }
 
-/* Ripple effect on focus (subtle) */
 .field::after{
-  content:"";
-  position:absolute;
-  left:50%;
-  bottom:-2px;
-  width:0;
-  height:2px;
-  background:linear-gradient(110deg,#4f46e5,#7c3aed,#06b6d4);
-  border-radius:2px;
-  transition:width .4s cubic-bezier(.22,1,.36,1), left .4s cubic-bezier(.22,1,.36,1);
-}
-
-.field:focus-within::after{
-  width:100%;
-  left:0;
+  content:none;
 }
 
 .primary-btn{
-  width:100%;
-  border:0;
-  padding:15px;
-  border-radius:15px;
-  background:linear-gradient(135deg,var(--primary),var(--purple));
-  color:white;
+  width:calc(100% - 64px);
+  border:3px solid #2b1a0a;
+  padding:14px;
+  border-radius:3px;
+  background:linear-gradient(180deg,#7cbb4f 0%,#5e9c3e 50%,#4a7d31 100%);
+  color:#ffffff;
   font-size:15px;
-  font-weight:800;
+  font-weight:900;
+  font-family:"Courier New",monospace;
+  letter-spacing:2px;
+  text-transform:uppercase;
   cursor:pointer;
-  transition:.25s;
+  transition:.15s;
   position:relative;
   overflow:hidden;
-  margin-top:6px;
+  margin:10px 32px 0;
+  text-shadow:2px 2px 0 rgba(0,0,0,.5);
+  box-shadow:
+    inset 2px 2px 0 rgba(255,255,255,.3),
+    inset -2px -2px 0 rgba(0,0,0,.3),
+    0 4px 0 #2b1a0a;
+  image-rendering: pixelated;
+  z-index:2;
 }
 
 .primary-btn::after{
-  content:"";
-  position:absolute;
-  top:0;
-  left:-100%;
-  width:100%;
-  height:100%;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);
-  transition:left .6s;
-}
-
-.primary-btn:hover::after{
-  left:100%;
+  content:none;
 }
 
 .primary-btn:hover{
   transform:translateY(-2px);
-  box-shadow:0 12px 30px rgba(99,91,255,.28);
+  box-shadow:
+    inset 2px 2px 0 rgba(255,255,255,.3),
+    inset -2px -2px 0 rgba(0,0,0,.3),
+    0 6px 0 #2b1a0a;
+  filter:brightness(1.08);
 }
 
 .primary-btn:active{
-  transform:translateY(0) scale(.98);
+  transform:translateY(2px);
+  box-shadow:
+    inset 2px 2px 0 rgba(255,255,255,.3),
+    inset -2px -2px 0 rgba(0,0,0,.3),
+    0 2px 0 #2b1a0a;
 }
 
 .primary-btn:disabled{
   opacity:0.6;
   cursor:not-allowed;
   transform:none;
+  box-shadow:
+    inset 2px 2px 0 rgba(255,255,255,.3),
+    inset -2px -2px 0 rgba(0,0,0,.3),
+    0 4px 0 #2b1a0a;
 }
 
 .error{
-  color:#ef4444;
-  font-size:13px;
-  margin-top:12px;
+  color:#ff5555;
+  font-size:12px;
+  margin:12px 32px 0;
   min-height:18px;
   text-align:center;
+  font-family:"Courier New",monospace;
+  font-weight:900;
+  text-shadow:1px 1px 0 rgba(0,0,0,.7);
+  position:relative;
+  z-index:2;
 
   animation:shake .4s ease;
 }
@@ -514,7 +682,6 @@ body.dark .topbar{
   padding-left:15px !important;
 }
 
-/* ===== FIX: Ensure select options are readable in both themes ===== */
 .filter-select option,
 .status-select option{
   background-color:#ffffff;
@@ -638,14 +805,11 @@ tbody tr:hover{
   color:var(--muted);
 }
 
-/* ===== Desktop sizes matching index.html ===== */
 @media(min-width:700px){
-  .logo-text,
   .brand strong{
     font-size:31px;
   }
 
-  .logo-mark,
   .brand .logo-mark{
     width:42px;
     height:42px;
@@ -705,6 +869,21 @@ tbody tr:hover{
   .stat-label{
     font-size:11px;
   }
+
+  .logo-mark{
+    width:36px;
+    height:36px;
+  }
+
+  .logo-text{
+    font-size:28px;
+    line-height:36px;
+    height:36px;
+  }
+
+  .login-card h1{
+    font-size:18px;
+  }
 }
 
 .toast{
@@ -743,29 +922,20 @@ tbody tr:hover{
   <div class="login-card">
 
     <div class="logo">
-      <div class="logo-mark">
-        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M 50 22 L 78 46 L 71 46 L 71 76 Q 71 78 69 78 L 31 78 Q 29 78 29 76 L 29 46 L 22 46 Z" fill="currentColor"/>
-          <path d="M 38 60 L 47 69 L 63 51" stroke="#4f46e5" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-        </svg>
-      </div>
+      <div class="logo-mark"></div>
 
       <div class="logo-text">
         Fixi
       </div>
     </div>
 
-    <h1>Admin Login</h1>
-
-    <p>
-      Sign in to manage Fixi bookings and customer requests.
-    </p>
+    <h1>ADMIN LOGIN</h1>
 
     <div class="field">
       <label for="email">Email</label>
       <div class="input-wrap">
-        <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="2" y="4" width="20" height="16" rx="3"/>
+        <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter">
+          <rect x="2" y="4" width="20" height="16" rx="1"/>
           <path d="m3 7 9 6 9-6"/>
         </svg>
         <input
@@ -780,8 +950,8 @@ tbody tr:hover{
     <div class="field">
       <label for="password">Password</label>
       <div class="input-wrap">
-        <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="4" y="10" width="16" height="11" rx="2"/>
+        <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter">
+          <rect x="4" y="10" width="16" height="11" rx="1"/>
           <path d="M8 10V7a4 4 0 0 1 8 0v3"/>
         </svg>
         <input
@@ -789,7 +959,20 @@ tbody tr:hover{
           type="password"
           placeholder="••••••••"
           autocomplete="current-password"
+          oninput="handlePasswordInput()"
         >
+        <button
+          type="button"
+          class="toggle-eye"
+          id="toggleEye"
+          aria-label="Toggle password visibility"
+          onclick="togglePasswordVisibility()"
+        >
+          <svg id="eyeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+            <circle cx="12" cy="12" r="3"/>
+          </svg>
+        </button>
       </div>
     </div>
 
@@ -878,8 +1061,6 @@ tbody tr:hover{
     </div>
 
 
-    <!-- STATS -->
-
     <div class="stats">
 
       <div class="stat">
@@ -904,8 +1085,6 @@ tbody tr:hover{
 
     </div>
 
-
-    <!-- SEARCH / FILTER -->
 
     <div class="toolbar">
 
@@ -940,8 +1119,6 @@ tbody tr:hover{
     </div>
 
 
-    <!-- TABLE -->
-
     <div class="panel">
 
       <div id="loading" class="loading">
@@ -970,7 +1147,6 @@ tbody tr:hover{
           </thead>
 
           <tbody id="bookingsTableBody">
-            <!-- Dynamic entries -->
           </tbody>
 
         </table>
@@ -1011,13 +1187,48 @@ if (
 let allBookings = [];
 let realtimeChannel = null;
 
-/* ===== THEME: always dark by default, no persistence ===== */
 (function forceDarkTheme(){
   document.body.classList.add('dark');
 })();
 
 function toggleDark(){
   document.body.classList.toggle('dark');
+}
+
+/* Show/hide the eye icon based on whether the password field has content */
+function handlePasswordInput(){
+  const input = document.getElementById('password');
+  const eye = document.getElementById('toggleEye');
+  if(!input || !eye) return;
+
+  if(input.value.length > 0){
+    eye.classList.add('visible');
+  }else{
+    eye.classList.remove('visible');
+    /* Reset to hidden state when field is emptied */
+    if(input.type === 'text'){
+      input.type = 'password';
+      const icon = document.getElementById('eyeIcon');
+      if(icon){
+        icon.innerHTML = '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>';
+      }
+    }
+  }
+}
+
+/* Password visibility toggle */
+function togglePasswordVisibility(){
+  const input = document.getElementById('password');
+  const icon = document.getElementById('eyeIcon');
+  if(!input || !icon) return;
+
+  if(input.type === 'password'){
+    input.type = 'text';
+    icon.innerHTML = '<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><path d="M14.12 14.12a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/>';
+  }else{
+    input.type = 'password';
+    icon.innerHTML = '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>';
+  }
 }
 
 function showToast(message){
