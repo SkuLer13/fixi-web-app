@@ -78,7 +78,36 @@ body{
   box-shadow:var(--shadow);
   text-align:center;
 
+  /* keep only the entrance animation on the card */
   animation:cardIn .6s cubic-bezier(.22,1,.36,1);
+
+  /* rotating gradient border setup */
+  position:relative;
+  border:2px solid transparent;
+  background-clip:padding-box;
+}
+
+/* rotating gradient border only */
+.login-card::before {
+  content:"";
+  position:absolute;
+  inset:-2px;
+  border-radius:30px;
+  padding:2px;
+  background:linear-gradient(110deg, #4f46e5, #7c3aed, #06b6d4, #4f46e5);
+  background-size:300% 300%;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events:none;
+  animation: borderRotate 4s linear infinite;
+  z-index:0;
+}
+
+/* remove the outer pulsing glow pseudo-element */
+.login-card::after {
+  content:none;
 }
 
 @keyframes cardIn{
@@ -90,6 +119,13 @@ body{
     opacity:1;
     transform:translateY(0) scale(1);
   }
+}
+
+/* only rotation of the gradient border, no pulsing on the card */
+@keyframes borderRotate {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .logo{
