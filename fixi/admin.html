@@ -339,15 +339,14 @@ body{
 
 .input-wrap{
   position:relative;
-  display:block; /* Changed from flex to block for better mobile compatibility */
+  display:flex;
+  align-items:center;
 }
 
 /* Icons — always black, always visible */
 .input-icon{
   position:absolute;
   left:12px;
-  top:50%;
-  transform:translateY(-50%);
   width:16px;
   height:16px;
   color:#000000;
@@ -358,15 +357,13 @@ body{
 
 .field:focus-within .input-icon{
   color:#000000;
-  transform:translateY(-50%) scale(1.1);
+  transform:scale(1.1);
 }
 
 /* Eye toggle — hidden by default, black color */
 .toggle-eye{
   position:absolute;
   right:10px;
-  top:50%;
-  transform:translateY(-50%);
   width:22px;
   height:22px;
   border:none;
@@ -386,14 +383,13 @@ body{
 
 .toggle-eye:hover{
   color:#000000;
-  transform:translateY(-50%) scale(1.15);
+  transform:scale(1.15);
 }
 
 .toggle-eye svg{
   width:18px;
   height:18px;
   display:block;
-  pointer-events: none; /* Ensure clicks pass through to button */
 }
 
 .field input,
@@ -415,13 +411,6 @@ body{
     0 2px 0 rgba(0,0,0,.4);
   transition:border-color .2s, box-shadow .2s, transform .2s;
   image-rendering: pixelated;
-  /* Mobile robustness fixes */
-  -webkit-appearance: none;
-  appearance: none;
-  position: relative;
-  z-index: 3;
-  pointer-events: auto;
-  touch-action: manipulation;
 }
 
 /* === HIDE the browser's native password reveal (Edge / Chrome eye icon) === */
@@ -1210,11 +1199,6 @@ tbody tr:hover{
   .login-card h1{
     font-size:11px;
   }
-  
-  /* Mobile input fix: prevent zoom and ensure accessibility */
-  .field input {
-    font-size: 16px;
-  }
 }
 
 .toast{
@@ -1306,6 +1290,7 @@ tbody tr:hover{
           type="password"
           placeholder="••••••••"
           autocomplete="current-password"
+          oninput="handlePasswordInput()"
         >
         <button
           type="button"
@@ -1598,11 +1583,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   });
-
-  // Attach password input listener programmatically for better mobile compatibility
-  if (passwordInput) {
-    passwordInput.addEventListener('input', handlePasswordInput);
-  }
 
   checkSession();
 });
