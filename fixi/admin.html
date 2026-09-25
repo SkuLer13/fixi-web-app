@@ -548,25 +548,102 @@ body.dark .field input:focus{
 }
 
 /* =========================
-   DASHBOARD
+   DASHBOARD — MINECRAFT THEME
 ========================= */
 
 #dashboard{
   display:none;
+  background:
+    radial-gradient(2px 2px at 10% 12%, #ffffff, transparent 60%),
+    radial-gradient(2px 2px at 25% 6%, #ffffff, transparent 60%),
+    radial-gradient(2px 2px at 42% 18%, #e0e0ff, transparent 60%),
+    radial-gradient(2px 2px at 58% 8%, #ffffff, transparent 60%),
+    radial-gradient(2px 2px at 73% 20%, #ffffff, transparent 60%),
+    radial-gradient(2px 2px at 88% 4%, #e0e0ff, transparent 60%),
+    radial-gradient(2px 2px at 15% 30%, #ffffff, transparent 60%),
+    radial-gradient(2px 2px at 35% 34%, #ffffff, transparent 60%),
+    radial-gradient(2px 2px at 52% 38%, #e0e0ff, transparent 60%),
+    radial-gradient(2px 2px at 70% 28%, #ffffff, transparent 60%),
+    radial-gradient(2px 2px at 92% 42%, #ffffff, transparent 60%),
+    radial-gradient(2px 2px at 6% 52%, #ffffff, transparent 60%),
+    radial-gradient(2px 2px at 48% 56%, #e0e0ff, transparent 60%),
+    radial-gradient(2px 2px at 82% 62%, #ffffff, transparent 60%),
+    radial-gradient(circle at 82% 14%, rgba(255,255,240,.9) 0, rgba(255,255,240,.6) 14px, rgba(255,255,240,.15) 28px, transparent 60px),
+    linear-gradient(180deg, #0a1024 0%, #101a34 30%, #182448 55%, #1f2f5c 75%, #263a6b 100%);
+  min-height:100vh;
+  image-rendering: pixelated;
+  position:relative;
+}
+
+#dashboard::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:70px;
+  height:180px;
+  background:
+    linear-gradient(135deg, transparent 50%, #0d1530 50%) 0 0 / 90px 100% repeat-x,
+    linear-gradient(45deg, #0d1530 50%, transparent 50%) 45px 0 / 90px 100% repeat-x;
+  z-index:0;
+  pointer-events:none;
+  opacity:.85;
+}
+
+#dashboard::before{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:70px;
+  background:
+    linear-gradient(180deg,
+      #7cbb4f 0px,
+      #5e9c3e 10px,
+      #4a7d31 18px,
+      #8b5a2b 18px,
+      #7a4f25 40px,
+      #6b4423 70px
+    );
+  box-shadow:
+    inset 0 8px 0 rgba(0,0,0,.18),
+    inset 0 -6px 0 rgba(0,0,0,.35);
+  z-index:0;
+  pointer-events:none;
+  image-rendering: pixelated;
 }
 
 .topbar{
   position:sticky;
   top:0;
   z-index:10;
-  border-bottom:1px solid var(--border);
-  background:rgba(245,247,255,.75);
+  border-bottom:4px solid #2b1a0a;
+  background:#8b5a2b;
+  background-image:
+    repeating-linear-gradient(0deg,
+      #8b5a2b 0px, #8b5a2b 8px,
+      #7a4f25 8px, #7a4f25 16px),
+    repeating-linear-gradient(90deg,
+      rgba(0,0,0,.08) 0px, rgba(0,0,0,.08) 8px,
+      transparent 8px, transparent 16px);
   backdrop-filter:blur(20px);
   -webkit-backdrop-filter:blur(20px);
+  image-rendering: pixelated;
+  box-shadow:
+    inset 0 -3px 0 rgba(0,0,0,.25),
+    0 4px 0 rgba(0,0,0,.3);
 }
 
 body.dark .topbar{
-  background:rgba(7,9,20,.75);
+  background:#8b5a2b;
+  background-image:
+    repeating-linear-gradient(0deg,
+      #8b5a2b 0px, #8b5a2b 8px,
+      #7a4f25 8px, #7a4f25 16px),
+    repeating-linear-gradient(90deg,
+      rgba(0,0,0,.08) 0px, rgba(0,0,0,.08) 8px,
+      transparent 8px, transparent 16px);
 }
 
 .topbar-inner{
@@ -588,24 +665,38 @@ body.dark .topbar{
 .brand .logo-mark{
   width:36px;
   height:36px;
-  border-radius:12px;
+  border-radius:3px;
 }
 
 .brand strong{
   font-size:28px;
-  font-weight:950;
-  letter-spacing:-2px;
-  background:linear-gradient(110deg,#4f46e5,#7c3aed,#06b6d4);
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
-  font-family:"Sora","Plus Jakarta Sans","Cairo",sans-serif;
+  font-weight:900;
+  letter-spacing:2px;
+  color:#7cbb4f;
+  font-family:"Press Start 2P","Arial Black","Impact",sans-serif;
+  text-transform:uppercase;
+  text-shadow:
+    2px 0 0 #2b1a0a,
+    -2px 0 0 #2b1a0a,
+    0 2px 0 #2b1a0a,
+    0 -2px 0 #2b1a0a,
+    2px 2px 0 #2b1a0a,
+    -2px -2px 0 #2b1a0a,
+    2px -2px 0 #2b1a0a,
+    -2px 2px 0 #2b1a0a,
+    4px 4px 0 #1a0f05,
+    6px 6px 0 #0d0803;
+  image-rendering: pixelated;
 }
 
 .admin-label{
-  color:var(--muted);
-  font-size:12px;
+  color:#f0e6d2;
+  font-size:10px;
   margin-left:5px;
+  font-family:"Press Start 2P","Courier New",monospace;
+  text-shadow:2px 2px 0 #3a2a10;
+  letter-spacing:1px;
+  image-rendering: pixelated;
 }
 
 .top-actions{
@@ -616,40 +707,82 @@ body.dark .topbar{
 .icon-btn{
   width:42px;
   height:42px;
-  border:1px solid var(--border);
-  border-radius:13px;
-  background:var(--card);
-  color:var(--text);
+  border:3px solid #2b1a0a;
+  border-radius:3px;
+  background:linear-gradient(180deg,#7cbb4f 0%,#5e9c3e 50%,#4a7d31 100%);
+  color:#ffffff;
   cursor:pointer;
   font-size:17px;
   transition:transform .2s, box-shadow .2s;
+  box-shadow:
+    inset 2px 2px 0 rgba(255,255,255,.3),
+    inset -2px -2px 0 rgba(0,0,0,.3),
+    0 4px 0 #2b1a0a;
+  text-shadow:1px 1px 0 rgba(0,0,0,.5);
+  image-rendering: pixelated;
 }
 
 .icon-btn:hover{
-  transform:translateY(-2px) scale(1.04);
-  box-shadow:0 8px 20px rgba(99,91,255,.15);
+  transform:translateY(-2px);
+  box-shadow:
+    inset 2px 2px 0 rgba(255,255,255,.3),
+    inset -2px -2px 0 rgba(0,0,0,.3),
+    0 6px 0 #2b1a0a;
+  filter:brightness(1.08);
+}
+
+.icon-btn:active{
+  transform:translateY(2px);
+  box-shadow:
+    inset 2px 2px 0 rgba(255,255,255,.3),
+    inset -2px -2px 0 rgba(0,0,0,.3),
+    0 2px 0 #2b1a0a;
 }
 
 .logout-btn{
-  border:1px solid rgba(239,68,68,.2);
-  background:rgba(239,68,68,.08);
-  color:#ef4444;
+  border:3px solid #2b1a0a;
+  border-radius:3px;
+  background:linear-gradient(180deg,#ef4444 0%,#dc2626 50%,#b91c1c 100%);
+  color:#ffffff;
   padding:11px 14px;
-  border-radius:12px;
   cursor:pointer;
-  font-weight:700;
-  transition:transform .2s, background .2s;
+  font-weight:400;
+  font-family:"Press Start 2P","Courier New",monospace;
+  font-size:9px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  transition:transform .2s, filter .2s;
+  box-shadow:
+    inset 2px 2px 0 rgba(255,255,255,.3),
+    inset -2px -2px 0 rgba(0,0,0,.3),
+    0 4px 0 #2b1a0a;
+  text-shadow:1px 1px 0 rgba(0,0,0,.5);
+  image-rendering: pixelated;
 }
 
 .logout-btn:hover{
   transform:translateY(-2px);
-  background:rgba(239,68,68,.15);
+  box-shadow:
+    inset 2px 2px 0 rgba(255,255,255,.3),
+    inset -2px -2px 0 rgba(0,0,0,.3),
+    0 6px 0 #2b1a0a;
+  filter:brightness(1.08);
+}
+
+.logout-btn:active{
+  transform:translateY(2px);
+  box-shadow:
+    inset 2px 2px 0 rgba(255,255,255,.3),
+    inset -2px -2px 0 rgba(0,0,0,.3),
+    0 2px 0 #2b1a0a;
 }
 
 .container{
   max-width:1400px;
   margin:auto;
   padding:30px 24px 50px;
+  position:relative;
+  z-index:1;
 }
 
 .hero{
@@ -661,12 +794,32 @@ body.dark .topbar{
 
 .hero h1{
   font-size:34px;
-  letter-spacing:-1.2px;
+  letter-spacing:2px;
   margin-bottom:6px;
+  color:#7cbb4f;
+  font-family:"Press Start 2P","Arial Black","Impact",sans-serif;
+  text-transform:uppercase;
+  text-shadow:
+    2px 0 0 #2b1a0a,
+    -2px 0 0 #2b1a0a,
+    0 2px 0 #2b1a0a,
+    0 -2px 0 #2b1a0a,
+    2px 2px 0 #2b1a0a,
+    -2px -2px 0 #2b1a0a,
+    2px -2px 0 #2b1a0a,
+    -2px 2px 0 #2b1a0a,
+    4px 4px 0 #1a0f05,
+    6px 6px 0 #0d0803;
+  image-rendering: pixelated;
 }
 
 .hero p{
-  color:var(--muted);
+  color:#f0e6d2;
+  font-family:"Press Start 2P","Courier New",monospace;
+  font-size:9px;
+  text-shadow:2px 2px 0 #3a2a10;
+  letter-spacing:1px;
+  image-rendering: pixelated;
 }
 
 .stats{
@@ -678,11 +831,24 @@ body.dark .topbar{
 
 .stat{
   padding:24px;
-  border-radius:22px;
-  background:var(--card);
-  border:1px solid var(--border);
-  box-shadow:var(--shadow);
+  border-radius:4px;
+  background:#8b5a2b;
+  background-image:
+    repeating-linear-gradient(0deg,
+      #8b5a2b 0px, #8b5a2b 8px,
+      #7a4f25 8px, #7a4f25 16px),
+    repeating-linear-gradient(90deg,
+      rgba(0,0,0,.08) 0px, rgba(0,0,0,.08) 8px,
+      transparent 8px, transparent 16px);
+  border:4px solid #2b1a0a;
+  box-shadow:
+    inset 0 0 0 4px #a06b38,
+    inset 0 0 0 8px #6b4423,
+    0 0 0 4px #2b1a0a,
+    0 8px 0 rgba(0,0,0,.4),
+    0 12px 30px rgba(0,0,0,.55);
   text-align:center;
+  image-rendering: pixelated;
 
   animation:cardIn .6s cubic-bezier(.22,1,.36,1) backwards;
   transition:transform .3s, box-shadow .3s;
@@ -690,7 +856,12 @@ body.dark .topbar{
 
 .stat:hover{
   transform:translateY(-4px);
-  box-shadow:0 25px 70px rgba(99,91,255,.15);
+  box-shadow:
+    inset 0 0 0 4px #a06b38,
+    inset 0 0 0 8px #6b4423,
+    0 0 0 4px #2b1a0a,
+    0 12px 0 rgba(0,0,0,.4),
+    0 18px 40px rgba(0,0,0,.65);
 }
 
 .stat:nth-child(1){animation-delay:.05s;}
@@ -699,15 +870,26 @@ body.dark .topbar{
 .stat:nth-child(4){animation-delay:.20s;}
 
 .stat-label{
-  color:var(--muted);
-  font-size:13px;
-  font-weight:700;
+  color:#f0e6d2;
+  font-size:9px;
+  font-weight:400;
   margin-bottom:9px;
+  font-family:"Press Start 2P","Courier New",monospace;
+  text-shadow:2px 2px 0 #3a2a10;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  image-rendering: pixelated;
 }
 
 .stat-value{
   font-size:30px;
-  font-weight:900;
+  font-weight:400;
+  color:#ffffff;
+  font-family:"Press Start 2P","Courier New",monospace;
+  text-shadow:
+    2px 2px 0 #2b1a0a,
+    3px 3px 0 rgba(0,0,0,.4);
+  image-rendering: pixelated;
 }
 
 .toolbar{
@@ -720,26 +902,62 @@ body.dark .topbar{
 .toolbar input,
 .toolbar select{
   padding-left:15px !important;
+  border:3px solid #2b1a0a !important;
+  border-radius:3px !important;
+  background:#c8b08a !important;
+  color:#2b1a0a !important;
+  font-family:Inter,Segoe UI,Arial,sans-serif !important;
+  font-weight:600 !important;
+  box-shadow:
+    inset 2px 2px 0 rgba(255,255,255,.25),
+    inset -2px -2px 0 rgba(0,0,0,.25),
+    0 2px 0 rgba(0,0,0,.4) !important;
+  image-rendering: pixelated !important;
+}
+
+.toolbar input:focus,
+.toolbar select:focus{
+  border-color:#7cbb4f !important;
+  box-shadow:
+    inset 2px 2px 0 rgba(255,255,255,.25),
+    inset -2px -2px 0 rgba(0,0,0,.25),
+    0 0 0 3px rgba(124,187,79,.45) !important;
+  transform:translateY(-1px);
+  background:#d8c39c !important;
 }
 
 .filter-select option,
 .status-select option{
-  background-color:#ffffff;
-  color:#101322;
+  background-color:#c8b08a;
+  color:#2b1a0a;
+  font-weight:600;
 }
 
 body.dark .filter-select option,
 body.dark .status-select option{
-  background-color:#151827;
-  color:#f5f7ff;
+  background-color:#c8b08a;
+  color:#2b1a0a;
 }
 
 .panel{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:22px;
-  box-shadow:var(--shadow);
+  background:#8b5a2b;
+  background-image:
+    repeating-linear-gradient(0deg,
+      #8b5a2b 0px, #8b5a2b 8px,
+      #7a4f25 8px, #7a4f25 16px),
+    repeating-linear-gradient(90deg,
+      rgba(0,0,0,.08) 0px, rgba(0,0,0,.08) 8px,
+      transparent 8px, transparent 16px);
+  border:4px solid #2b1a0a;
+  border-radius:4px;
+  box-shadow:
+    inset 0 0 0 4px #a06b38,
+    inset 0 0 0 8px #6b4423,
+    0 0 0 4px #2b1a0a,
+    0 8px 0 rgba(0,0,0,.4),
+    0 12px 30px rgba(0,0,0,.55);
   overflow:hidden;
+  image-rendering: pixelated;
 
   animation:cardIn .6s cubic-bezier(.22,1,.36,1) .25s backwards;
 }
@@ -758,17 +976,20 @@ th,
 td{
   padding:16px 15px;
   text-align:left;
-  border-bottom:1px solid var(--border);
+  border-bottom:3px solid #2b1a0a;
   font-size:13px;
   white-space:nowrap;
 }
 
 th{
-  color:var(--muted);
-  font-size:11px;
+  color:#f0e6d2;
+  font-size:9px;
   text-transform:uppercase;
   letter-spacing:.6px;
-  background:rgba(99,91,255,.035);
+  background:rgba(43,26,10,.3);
+  font-family:"Press Start 2P","Courier New",monospace;
+  text-shadow:2px 2px 0 #3a2a10;
+  image-rendering: pixelated;
 }
 
 tbody tr{
@@ -776,73 +997,127 @@ tbody tr{
 }
 
 tbody tr:hover{
-  background:rgba(99,91,255,.045);
+  background:rgba(124,187,79,.15);
 }
 
 .customer-name{
   font-weight:800;
+  color:#f0e6d2;
+  text-shadow:1px 1px 0 rgba(0,0,0,.5);
+  font-family:"Press Start 2P","Courier New",monospace;
+  font-size:8px;
+  image-rendering: pixelated;
 }
 
 .customer-phone{
-  color:var(--muted);
+  color:#c8b08a;
   margin-top:3px;
+  font-size:11px;
+  font-family:Inter,Segoe UI,Arial,sans-serif;
+  font-weight:600;
+}
+
+.customer-email{
+  color:#c8b08a;
+  font-size:11px;
+  font-family:Inter,Segoe UI,Arial,sans-serif;
+  font-weight:500;
+}
+
+.problem-text{
+  color:#f0e6d2;
+  font-size:11px;
+  font-family:Inter,Segoe UI,Arial,sans-serif;
+  font-weight:500;
+  white-space:normal;
+  max-width:180px;
+  word-break:break-word;
 }
 
 .status{
   display:inline-flex;
   align-items:center;
   padding:7px 10px;
-  border-radius:999px;
-  font-size:11px;
-  font-weight:800;
+  border-radius:3px;
+  font-size:8px;
+  font-weight:400;
+  font-family:"Press Start 2P","Courier New",monospace;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  border:2px solid #2b1a0a;
+  box-shadow:
+    inset 1px 1px 0 rgba(255,255,255,.3),
+    inset -1px -1px 0 rgba(0,0,0,.3),
+    0 2px 0 rgba(0,0,0,.4);
+  image-rendering: pixelated;
 }
 
 .status.pending{
-  color:#b77900;
-  background:rgba(245,158,11,.12);
+  color:#2b1a0a;
+  background:linear-gradient(180deg,#fbbf24 0%,#d97706 100%);
 }
 
 .status.confirmed{
-  color:#087f5b;
-  background:rgba(16,185,129,.12);
+  color:#ffffff;
+  background:linear-gradient(180deg,#10b981 0%,#047857 100%);
 }
 
 .status.completed{
-  color:#2563eb;
-  background:rgba(37,99,235,.12);
+  color:#ffffff;
+  background:linear-gradient(180deg,#3b82f6 0%,#1d4ed8 100%);
 }
 
 .status.cancelled{
-  color:#dc2626;
-  background:rgba(239,68,68,.12);
+  color:#ffffff;
+  background:linear-gradient(180deg,#ef4444 0%,#b91c1c 100%);
 }
 
 .status-select{
-  border:1px solid var(--border);
-  border-radius:99px;
+  border:3px solid #2b1a0a;
+  border-radius:3px;
   padding:7px 9px;
-  background:var(--bg);
-  color:var(--text);
-  font-size:12px;
+  background:#c8b08a;
+  color:#2b1a0a;
+  font-size:11px;
+  font-family:Inter,Segoe UI,Arial,sans-serif;
+  font-weight:700;
   outline:none;
   transition:border-color .25s, box-shadow .25s;
+  box-shadow:
+    inset 1px 1px 0 rgba(255,255,255,.25),
+    inset -1px -1px 0 rgba(0,0,0,.25),
+    0 2px 0 rgba(0,0,0,.4);
+  image-rendering: pixelated;
 }
 
 .status-select:focus{
-  border-color:var(--primary);
-  box-shadow:0 0 0 3px rgba(99,91,255,.14);
+  border-color:#7cbb4f;
+  box-shadow:
+    inset 1px 1px 0 rgba(255,255,255,.25),
+    inset -1px -1px 0 rgba(0,0,0,.25),
+    0 0 0 3px rgba(124,187,79,.45);
 }
 
 .empty{
   padding:55px 20px;
   text-align:center;
-  color:var(--muted);
+  color:#f0e6d2;
+  font-family:"Press Start 2P","Courier New",monospace;
+  font-size:10px;
+  text-shadow:2px 2px 0 #3a2a10;
+  letter-spacing:1px;
+  image-rendering: pixelated;
 }
 
 .loading{
   padding:50px;
   text-align:center;
-  color:var(--muted);
+  color:#f0e6d2;
+  font-family:"Press Start 2P","Courier New",monospace;
+  font-size:10px;
+  text-shadow:2px 2px 0 #3a2a10;
+  letter-spacing:1px;
+  image-rendering: pixelated;
 }
 
 @media(min-width:700px){
@@ -853,7 +1128,7 @@ tbody tr:hover{
   .brand .logo-mark{
     width:42px;
     height:42px;
-    border-radius:14px;
+    border-radius:4px;
   }
 }
 
@@ -877,7 +1152,7 @@ tbody tr:hover{
   }
 
   .hero h1{
-    font-size:28px;
+    font-size:22px;
   }
 
   .admin-label{
@@ -889,7 +1164,7 @@ tbody tr:hover{
   }
 
   .logout-btn{
-    font-size:12px;
+    font-size:8px;
     padding:9px 11px;
   }
 
@@ -899,15 +1174,15 @@ tbody tr:hover{
 
   .stat{
     padding:17px;
-    border-radius:18px;
+    border-radius:4px;
   }
 
   .stat-value{
-    font-size:24px;
+    font-size:20px;
   }
 
   .stat-label{
-    font-size:11px;
+    font-size:7px;
   }
 
   .logo-mark{
@@ -932,15 +1207,31 @@ tbody tr:hover{
   bottom:20px;
   z-index:100;
   padding:14px 17px;
-  border-radius:14px;
-  background:#151827;
-  color:white;
-  box-shadow:0 15px 40px rgba(0,0,0,.25);
+  border-radius:4px;
+  background:#8b5a2b;
+  background-image:
+    repeating-linear-gradient(0deg,
+      #8b5a2b 0px, #8b5a2b 8px,
+      #7a4f25 8px, #7a4f25 16px),
+    repeating-linear-gradient(90deg,
+      rgba(0,0,0,.08) 0px, rgba(0,0,0,.08) 8px,
+      transparent 8px, transparent 16px);
+  color:#f0e6d2;
+  font-family:"Press Start 2P","Courier New",monospace;
+  font-size:9px;
+  letter-spacing:1px;
+  text-shadow:2px 2px 0 #3a2a10;
+  border:3px solid #2b1a0a;
+  box-shadow:
+    inset 2px 2px 0 rgba(255,255,255,.2),
+    inset -2px -2px 0 rgba(0,0,0,.3),
+    0 4px 0 #2b1a0a,
+    0 10px 30px rgba(0,0,0,.5);
   transform:translateY(20px);
   opacity:0;
   pointer-events:none;
   transition:.25s;
-  font-size:13px;
+  image-rendering: pixelated;
 }
 
 .toast.show{
